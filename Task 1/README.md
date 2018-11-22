@@ -1,2 +1,3 @@
 # examples
-EPAM Lab examples
+Task 1 Calculator Demo
+
