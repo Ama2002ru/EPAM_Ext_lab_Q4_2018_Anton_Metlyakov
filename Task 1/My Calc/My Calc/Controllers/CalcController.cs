@@ -1,49 +1,66 @@
-﻿using My_Calc.Helpers;
-using My_Calc.Models;
-using My_Calc.Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Globalization;
-
+﻿// <copyright file="calccontroller.cs" company="Epam Ext Lab">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 namespace My_Calc.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;    
+    using My_Calc.Helpers;
+    using My_Calc.Models;
+    using My_Calc.Resources;
+
+    /// <summary>
+    /// Class Cacl controller
+    /// </summary>
     public class CalcController : Controller
     {
-        const double DefaultX = 0;
-        const double DefaultY = 0;
-        const string DefaultResult = "";
+        /// <summary>
+        /// Const Default X
+        /// </summary>
+        public const double DefaultX = 0;
 
+        /// <summary>
+        /// Const default Y
+        /// </summary>
+        public const double DefaultY = 0;
+
+        /// <summary>
+        /// Const Default Res
+        /// </summary>
+        public const string DefaultResult = "";
+
+        /// <summary>
+        ///  This is implicit static constructor ?
+        /// </summary>
         public static List<string> Results = new List<string>();
 
-        // GET: Calc
+        /// <summary>
+        /// // GET: Calc
+        /// </summary>
+        /// <returns>view result</returns>
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
-/*
-        [Obsolete]
-        public ActionResult OldAdd(int x, int y)
+ 
+         /// <summary>
+         ///  'Add' action
+         /// </summary>
+         /// <returns>View result</returns>
+            public ActionResult Add()
         {
-            return View(x + y);
-        }
-*/
-        /// <summary>
-        /// Initialize View ?
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Add()
-        {
-            return View(new CalcModel() { X = DefaultX , Y = DefaultY, Result = DefaultResult });
+            return this.View(new CalcModel() { X = DefaultX, Y = DefaultY, Result = DefaultResult });
         }
 
         /// <summary>
         /// Simple arithmetics on two double variables
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns> Not yet learned which type of object it returns</returns>
+        /// <param name="model"> Calc model</param>
+        /// <returns>View result</returns>
         [HttpPost]
         public ActionResult Add(CalcModel model)
         {
@@ -64,31 +81,35 @@ namespace My_Calc.Controllers
                     case Operation.Divide:
                         result = model.X / model.Y;
                         if (double.IsInfinity(result) || double.IsNaN(result))
-                              throw new DivideByZeroException();
+                        {
+                            throw new DivideByZeroException();
+                        }
+
                         break;
                 }
+
                 model.Result = string.Format("{0}     {1} {3} {2} = {4}\n",
-                                DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
-                                model.X.ToString(),
-                                model.Y.ToString(),
-                                model.Op.DisplayName(),
-                                result);
+                                      DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
+                                      model.X.ToString(),
+                                      model.Y.ToString(),
+                                      model.Op.DisplayName(),
+                                      result);
             }
             catch (OverflowException)
             {
                  model.Result = string.Format("{0}     {1}\n",
-                                 DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
-                                 CalcResources.OverFlow);
+                                      DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
+                                      CalcResources.OverFlow);
             }
             catch (DivideByZeroException)
             {
                 model.Result = string.Format("{0}     {1}\n",
-                                 DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
-                                 CalcResources.DivideByZero);
+                                      DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
+                                      CalcResources.DivideByZero);
             }
-            Results.Add(model.Result);
-            return View(model);
-        }
 
+            Results.Add(model.Result);
+            return this.View(model);
+        }
     }
 }

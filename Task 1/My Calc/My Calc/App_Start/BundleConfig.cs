@@ -1,11 +1,20 @@
-﻿using System.Web;
-using System.Web.Optimization;
-
+﻿// <copyright file="bundleconfig.cs" company="Epam Ext Lab">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 namespace My_Calc
 {
+    using System.Web;
+    using System.Web.Optimization;
+  
+    /// <summary>
+    ///  Class definition
+    /// </summary>
     public class BundleConfig
     {
-        // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
+        /// <summary>
+        /// // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
+        /// </summary>
+        /// <param name="bundles"> Still not getting so far...</param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
