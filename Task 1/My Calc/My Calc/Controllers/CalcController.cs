@@ -36,7 +36,7 @@ namespace My_Calc.Controllers
         /// <summary>
         ///  This is implicit static constructor ?
         /// </summary>
-        public static List<string> Results = new List<string>();
+        public static List<string> Results { get; protected set; } = new List<string>();
 
         /// <summary>
         /// // GET: Calc
@@ -98,8 +98,8 @@ namespace My_Calc.Controllers
             catch (OverflowException)
             {
                  model.Result = string.Format("{0}     {1}\n",
-                                      DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
-                                      CalcResources.OverFlow);
+                                       DateTime.Now.ToString("dd MMMM HH:MM", CultureInfo.InvariantCulture),
+                                       CalcResources.OverFlow);
             }
             catch (DivideByZeroException)
             {

@@ -2,6 +2,22 @@
 @using My_Calc.Resources;
 @using My_Calc.Controllers;
 
+<script>
+    function IsNumber(element) {
+
+          var newValue = element.value;
+        if (!isNaN(newValue) || newValue == "-" || newValue == "+") {
+            element.defaultValue = newValue;
+        }
+        else
+        {
+            element.value = element.defaultValue;
+        }
+         return true;
+    };
+</script>
+
+
 @{
     ViewBag.Title = "Add";
 }
@@ -14,56 +30,57 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.Result)
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.X, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            
+            @Html.LabelFor(model => model.X, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
 
-            @Html.TextBoxFor(model => model.X, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = "any" } })
-            @Html.ValidationMessageFor(model => model.X, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.X, new {@placeholder="0", @onkeyup= "IsNumber(this)", @onmouseover= "IsNumber(this)", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.X, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Y, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Y, new { htmlAttributes = new { @class = "form-control", @type = "number", @step = "any" } })
-            @Html.ValidationMessageFor(model => model.Y, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Y, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Y, new { @placeholder = "0", @onkeyup = "IsNumber(this)", @onmouseover = "IsNumber(this)", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Y, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Op, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EnumDropDownListFor(
-                       x => x.Op,
-                       "Select the operation",
-                       new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Op, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Op, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(
+                           x => x.Op,
+                           "Select the operation",
+                           new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Op, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Calc" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calc" class="btn btn-default" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
 
-            <h3>@CalcResources.History</h3>
-            @foreach (var h in CalcController.Results)
-            {
-                <p>@Html.Raw(h)</p>
-            }
+                <h3>@CalcResources.History</h3>
+                @foreach (var h in CalcController.Results)
+                {
+                    <p>@Html.Raw(h)</p>
+                }
+            </div>
         </div>
+
     </div>
-    
-</div>
 }
 <div>
     @Html.ActionLink("Back to List", "Index")

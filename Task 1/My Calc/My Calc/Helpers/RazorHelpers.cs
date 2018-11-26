@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
-using System.Web;
-using System.Web.Mvc;
-
-namespace My_Calc.Helpers
+﻿namespace My_Calc.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
+
     public static class RazorHelpers
     {
         public static string DisplayName(this Enum value)

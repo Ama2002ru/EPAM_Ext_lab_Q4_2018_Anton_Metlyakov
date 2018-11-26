@@ -19,7 +19,7 @@ namespace My_Calc.Models
         [Required]   
         [Range(-double.MaxValue, double.MaxValue)]
 
-        /// <summary>
+            /// <summary>
         /// Gets or sets First argument
         /// </summary>
         public double X { get; set; }
