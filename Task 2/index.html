@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/task2.css" rel="stylesheet"/>
+	<link href="styles/modal.css" rel="stylesheet"/>
+	<link href="styles/breadcrumbs.css" rel="stylesheet"/>	
+	
+</head>
+<body>
+	<header>	 
+		<ul class="breadcrumbs" id="breads">
+			 <li><a href="signin.html">Sign in</a></li>
+			 <li><a href="register.html">Registration</a></li>
+			 <li><a href="list.html">User List</a></li>
+			 <li><label href="contacts.html">Contacts</label></li>
+			 <li><label href="about.html">About</label></li>
+		</ul>
+		<p />
+	</header>
+	<nav>
+		<ul class="ulnav">
+			 <li><a href="signin.html">Sign in</a></li>
+			 <li><a href="register.html">Registration</a></li>
+			 <li><a href="list.html">User List</a></li>
+			 <li><label href="contacts.html">Contacts</label></li>
+			 <li><label href="about.html">About</label></li>
+		</ul>
+	</nav>
+	<section>
+		<article>
+		
+<div id="openUserDetails" class="modalDialog">
+    <div>
+        <h2>User details</h2>
+		<div class="two_columns">
+			<div><label>FirstName:</label></div>
+			<div><label>LastName:</label></div>
+			<div><label>Email:</label></div>
+			<div><label>Date of Birth:</label></div>
+		</div>
+		<div class="two_columns">
+			<div><label>George</label></div>
+			<div><label>Washington</label></div>
+			<div><label>gw@google.com</label></div>
+			<div><label>1789-01-01</label></div>
+		</div>
+			<hr />
+			<a href="#close" title="Закрыть" class="close">Close</a>
+    </div>
+</div>
+
+<div id="EditUser" class="modalDialog">
+    <div>
+        <h2>Edit user info</h2>
+		<div>
+		
+            <div>
+			<label>FirstName</label>
+			<input  type="text" value="George"/>
+            </div>
+            <div>
+			<label>LastName</label>
+			<input  type="text"  value="Washington"/>
+            </div>
+            <div>
+			<label>Email</label>
+			<input  type="text"  value="gw@google.com"/>
+            </div>
+            <div>
+			<label>Date of Birth</label>
+			<input  type="date" value="1789-01-01"/>
+            </div>
+			<hr />
+			<a href="#save" title="Сохранить" class="saveclose">Save</a>
+			<a href="#close" title="Закрыть" class="saveclose">Close</a>
+		</div>
+    </div>
+</div>
+  <h2>User list</h2>
+  <hr />
+    <table class="table">
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Date of Birth
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        <tr>
+            <td>
+               <a href="#openUserDetails">George</a>
+            </td>
+            <td>
+                <a href="#openUserDetails">Washington</a>
+            </td>
+            <td>
+                <a href="#openUserDetails">gw@google.com</a>
+            </td>
+            <td>
+                <a href="#openUserDetails">1789-01-01</a>
+            </td>
+            <td>
+ 				<img src="imgs/img_add.jpg">
+				<a href="#EditUser"><img src="imgs/img_edit.jpg"/></a>
+				<img src="imgs/img_delete.jpg"/>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                John
+            </td>
+            <td>
+                Adams
+            </td>
+            <td>
+                ja@google.com
+            </td>
+            <td>
+                1797-01-01
+            </td>
+            <td>
+				<img src="imgs/img_add.jpg" height="24" width="24"/>
+				<img src="imgs/img_edit.jpg" height="24" width="24"/>
+				<img src="imgs/img_delete.jpg" height="24" width="24"/>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                Thomas
+            </td>
+            <td>
+                Jefferson
+            </td>
+            <td>
+                tj@google.com
+            </td>
+            <td>
+                1801-01-01
+            </td>
+            <td>
+				<img src="imgs/img_add.jpg" height="24" width="24"/>
+				<img src="imgs/img_edit.jpg" height="24" width="24"/>
+				<img src="imgs/img_delete.jpg" height="24" width="24"/>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                James
+            </td>
+            <td>
+                Madison
+            </td>
+            <td>
+                jm@google.com
+            </td>
+            <td>
+                1809-01-01
+            </td>
+            <td>
+				<img src="imgs/img_add.jpg" height="24" width="24" alt="add"/>
+				<img src="imgs/img_edit.jpg" height="24" width="24"/>
+				<img src="imgs/img_delete.jpg" height="24" width="24"/>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                James
+            </td>
+            <td>
+                Monroe
+            </td>
+            <td>
+                j.m@google.com
+            </td>
+            <td>
+                1817-01-01
+            </td>
+            <td>
+				<img src="imgs/img_add.jpg" height="24" width="24"/>
+				<img src="imgs/img_edit.jpg" height="24" width="24"/>
+				<img src="imgs/img_delete.jpg" height="24" width="24"/>
+            </td>
+        </tr>
+    </table>
+		</article>
+	</section>
+
+	<footer>
+		<div>
+		© 2018 Epam Ext Lab 
+		</div>
+	</footer>
+</body>
+</html>
