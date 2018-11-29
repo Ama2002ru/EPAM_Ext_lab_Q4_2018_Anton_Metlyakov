@@ -9,11 +9,12 @@
 }
 
 .page (min-width: 600px) {
-  .container {
+}
+.container {
     max-width: 600px;
     margin: 0 auto;	
   }
-}
+
 
 img {
 	height: 24px;
@@ -36,6 +37,8 @@ img {
     padding: 40px;
     margin: 10px;
 }
+.btn-login:hover { background: lightgreen; }
+
 
 .table,th,td{
 	padding: 5px;
@@ -58,10 +61,10 @@ th {
 }
 
 .box {
-  display: table-cell;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
+	display: table-cell;
+	height: 100px;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .btn-login {
@@ -71,9 +74,10 @@ th {
     margin: 10px;
 	background-color: #f0f0f0;
 	border-radius: 6px;
-	font-stretch: ultra-expanded;	
-	
+	font-weight: 800;
 }
+.btn-login:hover { background: lightgreen; }
+
 
 .blockgreen {
     padding: 20px; 
@@ -105,7 +109,7 @@ th {
     font-size: larger;
     padding-left: 0px;
 }
-/
+
 
 .backgroundgreen {
     padding: 20px; 
@@ -145,4 +149,3 @@ article {
    position:absolute;
    left:160px
 }
-

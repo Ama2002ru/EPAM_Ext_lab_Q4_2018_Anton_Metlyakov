@@ -1,63 +1,63 @@
-
 .modalDialog {
-		position: fixed;
-		font-family: Arial, Helvetica, sans-serif;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: rgba(0,0,0,0.8);
-		z-index: 99999;
-		transition: opacity 400ms ease-in;
-		display: none;
-		pointer-events: none;
-		padding-bottom:	 30px;
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	transition: opacity 400ms ease-in;
+	display: none;
+	pointer-events: none;
+	padding-bottom:	 30px;
 	}
 
 .modalDialog:target {
-		display: block;
-		pointer-events: auto;
+	display: block;
+	pointer-events: auto;
 	}
 
 .modalDialog > div {
-		width: 270px;
-		position: relative;
-		margin: 10% auto;
-		padding: 15px;
-		border-radius: 10px;
-		background: #fff;
-	}
+	width: 270px;
+	position: relative;
+	margin: 10% auto;
+	padding: 15px;
+	border-radius: 10px;
+	background: #fff;
+}
 
 .close {
-		background: #606061;
-		color: #FFFFFF;
-		position: relative; 
-		left: 220px;
-		padding: 5px;
-		text-align: center;
-		text-decoration: none;
-		font-weight: bold;
-		border-radius: 1px;
-		box-shadow: 1px 1px 3px #000;
-	}
+	background: #606061;
+	color: #FFFFFF;
+	position: relative; 
+	left: 220px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 1px;
+	box-shadow: 1px 1px 3px #000;
+}
 	
 .saveclose {
-		background: #606061;
-		color: #FFFFFF;
-		position: relative; 
-		left: 170px;
-		padding: 5px;
-		text-align: center;
-		text-decoration: none;
-		font-weight: bold;
-		border-radius: 1px;
-		box-shadow: 1px 1px 3px #000;
-	}
-.saveclose:hover { background: #00ff00; }
-.close:hover { background: #00ff00; }
+	background: #606061;
+	color: #FFFFFF;
+	position: relative; 
+	left: 170px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 1px;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.saveclose:hover { background: lightgreen; }
+.close:hover { background: lightgreen; }
 
 .two_columns{
-display: inline-block;
-padding: 5px;
-line-height: 1.5;
+	display: inline-block;
+	padding: 5px;
+	line-height: 1.5;
 }
