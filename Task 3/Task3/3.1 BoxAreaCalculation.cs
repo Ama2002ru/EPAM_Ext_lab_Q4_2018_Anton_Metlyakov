@@ -17,8 +17,8 @@
         /// </summary>
         public override void Run()
         {
-            this.SizeX = ReadUserInput.ReadUInt("Please enter the side size of a box (ten is a default):", defaultValue: 10);
-            this.SizeY = ReadUserInput.ReadUInt("Please enter another side size of a box (twenty is a default):", defaultValue: 20);
+            this.SizeX = ReadUserInput.ReadUInt("Please enter the side size of a box (10 is a default):", defaultValue: 10);
+            this.SizeY = ReadUserInput.ReadUInt("Please enter another side size of a box (20 is a default):", defaultValue: 20);
             try
             {
                 Console.WriteLine("Area of the box is {0}", this.Area());
