@@ -1,0 +1,7 @@
+C:\Users\aametlya\source\repos\Task3\Task3\obj\Debug\Task3.csprojAssemblyReference.cache
+C:\Users\aametlya\source\repos\Task3\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Users\aametlya\source\repos\Task3\Task3\bin\Debug\Task3.exe.config
+C:\Users\aametlya\source\repos\Task3\Task3\bin\Debug\Task3.exe
+C:\Users\aametlya\source\repos\Task3\Task3\bin\Debug\Task3.pdb
+C:\Users\aametlya\source\repos\Task3\Task3\obj\Debug\Task3.exe
+C:\Users\aametlya\source\repos\Task3\Task3\obj\Debug\Task3.pdb
