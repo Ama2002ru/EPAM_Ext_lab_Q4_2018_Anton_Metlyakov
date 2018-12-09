@@ -22,6 +22,7 @@
             int consoleToWiden = this.TriangleCenter * 2;
             if (consoleToWiden > Console.WindowWidth)
             {
+                // ki - перехват специализированного исключения, это отличное решение. 
                 try
                 {
                     Console.WindowWidth = consoleToWiden;

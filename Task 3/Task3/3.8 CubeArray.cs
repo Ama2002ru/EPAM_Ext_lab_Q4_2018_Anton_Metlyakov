@@ -42,6 +42,7 @@
         /// </summary>
         public void ProcessArray()
         {
+            // ki. все отлично, только скобки лишкие фигурные и опять ключевое слово this. Избавишься от этих привычек - будет совсем хорошо. 
             for (int i = 0; i < ArraySize; i++)
             {
                 for (int j = 0; j < ArraySize; j++)

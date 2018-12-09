@@ -9,6 +9,7 @@
     public class FontAttributes : SubTask
     {
         [Flags]
+        // ki совершенно верное и очевидное решение с enum, которое, тем не менее, не приняло более половины группы.
         private enum FontAttr
         {
             none = 0, // this value supposed to be the first one, in order to validate user input

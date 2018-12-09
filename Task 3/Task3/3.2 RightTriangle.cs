@@ -15,9 +15,12 @@
         /// </summary>
         public override void Run()
         {
+            // ki вопреки троелсену в реальности ключевое слово this используют только в крайнем случае. Чем меньше написано, тем лучше, и в данном случае оно избыточно.
+            // ki: я вижу, что ты знаком с явным заданием параметров, но тут это тоже избыточно
             this.RowsNumber = ReadUserInput.ReadUInt("Please enter how many rows to print (15 is default): ", defaultValue: 15);
             if (this.RowsNumber > Console.WindowWidth)
             {
+                // ki код красивый, отличное форматирование, а вот лишние фигурные скобки реально лишние. И без них будет еще лучше
                 try
                 {
                     Console.WindowWidth = (int)this.RowsNumber;

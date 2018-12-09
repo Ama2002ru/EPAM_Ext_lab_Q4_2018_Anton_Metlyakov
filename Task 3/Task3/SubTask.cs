@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    // ki прекрасный вариант с наследованием и реализацией общего метода для вызова + массив заранее инициализированных объектов. Я бы сделал так же. 
     public abstract class SubTask
     {
         /// <summary>
