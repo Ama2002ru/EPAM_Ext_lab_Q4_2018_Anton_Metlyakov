@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Информация о вариантах ответа на вопрос (например 4 варианта ответа, 1 правильный)">
+    <Position X="0.753" Y="1.228" Height="0.75" Width="1.548" />
+  </Comment>
+  <Comment CommentText="Один вопрос теста (с текстом вопроса, попытками и т.п.)">
+    <Position X="3.248" Y="1.266" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Тест, состоящий из группы вопросов + название, автор, время  и т.п.">
+    <Position X="6.009" Y="1.251" Height="0.75" Width="1.475" />
+  </Comment>
+  <Comment CommentText="Все тесты в системе тестирования">
+    <Position X="8.746" Y="1.27" Height="0.725" Width="1.475" />
+  </Comment>
+  <Comment CommentText="Ответ на один вопрос теста">
+    <Position X="0.726" Y="5.487" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Состояние  одного теста">
+    <Position X="3.184" Y="5.499" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Список назначенных и пройденных тестов студента&#xD;&#xA;">
+    <Position X="5.976" Y="5.487" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Список ролей и разрешенных классов/методов для Person ">
+    <Position X="3.226" Y="11.237" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Класс, описывающий пользователя">
+    <Position X="5.947" Y="11.233" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Расчет общей и расширенной статистики">
+    <Position X="8.5" Y="5.5" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Роли, которые могут присваиваться пользователю">
+    <Position X="0.726" Y="11.237" Height="0.75" Width="1.561" />
+  </Comment>
+  <Comment CommentText="Ведение журнала событий">
+    <Position X="3.273" Y="15.033" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Класс для взаимодействия с СУБД">
+    <Position X="6.023" Y="15.033" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Чтение настроек приложения">
+    <Position X="0.75" Y="15" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Список участников в системе">
+    <Position X="8.75" Y="11.25" Height="0.75" Width="1.49" />
+  </Comment>
+  <Comment CommentText="Класс работы с паролями">
+    <Position X="8.75" Y="15" Height="0.75" Width="1.49" />
+  </Comment>
+  <Class Name="Task4.QuestionClass">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAIAAAAAAAAAAAAAAAAAAEAAAAEAAAAAEAAAAA=</HashCode>
+      <FileName>Quiz\QuestionClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.QuizClass">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAgAAAAAQAAAEAAAAEAkAAAAAAAAA=</HashCode>
+      <FileName>Quiz\QuizClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="QuestionClass" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.QuizResultClass">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAAQAAAAAAAAAACAABAAAAAAAAAABABABBA=</HashCode>
+      <FileName>Results\QuizResultClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AnswerList" />
+      <Property Name="QuizStatusEnum" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.AnswerClass">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="Task4.VariantsClass" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="4.048" />
+        <Point X="1.5" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Results\AnswerClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.VariantsClass">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAABAAAA=</HashCode>
+      <FileName>Shared\VariantsClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.QuizCollection">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Quiz\QuizCollection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="QuizList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.WorkBookClass">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Results\WorkBookClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="QuizResultList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.PersonClass">
+    <Position X="6" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAQAAAAAkAAAAAAAAAAAAACAAAAg=</HashCode>
+      <FileName>Person\PersonClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="WorkBook" />
+      <Property Name="RolesFlag" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.StatisticClass">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAACAAgCAQAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\StatisticClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.RolesClass">
+    <Position X="3.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAoAAAAQAAAAAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Person\RolesClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RoleFlag" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.Utility.LoggerClass">
+    <Position X="3.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\LoggerClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.Utility.DBConnectorClass">
+    <Position X="6" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAABAQAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\DBConnectorClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.Utility.ConfigClass">
+    <Position X="0.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\ConfigClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4.Person.PeopleClass">
+    <Position X="8.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Person\PeopleClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PersonList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Task4.Person.PasswordManagerClass">
+    <Position X="8.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgIAAAAA=</HashCode>
+      <FileName>Utility\PasswordManagerClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Task4.RoleEnum">
+    <Position X="0.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Person\RoleEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Task4.QuizStatusEnum">
+    <Position X="3.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABEAAgA=</HashCode>
+      <FileName>Shared\QuizStatusEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.4" />
+</ClassDiagram>
