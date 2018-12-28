@@ -1,0 +1,7 @@
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\bin\Debug\Task 7 R2.exe.config
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\bin\Debug\Task 7 R2.exe
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\bin\Debug\Task 7 R2.pdb
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\obj\Debug\Task 7.csprojAssemblyReference.cache
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\obj\Debug\Task 7.csproj.CoreCompileInputs.cache
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\obj\Debug\Task 7 R2.exe
+D:\Users\aametlya\source\repos\Task 7 R2\Task 7 R2\obj\Debug\Task 7 R2.pdb
