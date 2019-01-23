@@ -12,6 +12,7 @@
     {
         public static void Main(string[] args)
         {
+            /*
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Console.WriteLine("Task 6 - Delegates\n");
             Console.WriteLine("\nPart 1: Array sorting\n");
@@ -37,6 +38,7 @@
             Console.ReadKey();
 
             Console.WriteLine("\nPart 2: Office sumulator\n");
+            */
 
             var eppam = new OfficeClass();
             eppam.SimulateWorkDay();
