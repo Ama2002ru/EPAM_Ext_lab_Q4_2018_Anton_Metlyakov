@@ -32,8 +32,8 @@
             Console.WriteLine("Task 7. Extensions and LINQ\n");
             List<ITest> tests = new List<ITest>
             {
-                new ExtensionMethodSumClass("ExtensionMethodSummarization"),
-                new ExtensionMethodStringParseClass("ExtensionMethodStringParse"),
+               // new ExtensionMethodSumClass("ExtensionMethodSummarization"),
+                //new ExtensionMethodStringParseClass("ExtensionMethodStringParse"),
                 new DirectArraySearchClass("Direct search method"),
                 new DelegateArraySearchClass("Delegate method"),
                 new AnonymousDelegateSearchClass("Anonymous delegate method"),

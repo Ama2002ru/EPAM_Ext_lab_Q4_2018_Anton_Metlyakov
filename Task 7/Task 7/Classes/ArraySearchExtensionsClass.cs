@@ -18,6 +18,7 @@
         {
             var tresult = new List<T>();
             foreach (var element in enumerable)
+                // ki. Очень круто, Что ты в полное мере используешь всё, что изучил. Это место, все-таки, потенциальное место для багов- default не обязательно 0.
                 if (element.CompareTo(default(T)) > 0)    // element.value is positive
                     tresult.Add(element);
             return tresult;

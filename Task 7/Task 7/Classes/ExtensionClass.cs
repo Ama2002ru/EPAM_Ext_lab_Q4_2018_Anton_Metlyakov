@@ -22,6 +22,7 @@
         {
             T sumvalue = default(T);
             foreach (var element in enumerable)
+                // ki. какой грязный трюк с dynamic! может упасть на этапе выполнения но за находчивость плюс!
                 sumvalue = (dynamic)sumvalue + (dynamic)element;
             return sumvalue;
         }
@@ -32,6 +33,7 @@
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
+        //ki. молодец, хорошая идея и реализация. 
         public static bool IsNatural(this string s)
         {
             if (s == null)
