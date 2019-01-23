@@ -50,6 +50,8 @@
         public void TestGetAll()
         {
             var people = new PersonRepository();
+            // ki. скорее суть теста должна быть не в этом, а в том, что мы сначала подгототавливаем внутри теста список пользователей
+            // а потом проверяем, что мы получили именно ожидаемых пользователей
             foreach (var person in people.GetAll())
                 Assert.That(person != null);
         }
@@ -62,6 +64,7 @@
         {
             var people = new PersonRepository();
             var person = people.Get(1);
+            // ki. мы должны были бы убедиться, что мы получили именно того пользователя, которого хотели. 
             Assert.That(person != null);
         }
 

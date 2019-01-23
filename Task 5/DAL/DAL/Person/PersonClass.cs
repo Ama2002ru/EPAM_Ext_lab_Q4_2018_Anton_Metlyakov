@@ -10,6 +10,8 @@
     /// <summary>
     /// Класс, описывающий пользователя системы
     /// </summary>
+    // ki. Считается дурным тоном дублировать тип в названии- например PersonList (вместо этого лучше Persons) или PersonClass. Ведь итак видно, что это
+    // класс.
     public class PersonClass
     {
         /// <summary>
@@ -92,6 +94,7 @@
         /// <summary>
         /// Проверка наличия роли у пользователя - Student, Admin и т.д.
         /// </summary>
+        // ki. в таком случае проще использовать вычисляемое свойство.
         public bool IsAssignedRole(RoleEnum testrole)
         {
             Logger.Log.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
