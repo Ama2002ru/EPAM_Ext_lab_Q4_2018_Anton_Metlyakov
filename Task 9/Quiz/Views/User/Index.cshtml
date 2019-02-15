@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DAL.PersonRepository>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "PersonList";
+}
+
+<h2>AllUsersView</h2>
+
+    <div>
+        <h2>Список пользователей</h2>
+
+        <table>
+            @foreach (var person in ViewBag.Persons)
+            {
+                <tr>
+                    <td><p>@person.ID</p></td>
+                    <td><p>@person.Username</p></td>
+                    <td><p>@person.FirstName</p></td>
+                    <td><p>@person.LastName</p></td>
+                    <td><p>@person.Role</p></td>
+                </tr>
+            }
+        </table>
+    </div>
