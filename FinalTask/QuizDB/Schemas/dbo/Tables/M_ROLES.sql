@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[M_ROLES]
+(
+	[ROLE_ID] [int] NOT NULL,
+	[ROLE_NAME] [nvarchar](100) NOT NULL,
+	[ROLE_FLAG] int NOT NULL,
+	[ALLOWED_METHODS] [nvarchar](MAX) NOT NULL
+)

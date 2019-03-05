@@ -1,0 +1,95 @@
+﻿@model List<Quiz.Models.UserModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "PersonList";
+}
+<section>
+    <article>
+        <h3>AllUsers</h3>
+        <div id="modDialog" class="modal fade">
+            <div id="dialogContent" class="modal-dialog"></div>
+        </div>
+
+        @using (Html.BeginForm("Index", "user", FormMethod.Get))
+
+        {
+            <div class="form-group form-inline">
+                @{
+                    var searchName = new Quiz.Models.SearchModel();
+                    searchName.Name = "name";
+                }
+                <div class="col-md-10">
+                    @Html.Label("Search by name :", htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.Editor(searchName.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessage(searchName.Name, "", new { @class = "text-danger" })
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </div>
+
+            </div>
+        }
+
+        <div>
+            <table class="usertable">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Registration Date</th>
+                        <th> Roles </th>
+                        <th>Last logon date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                @foreach (var person in Model)
+                {
+                    <tr>
+                        <td>
+                            <p>@person.UserName</p>
+                        </td>
+                        <td>
+                            <p>@person.FirstName</p>
+                        </td>
+                        <td><p>@person.LastName</p></td>
+                        <td><p>@person.RegistrationDate</p></td>
+                        <td><p>@person.Roles</p></td>
+                        <td><p>@person.LastLogonDate</p></td>
+                        <td>
+                            <a class="usermodalwindow" href="/user/@person.Id"><img src="~/images/img_view.jpg" /></a>
+                            <a class="usermodalwindow" href="/user/@person.Id/edit"><img src="~/images/img_edit.jpg" /></a>
+                            <a class="usermodalwindow" href="/user/@person.Id/delete"><img src="~/images/img_delete.jpg" /></a>
+                            <a class="usermodalwindow" href="/user/create"><img src="~/images/img_add.jpg" /></a>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </article>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryajax")
+
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".usermodalwindow").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+
+}

@@ -1,0 +1,36 @@
+﻿@model Quiz.Models.WorkbookModel
+<section>
+    <article>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quizes)
+                </th>
+            </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Student)
+                    </td>
+                    <td>
+                        @foreach (var item in Model.Quizes)
+                        {
+                            <p>@item.ID</p>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+        </table>
+
+    </article>
+</section>

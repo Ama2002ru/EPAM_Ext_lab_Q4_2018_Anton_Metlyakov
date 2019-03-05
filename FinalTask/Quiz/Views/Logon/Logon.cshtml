@@ -1,0 +1,51 @@
+﻿@model Quiz.Models.LogonModel
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "LogOn";
+}
+
+<h2>LogOn</h2>
+<!--
+<script src="Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+ -->
+<section>
+    <article>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Enter user name and password</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.User)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.User)
+                    @Html.ValidationMessageFor(model => model.User)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <p>
+                    <input type="submit" value="Logon" />
+                </p>
+            </fieldset>
+        }
+
+    </article>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
