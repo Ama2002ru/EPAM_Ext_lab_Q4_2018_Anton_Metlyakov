@@ -3,7 +3,7 @@
     using System;
     using System.Web.Mvc;
 
-    public class HomeController : Controller
+    public class HomeController : Controller //todo pn лишние контроллеры и экшены (и вьюхи) лучше удалить
     {
         public ActionResult Index()
         {

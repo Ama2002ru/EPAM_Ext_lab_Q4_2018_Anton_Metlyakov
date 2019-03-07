@@ -83,7 +83,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(UserModel p, string action)
         {
-            if (action == "cancel")
+            if (action == "cancel") //todo pn не надо так делать, намного проще просто закрыть модалку без какого-либо действия (да js, но ты вроде бы разбираешься в нём :)).
                 return RedirectToRoute(new
                 {
                     controller = "User",
@@ -114,7 +114,7 @@
                                     p.Password == null ? string.Empty : p.Password,
                                     userSalt,
                                     WebConfigurationManager.AppSettings["quizGlobalSalt"]);
-            var createdPerson = new Person(
+            var createdPerson = new Person(//todo pn почему не испльзуешь automapper?
                                     -1, 
                                     p.FirstName == null ? string.Empty : p.FirstName, 
                                     p.LastName == null ? string.Empty : p.LastName,
@@ -129,7 +129,7 @@
             if (!PersonValidator.IsValid(createdPerson, out string message))
             {
                 // пока не знаю как сказать об ошибке
-                return RedirectToRoute(new { controller = "Shared", action = "Error" });
+                return RedirectToRoute(new { controller = "Shared", action = "Error" });//todo pn не надо никуда редиректать. Нужно ModelState заполнить сообщением об ошибке и вернуть ТУ ЖЕ вьюху. На клиенте валидация подхватится и отобразится пользователю. https://stackoverflow.com/questions/37801718/adding-custom-error-message-for-model-property
             }
 
             if (!repository.Save(createdPerson))
@@ -155,7 +155,7 @@
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserModel p, string action)
+        public ActionResult Edit(UserModel p, string action)//todo pn тебе не кажется что у тебя Edit перекликается с Create? мб объединить в один?
         {
             if (action == "cancel")
             return RedirectToRoute(new
