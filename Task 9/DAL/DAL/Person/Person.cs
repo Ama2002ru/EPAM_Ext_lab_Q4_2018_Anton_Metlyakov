@@ -89,7 +89,7 @@
         public bool Delete()
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-
+            // ki. Где реализация?
             // there will be ADO.NET implementation;
             return true;
         }

@@ -88,6 +88,7 @@
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             try
             {
+                // ki. Не реализовано получение одного элемента из БД напрямую!
                 return ItemList[ItemList.FindIndex(item => item.ID == id)];
             }
             catch (NullReferenceException ex)
