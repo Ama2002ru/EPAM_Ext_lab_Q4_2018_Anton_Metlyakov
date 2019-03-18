@@ -15,7 +15,7 @@
     /// <summary>
     /// Класс, описывающий пользователя системы
     /// </summary>
-    public class Person : IItem
+    public class Person 
     {
         /// <summary>
         /// default constructor 
@@ -23,24 +23,12 @@
         public Person()
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-            /*
-            ID = 0;
-            FirstName = "John";
-            LastName = "Doe";
-            Username = "JDoe";
-            HashedPassword = "123";
-            Salt = "123";
-            WorkBook = null;
-            Role = RoleEnum.Student;
-            RegistrationDate = DateTime.Now;
-            LastLogonDate = null;
-            */
-        }
+          }
 
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        public Person(int id, string firstname, string lastname, string username, string password, string salt, WorkBookClass workbook, RoleEnum role, DateTime registrationDate, DateTime? lastLogonDate)
+        public Person(int id, string firstname, string lastname, string username, string password, string salt, List<QuizResult> quizResults, RoleEnum role, DateTime registrationDate, DateTime? lastLogonDate)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             ID = id;
@@ -49,7 +37,7 @@
             UserName = username;
             HashedPassword = password;
             Salt = salt;
-            WorkBook = workbook;
+            QuizResults = quizResults;
             Role = role;
             RegistrationDate = registrationDate;
             LastLogonDate = lastLogonDate;
@@ -78,7 +66,7 @@
         /// <summary>
         /// все назначенные (и возможно уже выполненные) тесты
         /// </summary>
-        public WorkBookClass WorkBook { get; set; }
+        public List<QuizResult> QuizResults { get; set; }
 
         /// <summary>
         /// назначенные роли пользователя
@@ -99,18 +87,20 @@
         /// </summary>
         public string Salt { get; set; }
 
-        /// <summary>
+/*      /// <summary>
         /// Удаление текущего пользователя в БД
+        /// Обновлено. Person более не имеет этого метода.
         /// </summary>
         /// <returns></returns>
         public bool Delete()
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-
+            // ki. Где реализация?
+            // Обновлено. Person более не имеет этого метода.
             // there will be ADO.NET implementation;
             return true;
         }
-
+*/
         /// <summary>
         /// Проверка наличия роли у пользователя - Student, Admin и т.д.
         /// </summary>
@@ -138,7 +128,6 @@
                     /*   эту команду угнал в файл ресурсов под именем P_SaveUser
                                         EXECUTE[dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln,@HASHEDPASSWORD=@hp,@SALT=@st,
                                         @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT
-
                     */
                     command.CommandText = P_SaveUser;
                     command.Parameters.Add(db.CreateParameter("@Uid", DbType.Int32, ID.ToString(), null, ParameterDirection.Input));
@@ -160,8 +149,7 @@
                     var saveErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
                     if (saveError == 0) saveResult = true;
                     //// проверю, что действительно что-то возвращается
-                    Logger.Info(string.Format("P_SaveUser out : {0} {1}\n", saveError.ToString(), saveErrorText));
-               ///     сохранять список курсов персоны
+                    Logger.Debug(string.Format("P_SaveUser out : {0} {1}\n", saveError.ToString(), saveErrorText));
                 }
             }
             catch (DbException ex)
@@ -171,16 +159,6 @@
             }
 
             return saveResult;
-        }
-        
-        /// <summary>
-        /// Вывести инфо о  пользователе
-        /// </summary>
-        /// <returns></returns>
-        public void Show()
-        {
-            Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
- ///           Console.WriteLine("{0}, {1}, {2}, {3}, {4}", ID, FirstName, LastName, Username, Role.ToString());
         }
     }
 }

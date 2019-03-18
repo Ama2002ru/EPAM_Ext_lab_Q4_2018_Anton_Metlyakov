@@ -102,8 +102,8 @@
         /// <returns></returns>
         public Role Get(int id)
         {
-            // мне стыдно, но пока я оставлю это здесь :(
-            if (rolesList == null) rolesList = LoadRoles();
+            // мне стыдно, но я оставлю это здесь :(
+            if (rolesList == null) rolesList = GetAll();
             return rolesList.Find(x => x.ID == id);
         }
 

@@ -66,13 +66,13 @@
     <Folder Include="Schemas\dbo\Views" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Scripts\Pre-Deployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\dbo\Views\V_M_USERS.sql" />
     <Build Include="Schemas\dbo\Tables\M_USERS.sql" />
     <Build Include="Schemas\dbo\Tables\S_PK_GENERATOR.sql" />
     <Build Include="Schemas\dbo\Tables\T_LOG.sql" />
-    <Build Include="Schemas\dbo\Tables\M_COURSES.sql" />
     <Build Include="Schemas\dbo\Tables\M_QUIZES.sql" />
     <Build Include="Schemas\dbo\Tables\M_QUESTIONS.sql" />
     <Build Include="Schemas\dbo\Tables\M_VARIANTS.sql" />
@@ -85,17 +85,56 @@
     <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_DELETEUSER.sql" />
     <Build Include="Schemas\dbo\Tables\M_ROLES.sql" />
     <Build Include="Schemas\dbo\Views\V_M_ROLES.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETALLQUIZES.sql" />
+    <Build Include="Schemas\dbo\Views\V_M_QUIZES.sql" />
+    <Build Include="Schemas\dbo\Views\V_M_QUESTIONS.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEQUESTION.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_DELETEQUESTION.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETQUIZ.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEVARIANT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_DELETEVARIANT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEQUIZ.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_DELETEQUIZ.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETQUIZRESULTS.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETNEXTQUESTION.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEANSWER.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEQUIZRESULT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETQUIZRESULT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_GETQUIZASSIGNMENT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_SAVEQUIZASSIGNMENT.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_STATSALLQUIZES.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_STATSBYQUIZ.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_STATSBYUSER.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_STATSALLUSERS.sql" />
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+    <Build Include="Schemas\dbo\Programmability\Functions\F_PRINT_DATEDIFF.sql" />
+    <Build Include="Schemas\dbo\Programmability\Stored Procedures\P_STATSBYUSERQUIZ.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Post-Deployment\M_USERS.sql" />
     <None Include="Scripts\Post-Deployment\S_PK_GENERATOR.sql" />
-    <None Include="Scripts\Post-Deployment\M_COURSES.sql" />
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+    <None Include="Scripts\Post-Deployment\M_QUIZ_ANSWERS.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Post-Deployment\M_ROLES.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\M_QUIZES.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\M_QUESTIONS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\M_VARIANTS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\M_QUIZ_RESULTS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="QuizDB.refactorlog" />
   </ItemGroup>
 </Project>

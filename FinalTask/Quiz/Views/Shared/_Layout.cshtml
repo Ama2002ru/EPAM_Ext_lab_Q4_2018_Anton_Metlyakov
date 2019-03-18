@@ -11,24 +11,47 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
     <header>
         <ul class="breadcrumbs" id="breads">
-            <li><a href="signin.html">Sign in</a></li>
-            <li><a href="register.html">Registration</a></li>
-            <li><a href="list.html">User List</a></li>
-            <li><label href="contacts.html">Contacts</label></li>
-            <li><label href="about.html">About</label></li>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/logon">Logon</a></li>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <li><a href="~/users">Users</a></li>
+            }
+            @if (User.IsInRole("Instructor"))
+            {
+                <li><a href="~/quizes">Quizes</a></li>
+            }
+            @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
+            {
+                <li><a href="~/myquizes">My Quizes</a></li>
+            }
+            @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
+            {
+                <li><a href="~/statistic">statistic</a></li>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Label("Welcome, " + User.Identity.Name + "!");
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Logoff", "logoff", "logon")
+            }
         </ul>
         <p />
     </header>
     <nav>
         <ul class="ulnav">
             <li><a href="signin.html">Sign in</a></li>
-            <li><a href="register.html">Registration</a></li>
-            <li><a href="list.html">User List</a></li>
-            <li><label href="contacts.html">Contacts</label></li>
-            <li><label href="about.html">About</label></li>
+            <li><a href="~/users">Users</a></li>
+            <li><a href="~/quizes">Quizes</a></li>
+            <li><a href="~/myquizes">My Quizes</a></li>
+            <li><a href="~/statistic">Statistic</a></li>
         </ul>
     </nav>
 

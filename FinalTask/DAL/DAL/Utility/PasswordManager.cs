@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        ///  Создать соль 
+        ///  Создать соль для  пользователя
         /// </summary>
         /// <param name="saltSize"></param>
         /// <returns></returns>
@@ -59,9 +59,22 @@
         /// <summary>
         /// проверить пароль на соответствие политикам
         /// </summary>
-        public static bool ValidatePassword(string userPassword)
+        public static bool ValidatePassword(string userPassword, out string message)
         {
-            return false;
+            message = "Ok";
+            if (string.IsNullOrEmpty(userPassword))
+            {
+                message = "Password is empty, it is not allowed!";
+                return false;
+            }
+
+            if (userPassword.Length < 2)
+            {
+                message = "Password is too short, minimal length is 2 symbols!";
+                return false;
+            }
+
+            return true;
         }
     }
 }

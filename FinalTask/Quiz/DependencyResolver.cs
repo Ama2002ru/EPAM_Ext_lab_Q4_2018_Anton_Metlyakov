@@ -5,8 +5,10 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using System.Web.Security;
     using DAL;
     using Ninject;
+    using Quiz.Controllers; 
 
     public class NinjectDependencyResolver : IDependencyResolver
     {
@@ -32,6 +34,11 @@
         {
             this.kernel.Bind<IPersonRepository>().To<PersonRepository>().WithConstructorArgument("db", new SQLConnector("QuizDBConection"));
             this.kernel.Bind<IRolesRepository>().To<RolesRepository>().WithConstructorArgument("db", new SQLConnector("QuizDBConection"));
+            this.kernel.Bind<IQuizRepository>().To<QuizRepository>().WithConstructorArgument("db", new SQLConnector("QuizDBConection"));
+            this.kernel.Bind<IAuthProvider>().To<MyAuthProvider>();
+
+            // this is black !@#$%^ magic :(
+            this.kernel.Inject(Roles.Provider);
         }
     }
 }

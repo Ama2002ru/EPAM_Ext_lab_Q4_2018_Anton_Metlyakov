@@ -8,59 +8,75 @@
     using System.Web.Mvc;
     using System.Web.Security;
     using DAL;
+    using Ninject;
     using Quiz.Models;
 
+    /// <summary>
+    /// логика проверки пароля пользователя
+    /// </summary>
+    [AllowAnonymous]
     public class LogonController : Controller
     {
-        private readonly IPersonRepository repository;
-        
-        public LogonController(IPersonRepository _repository)
+        private readonly IAuthProvider myAuthProvider;
+
+        public LogonController()
         {
-            this.repository = _repository;
         }
 
-        // GET: Logon
-/*        public ActionResult Index()
+        /// <summary>
+        /// конструктор
+        /// </summary>
+        /// <param name="_repository"></param>
+        public LogonController(IAuthProvider auth)
+        {
+            myAuthProvider = auth;
+        }
+
+        /// <summary>
+        /// отображение формы ввода пароля
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        public ActionResult Logon()
         {
             return View();
         }
- */  
-        public ActionResult LogOn()
-        {
-            return View();
-        }
 
+        /// <summary>
+        /// проверка пароля
+        /// </summary>
+        /// <param name="userAndPassword"></param>
+        /// <param name="return_Url"></param>
+        /// <returns></returns>
+        /// 
         [HttpPost]
-        public ActionResult LogOn(LogonModel userAndPassword, string return_Url)
+        [AllowAnonymous]
+        public ActionResult Logon(LogonModel model, string returnUrl)
         {
-            var returnUrl = return_Url;  // ????
-            // 1 Get Person by Username
-            // 2 hash password
-            // 3 hashes == ? - redirect
-            var user = this.repository.GetAll().Where(x => x.UserName == userAndPassword.User);
-            if (user.Count() == 0) return View(userAndPassword);
-
-            var hashedPassword = PasswordManager.HashPassword(
-                        userAndPassword.Password,
-                        user.First().Salt,
-                        WebConfigurationManager.AppSettings["quizGlobalSalt"]);
-            if (hashedPassword == user.First().HashedPassword)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(userAndPassword.User, false);
-                returnUrl = "~/person/index";
-                if (user.First().IsAssignedRole(RoleEnum.Admin)) returnUrl = "~/user/index";
-                if (user.First().IsAssignedRole(RoleEnum.Instructor)) returnUrl = "~/quiz/index";
+                if (myAuthProvider.Authenticate(model.UserName, model.Password))
+                {
+                    string controller = string.Empty;
+                    if (User.IsInRole("Admin")) controller = "User";
+                    if (User.IsInRole("Student")) controller = "Myquizes";
+                    if (User.IsInRole("Instructor")) controller = "Quiz";
+                    return Redirect(returnUrl ?? Url.Action("Index", controller));
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Incorrect username or password");
+                    return View();
+                }
             }
             else
-                returnUrl = "~/logon";
-            return Redirect(returnUrl);
+                return View();
         }
 
-        public ActionResult LogOff()
+        public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
-
-            return Redirect("~/");
+            return Redirect("~/logon");
         }
     }
 }

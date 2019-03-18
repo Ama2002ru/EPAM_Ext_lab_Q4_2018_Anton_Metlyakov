@@ -1,62 +1,104 @@
 ﻿@model IEnumerable<Quiz.Models.QuizModel>
+
+@{
+    Layout = "~/Views/Quiz/_Layout.cshtml";
+}
+
 <section>
     <article>
+        <h3>Quiz list</h3>
 
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quiz_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Course_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Author_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Creation_Date)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Success_Rate)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
+        <div id="modDialog" class="modal fade">
+            <div id="dialogContent" class="modal-dialog"></div>
+        </div>
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quiz_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Course_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Author_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Creation_Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Success_Rate)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
+                <h3>Error: @ViewBag.Error</h3>
             }
+            else
+            {
+                <div>
+                    @using (Html.BeginForm("Index", "Quiz", FormMethod.Get))
 
-        </table>
+                    {
+                        <div class="form-group form-inline">
+                            @{
+                                var searchName = new Quiz.Models.SearchModel();
+                                searchName.Name = "name";
+                            }
+                            <div class="col-md-10">
+                                @Html.Label("Search by name :", htmlAttributes: new { @class = "control-label col-md-3" })
+                                @Html.Editor(searchName.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage(searchName.Name, "", new { @class = "text-danger" })
+                                <input type="submit" value="Search" class="btn btn-default" />
+                            </div>
+
+                        </div>
+                                }
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Author)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Creation_Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Success_Rate)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Author)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Creation_Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Success_Rate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View", "Details", "Quiz", new { id = item.Quiz_Id }, htmlAttributes: new { @class = "usermodalwindow" }) |
+                                @Html.ActionLink("Edit", "Edit", "Quiz", new { id = item.Quiz_Id }, null) |
+                                @Html.ActionLink("Delete", "Delete", "Quiz", new { id = item.Quiz_Id }, htmlAttributes: new { @class = "usermodalwindow" }) 
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+           }
+            }
+          @Html.ActionLink("Create quiz", "Create", "Quiz", null, htmlAttributes: new { @class = "usermodalwindow" })
+
     </article>
 </section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".usermodalwindow").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    jQuery('#dialogContent').html(data);
+                    jQuery('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

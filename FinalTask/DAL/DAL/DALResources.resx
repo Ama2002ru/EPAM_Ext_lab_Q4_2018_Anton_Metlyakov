@@ -120,14 +120,118 @@
   <data name="DefaultDBString" xml:space="preserve">
     <value>QuizDBConection</value>
   </data>
+  <data name="P_DeleteQuestion" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_DELETEQUESTION] 
+                    @QuizID=@qid, 
+                    @QuestionID=@qsid, 
+                    @ERROR=@er OUT, 
+                    @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_DeleteQuiz" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_DELETEQUIZ] 
+                    @QuizID=@qid, 
+                    @ERROR=@er OUT, 
+                    @ERRORTEXT=@et OUT</value>
+  </data>
   <data name="P_DeleteUser" xml:space="preserve">
     <value>EXECUTE [dbo].[P_DELETEUSER] @USERID = @id, @ERROR=@er OUT, @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_DeleteVariant" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_DELETEVARIANT] 
+                @QuizID=@qid, 
+                @QuestionID=@qsid, 
+                @VariantID=@vid,
+                @ERROR=@er OUT, 
+                @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_GetAllQuizes" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_GETALLQUIZES] @RecordsCount = @rc</value>
   </data>
   <data name="P_GetAllUsers" xml:space="preserve">
     <value>EXECUTE [dbo].[P_GETALLUSERS] @RecordsCount = @rc</value>
   </data>
+  <data name="P_GetNextQuestion" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_GETNEXTQUESTION] 
+                    @RecordCount=@rc,
+                    @QuizResultId=@qrid</value>
+  </data>
+  <data name="P_GetQuizAssignment" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_GETQUIZASSIGNMENT] 
+                    @UserId=@uid</value>
+  </data>
+  <data name="P_GetQuizResult" xml:space="preserve">
+    <value>EXECUTE P_GETQUIZRESULT @QuizResultId = @qrid</value>
+  </data>
+  <data name="P_GetQuizResults" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_GETQUIZRESULTS] @UserId = @uid</value>
+  </data>
+  <data name="P_SaveAnswer" xml:space="preserve">
+    <value>EXECUTE[dbo].[P_SAVEANSWER] 
+                                        @QuizResultID=@qrid,
+                                        @QuestionID=@qsid, 
+                                        @AnswerID = @Aid,
+                                        @AnswerFlag=@af,
+                                        @ERROR=@er OUT, 
+                                        @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SaveQuestion" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SAVEQUESTION] 
+                                        @QuizID=@qid, 
+                                        @QuestionID=@qsid, 
+                                        @info = @i,
+                                        @text=@t,
+                                        @CorrectOptionFlag=@cof,
+                                        @ERROR=@er OUT, 
+                                        @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SaveQuiz" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SAVEQUIZ] 
+                    @QuizID=@qid, 
+                    @QuizName = @qn,
+                    @AuthorID = @a,
+                    @CreatedDate=@cdt,
+                    @SuccessRate=@sr,
+                    @ERROR=@er OUT, 
+                    @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SaveQuizAssignment" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SAVEQUIZASSIGNMENT] 
+                    @XmlQuizes=@xmlq,
+                    @ERROR=@er OUT, 
+                    @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SaveQuizResult" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SAVEQUIZRESULT] 
+                    @QuizResultId=@qrid, 
+                    @ERROR=@er OUT, 
+                    @ERRORTEXT=@et OUT</value>
+  </data>
   <data name="P_SaveUser" xml:space="preserve">
-    <value>EXECUTE[dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT</value>
+    <value>EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SaveVariant" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SAVEVARIANT] 
+                                        @QuizID=@qid, 
+                                        @QuestionID=@qsid, 
+                                        @VariantID = @vid,
+                                        @text=@t,
+                                        @ERROR=@er OUT, 
+                                        @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_StatsAllQuizes" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_StatsAllQuizes]</value>
+  </data>
+  <data name="P_StatsAllUsers" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_StatsAllUsers]</value>
+  </data>
+  <data name="P_StatsByQuiz" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_StatsByQuiz] @Quiz_Id = @qid</value>
+  </data>
+  <data name="P_StatsByUser" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_StatsByUser] @User_Id = @uid</value>
+  </data>
+  <data name="P_StatsByUserQuiz" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_StatsByUserQuiz] @User_Id = @uid, @Quiz_Id = @qid</value>
   </data>
   <data name="SQLLoadPersons" xml:space="preserve">
     <value>SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, REGISTRATION_DATE,LAST_LOGON_DATE FROM QuizDB.dbo.V_M_USERS;</value>
@@ -142,9 +246,21 @@
       ,[ALLOWED_METHODS]
   FROM [dbo].[V_M_ROLES]</value>
   </data>
+  <data name="V_Get_QuestionsList" xml:space="preserve">
+    <value>SELECT [QUESTION_ID]
+      ,[QUIZ_ID]
+      ,[INFO]
+      ,[TEXT]
+      ,[CORRECT_OPTION_FLAG]
+  FROM [dbo].[V_M_QUESTIONS]
+WHERE QUIZ_ID = @quiz_id</value>
+  </data>
+  <data name="V_Get_Quiz" xml:space="preserve">
+    <value>EXECUTE dbo.[P_GETQUIZ] @ID =@quiz_id</value>
+  </data>
   <data name="V_Get_User" xml:space="preserve">
     <value>SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, 		CONVERT(nvarchar(23),[REGISTRATION_DATE],121) as [REGISTRATION_DATE] , 
 		CONVERT(nvarchar(23),[LAST_LOGON_DATE],121) as [LAST_LOGON_DATE]
- FROM QuizDB.dbo.V_M_USERS WHERE USER_ID = @user_id</value>
+ FROM dbo.V_M_USERS WHERE USER_ID = @user_id</value>
   </data>
 </root>

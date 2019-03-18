@@ -11,23 +11,37 @@
     /// <summary>
     /// класс, содержащий метод проверки инф о пользователе
     /// </summary>
-    public static class PersonValidator
+    public class PersonValidator
     {
+        private IPersonRepository personRepository;
+
+        public PersonValidator(IPersonRepository repo)
+        {
+            personRepository = repo;
+        }
+
         /// <summary>
         /// Логика проверки введенной инф. о пользователе
         /// </summary>
         /// <param name="person">Класс персона</param>
         /// <param name="">сообщение об ошибке</param>
         /// <returns>результат, прошла проверка или нет</returns>
-        public static bool IsValid(Person person, out string message)
+        public bool IsValid(Person person, out string message)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-            bool boolresult = false;
-            string strresult = "Person is Ok";
+            bool boolresult = true;
+            message = "Person is Ok";
+            var persons2 = personRepository.GetAll();
+            var personfound = personRepository.GetAll().Find(x => (x.UserName.ToLower() == person.UserName.ToLower()));
 
             // Надо бы проверить на ID + совпадение логинов в БД!, длин имен и все такое...
-            boolresult = true;
-            message = strresult;
+            if ((personfound != null) && (person.ID != personfound.ID))
+            {
+                // Новый person, коллизия Username
+                boolresult = false;
+                message = "Username already used! Choose another!";
+            }
+
             return boolresult;
         }
 
@@ -37,7 +51,7 @@
         /// <param name="person">Класс персона<</param>
         /// <param name="">сообщение, причина отказа</param>
         /// <returns>результат, прошла проверка или нет</returns>
-        public static bool IsDeleteOK(Person person, out string message)
+        public bool IsDeleteOK(Person person, out string message)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             bool boolresult = false;

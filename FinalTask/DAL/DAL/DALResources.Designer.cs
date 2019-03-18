@@ -70,11 +70,59 @@ namespace DAL {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_DELETEQUESTION] 
+        ///                    @QuizID=@qid, 
+        ///                    @QuestionID=@qsid, 
+        ///                    @ERROR=@er OUT, 
+        ///                    @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_DeleteQuestion {
+            get {
+                return ResourceManager.GetString("P_DeleteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_DELETEQUIZ] 
+        ///                    @QuizID=@qid, 
+        ///                    @ERROR=@er OUT, 
+        ///                    @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_DeleteQuiz {
+            get {
+                return ResourceManager.GetString("P_DeleteQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EXECUTE [dbo].[P_DELETEUSER] @USERID = @id, @ERROR=@er OUT, @ERRORTEXT=@et OUT.
         /// </summary>
         internal static string P_DeleteUser {
             get {
                 return ResourceManager.GetString("P_DeleteUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_DELETEVARIANT] 
+        ///                @QuizID=@qid, 
+        ///                @QuestionID=@qsid, 
+        ///                @VariantID=@vid,
+        ///                @ERROR=@er OUT, 
+        ///                @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_DeleteVariant {
+            get {
+                return ResourceManager.GetString("P_DeleteVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_GETALLQUIZES] @RecordsCount = @rc.
+        /// </summary>
+        internal static string P_GetAllQuizes {
+            get {
+                return ResourceManager.GetString("P_GetAllQuizes", resourceCulture);
             }
         }
         
@@ -88,11 +136,181 @@ namespace DAL {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXECUTE[dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT.
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_GETNEXTQUESTION] 
+        ///                    @RecordCount=@rc,
+        ///                    @QuizResultId=@qrid.
+        /// </summary>
+        internal static string P_GetNextQuestion {
+            get {
+                return ResourceManager.GetString("P_GetNextQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_GETQUIZASSIGNMENT] 
+        ///                    @UserId=@uid.
+        /// </summary>
+        internal static string P_GetQuizAssignment {
+            get {
+                return ResourceManager.GetString("P_GetQuizAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE P_GETQUIZRESULT @QuizResultId = @qrid.
+        /// </summary>
+        internal static string P_GetQuizResult {
+            get {
+                return ResourceManager.GetString("P_GetQuizResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_GETQUIZRESULTS] @UserId = @uid.
+        /// </summary>
+        internal static string P_GetQuizResults {
+            get {
+                return ResourceManager.GetString("P_GetQuizResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE[dbo].[P_SAVEANSWER] 
+        ///                                        @QuizResultID=@qrid,
+        ///                                        @QuestionID=@qsid, 
+        ///                                        @AnswerID = @Aid,
+        ///                                        @AnswerFlag=@af,
+        ///                                        @ERROR=@er OUT, 
+        ///                                        @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveAnswer {
+            get {
+                return ResourceManager.GetString("P_SaveAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEQUESTION] 
+        ///                                        @QuizID=@qid, 
+        ///                                        @QuestionID=@qsid, 
+        ///                                        @info = @i,
+        ///                                        @text=@t,
+        ///                                        @CorrectOptionFlag=@cof,
+        ///                                        @ERROR=@er OUT, 
+        ///                                        @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveQuestion {
+            get {
+                return ResourceManager.GetString("P_SaveQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEQUIZ] 
+        ///                    @QuizID=@qid, 
+        ///                    @QuizName = @qn,
+        ///                    @AuthorID = @a,
+        ///                    @CreatedDate=@cdt,
+        ///                    @SuccessRate=@sr,
+        ///                    @ERROR=@er OUT, 
+        ///                    @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveQuiz {
+            get {
+                return ResourceManager.GetString("P_SaveQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEQUIZASSIGNMENT] 
+        ///                    @XmlQuizes=@xmlq,
+        ///                    @ERROR=@er OUT, 
+        ///                    @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveQuizAssignment {
+            get {
+                return ResourceManager.GetString("P_SaveQuizAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEQUIZRESULT] 
+        ///                    @QuizResultId=@qrid, 
+        ///                    @ERROR=@er OUT, 
+        ///                    @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveQuizResult {
+            get {
+                return ResourceManager.GetString("P_SaveQuizResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT.
         /// </summary>
         internal static string P_SaveUser {
             get {
                 return ResourceManager.GetString("P_SaveUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEVARIANT] 
+        ///                                        @QuizID=@qid, 
+        ///                                        @QuestionID=@qsid, 
+        ///                                        @VariantID = @vid,
+        ///                                        @text=@t,
+        ///                                        @ERROR=@er OUT, 
+        ///                                        @ERRORTEXT=@et OUT.
+        /// </summary>
+        internal static string P_SaveVariant {
+            get {
+                return ResourceManager.GetString("P_SaveVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_StatsAllQuizes].
+        /// </summary>
+        internal static string P_StatsAllQuizes {
+            get {
+                return ResourceManager.GetString("P_StatsAllQuizes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_StatsAllUsers].
+        /// </summary>
+        internal static string P_StatsAllUsers {
+            get {
+                return ResourceManager.GetString("P_StatsAllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_StatsByQuiz] @Quiz_Id = @qid.
+        /// </summary>
+        internal static string P_StatsByQuiz {
+            get {
+                return ResourceManager.GetString("P_StatsByQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_StatsByUser] @User_Id = @uid.
+        /// </summary>
+        internal static string P_StatsByUser {
+            get {
+                return ResourceManager.GetString("P_StatsByUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_StatsByUserQuiz] @User_Id = @uid, @Quiz_Id = @qid.
+        /// </summary>
+        internal static string P_StatsByUserQuiz {
+            get {
+                return ResourceManager.GetString("P_StatsByUserQuiz", resourceCulture);
             }
         }
         
@@ -115,9 +333,33 @@ namespace DAL {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT [QUESTION_ID]
+        ///      ,[QUIZ_ID]
+        ///      ,[INFO]
+        ///      ,[TEXT]
+        ///      ,[CORRECT_OPTION_FLAG]
+        ///  FROM [dbo].[V_M_QUESTIONS]
+        ///WHERE QUIZ_ID = @quiz_id.
+        /// </summary>
+        internal static string V_Get_QuestionsList {
+            get {
+                return ResourceManager.GetString("V_Get_QuestionsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE dbo.[P_GETQUIZ] @ID =@quiz_id.
+        /// </summary>
+        internal static string V_Get_Quiz {
+            get {
+                return ResourceManager.GetString("V_Get_Quiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, 		CONVERT(nvarchar(23),[REGISTRATION_DATE],121) as [REGISTRATION_DATE] , 
         ///		CONVERT(nvarchar(23),[LAST_LOGON_DATE],121) as [LAST_LOGON_DATE]
-        /// FROM QuizDB.dbo.V_M_USERS WHERE USER_ID = @user_id.
+        /// FROM dbo.V_M_USERS WHERE USER_ID = @user_id.
         /// </summary>
         internal static string V_Get_User {
             get {

@@ -16,18 +16,19 @@
  -->
 <section>
     <article>
-        @using (Html.BeginForm())
+        
+        @using (Html.BeginForm("Logon", "Logon", FormMethod.Post))
         {
             @Html.ValidationSummary(true)
             <fieldset>
                 <legend>Enter user name and password</legend>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.User)
+                    @Html.LabelFor(model => model.UserName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.User)
-                    @Html.ValidationMessageFor(model => model.User)
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
                 </div>
 
                 <div class="editor-label">

@@ -4,74 +4,84 @@
         <h4>Delete user ?</h4>
     </div>
     <div class="modal-body openUserDetails">
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+                using (Html.BeginForm("Delete", "User", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
 
-        @Html.HiddenFor(model => model.Id)
-        @using (Html.BeginForm("Delete", "User", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.UserName)
+                                </dt>
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div>
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.UserName)
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.UserName)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.UserName)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.FirstName)
+                                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.FirstName)
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FirstName)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FirstName)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.LastName)
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.LastName)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.LastName)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.RegistrationDate)
+                                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.RegistrationDate)
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.RegistrationDate)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.RegistrationDate)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.LastLogonDate)
+                                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.LastLogonDate)
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.LastLogonDate)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.LastLogonDate)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Roles)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Roles)
+                                </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Roles)
-                        </dt>
-                        <dd>
-                            @Html.DisplayFor(model => model.Roles)
-                        </dd>
-
-                    </dl>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button name="action" value="delete" class="btnviewclose">Delete</button>
-                        <button name="action" value="cancel" class="btnviewclose" data-dismiss="modal" area-hidden="true">Cancel</button>
+                            </dl>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" value="Delete" class="btnviewclose">Delete</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    }
+                }
+            }
+            <div>
+                @Html.ActionLink("Back to List", "Index")
             </div>
-        }
-    </div>
+        </div>
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

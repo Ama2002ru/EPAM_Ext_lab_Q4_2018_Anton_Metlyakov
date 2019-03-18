@@ -56,6 +56,7 @@
         /// </summary>
         public bool Delete(int id)
         {
+            // Обновлено. Метод Delete репозитория теперь не обращается к методу Person.Delete
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             bool boolresult = false;
             try
@@ -75,8 +76,7 @@
                         command.ExecuteNonQuery();
                         var deleteError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
                         var deleteErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
-                        //// проверю, что действительно что-то возвращается
- ///                       Logger.Info(string.Format("P_DeleteUser out : {0} {1}\n", deleteError.ToString(), deleteErrorText));
+                        Logger.Info(string.Format("P_DeleteUser out : {0} {1}\n", deleteError.ToString(), deleteErrorText));
                         if (deleteError == 0) boolresult = true;
                     }
                 }
@@ -96,34 +96,15 @@
         }
 
         /// <summary>
-        /// Вернуть из списка item, id = item.ID
-        /// Надо бы переработать - 
-        /// 1. Получить из БД по Айди
-        /// 2. Сравнить с основным списком - изменилась запись, или нет
-        /// 3. Если изменилась ???
+        /// Вернуть из БД item, id = item.ID
         /// </summary>
         /// <param name="id"> id = item.ID</param>
         /// <returns>ссылка на Item в списке, Null - что то пошло не так :(</returns>
         public Person Get(int id)
         {
+            // ki. Не реализовано получение одного элемента из БД напрямую!
+            // Обновлено. Реализовал.
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-            /*            try
-                        {
-
-
-                            return ItemList[ItemList.FindIndex(item => item.ID == id)];
-                        }
-                        catch (NullReferenceException ex)
-                        {
-                            Logger.Error(string.Format("{0}.{1} {2}", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name, ex.ToString()));
-                            return null;
-                        }
-                        catch (ArgumentOutOfRangeException ex)
-                        {
-                            Logger.Error(string.Format("{0}.{1} {2}", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name, ex.ToString()));
-                            return null;
-                        }
-            */
             Person person = null;
             try
             {
@@ -131,7 +112,6 @@
                 {
                     dbconn.Open();
                     var command = dbconn.CreateCommand();
-                    /// command.CommandText = SQLLoadPersons; // see DALResources.resx, "SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, REGISTRATION_DATE,LAST_LOGON_DATE FROM QuizDB.dbo.V_M_USERS;";
                     command.CommandText = V_Get_User; // see DALResources.resx,
                     command.Parameters.Add(Db.CreateParameter("@user_id", DbType.Int32, id.ToString(), null, ParameterDirection.Input));
                     command.CommandType = CommandType.Text;
@@ -153,7 +133,7 @@
                                                         users[3].ToString(), // username 
                                                         users[4].ToString(), // password
                                                         users[5].ToString(), // salt
-                                                        null,                // workbook
+                                                        null,                // QuizResults
                                                         (RoleEnum)users[6],  // roles
                                                         DateTime.ParseExact(users[7].ToString(), "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture),
                                                         lastLogonDate);      // lastlogondate
@@ -164,7 +144,7 @@
             catch (DbException ex)
             {
                 person = null;
-                Logger.Info(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
                 throw new Exception(string.Empty, ex);
             }
 
@@ -215,9 +195,9 @@
             this.ItemList = new List<Person>
             {
                 new Person(), // default person "John Doe"
-                new Person(id: 2, firstname: "Igor", lastname: "Kalugin", username: "ki", password: "ki", salt: "salt", workbook: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null),
-                new Person(id: 3, firstname: "Nikolay", lastname: "Piskarev", username: "np", password: "np", salt: "salt", workbook: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null),
-                new Person(id: 4, firstname: "Anton", lastname: "Metlyakov", username: "am", password: "am", salt: "salt", workbook: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null)
+                new Person(id: 2, firstname: "Igor", lastname: "Kalugin", username: "ki", password: "ki", salt: "salt", quizResults: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null),
+                new Person(id: 3, firstname: "Nikolay", lastname: "Piskarev", username: "np", password: "np", salt: "salt", quizResults: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null),
+                new Person(id: 4, firstname: "Anton", lastname: "Metlyakov", username: "am", password: "am", salt: "salt", quizResults: null, role: RoleEnum.Admin | RoleEnum.Instructor | RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null)
             };
         }
 
@@ -234,7 +214,6 @@
                 {
                     dbconn.Open();
                     var command = dbconn.CreateCommand();
-                    /// command.CommandText = SQLLoadPersons; // see DALResources.resx, "SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, REGISTRATION_DATE,LAST_LOGON_DATE FROM QuizDB.dbo.V_M_USERS;";
                     command.CommandText = P_GetAllUsers; // see DALResources.resx,
                     command.Parameters.Add(Db.CreateParameter("@rc", DbType.Int32, "-1", null, ParameterDirection.Input));
                     command.CommandType = CommandType.Text;
@@ -269,7 +248,7 @@
             catch (DbException ex)
             {
                 newPersonList = null;
-                Logger.Info(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
                 throw new Exception(string.Empty, ex);
             }
 

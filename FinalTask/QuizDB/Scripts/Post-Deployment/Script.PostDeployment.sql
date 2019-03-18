@@ -23,5 +23,12 @@ Post-Deployment Script Template
 
 :r .\S_PK_GENERATOR.sql
 :r .\M_ROLES.sql
-:r .\M_COURSES.sql
 :r .\M_USERS.sql
+:r .\M_QUIZES.sql
+:r .\M_QUESTIONS.sql
+:r .\M_VARIANTS.sql
+:r .\M_QUIZ_RESULTS.sql
+:r .\M_QUIZ_ANSWERS.sql
+
+
+

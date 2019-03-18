@@ -10,8 +10,9 @@
     {
         [Required]
         [StringLength(100, MinimumLength = 2)]
-        public string User { get; set; }
+        public string UserName { get; set; }
         [Required]
+        [StringLength(100, MinimumLength = 2)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

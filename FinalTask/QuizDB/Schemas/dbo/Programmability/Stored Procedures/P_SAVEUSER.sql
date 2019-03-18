@@ -40,16 +40,22 @@ BEGIN
 		ELSE
 		BEGIN
 		/* Update existing user info */
-			IF NOT EXISTS(SELECT * FROM dbo.M_USERS WHERE USERNAME = @USERNAME)
+			IF NOT EXISTS(SELECT * FROM dbo.M_USERS WHERE USER_ID = @USERID)
+			/* DB consistency error */
 				SELECT @ERROR = -1,	@ERRORTEXT = N'No Username '+@USERNAME + N' in M_USERS table';
 			ELSE
 			BEGIN
-				UPDATE dbo.M_USERS 
-				SET FIRSTNAME = @FIRSTNAME,
-					LASTNAME = @LASTNAME,
-					HASHEDPASSWORD = @HASHEDPASSWORD,
-					ROLESFLAG = @ROLESFLAG
-				WHERE USER_ID = @USERID
+			/* change username of existing user. Is new username free ?*/
+				IF EXISTS(SELECT * FROM dbo.M_USERS WHERE USERNAME = @USERNAME AND USER_ID != @USERID )
+					SELECT @ERROR = -1,	@ERRORTEXT = N'Can''t change Username to '+@USERNAME + N' in M_USERS table, this username already exists';
+				ELSE
+					UPDATE dbo.M_USERS 
+					SET USERNAME = @USERNAME,
+						FIRSTNAME = @FIRSTNAME,
+						LASTNAME = @LASTNAME,
+						HASHEDPASSWORD = @HASHEDPASSWORD,
+						ROLESFLAG = @ROLESFLAG
+					WHERE USER_ID = @USERID
 			END
 		END
 	END TRY

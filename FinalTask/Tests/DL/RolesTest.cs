@@ -32,7 +32,7 @@
         public void TestCheckIsAllowedMethod()
         {
             roles.GetAll();
-            var person = new Person(id: 1, firstname: "Anton", lastname: "Metlyakov", username: "am", password: "am", salt: "salt", workbook: null, role: RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null);
+            var person = new Person(id: 1, firstname: "Anton", lastname: "Metlyakov", username: "am", password: "am", salt: "salt", quizResults: null, role: RoleEnum.Student, registrationDate: DateTime.Now, lastLogonDate: null);
             Assert.That(roles.CheckIsAllowed(person, "QuizClass.Show"));
             Assert.That(!roles.CheckIsAllowed(person, "PersonRepository.Add"));
         }

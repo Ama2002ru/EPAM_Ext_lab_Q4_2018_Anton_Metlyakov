@@ -1,56 +1,79 @@
 ﻿@model IEnumerable<Quiz.Models.QuestionModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <section>
     <article>
-
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Question_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quiz_Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Info)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Text)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CorrectOptionFlag)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Question_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quiz_Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Info)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Text)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CorrectOptionFlag)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
+                <h3>Error: @ViewBag.Error</h3>
             }
+            else
+            {
+                <h3>Question list</h3>
+                <div id="modDialog" class="modal fade">
+                    <div id="dialogContent" class="modal-dialog"></div>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Info)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Text)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CorrectOptionFlag)
+                        </th>
+                        <th>
+                            @Html.Label("Actions")
+                        </th>
+                    </tr>
 
-        </table>
-    </article>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Info)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Text)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CorrectOptionFlag)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View", "Details", "Question", new { quiz_id = item.Quiz_Id, id = item.Question_Id }, htmlAttributes: new { @class = "usermodalwindow" }) |
+                                @Html.ActionLink("Edit", "Edit", "Question", new { id = item.Question_Id }, null) |
+                                @Html.ActionLink("Delete", "Delete", "Question", new { quiz_id = item.Quiz_Id, id = item.Question_Id }, new { @class = "usermodalwindow" }) |
+                                @Html.ActionLink("Create", "Create", "Question", new { quiz_id = item.Quiz_Id }, null)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                }
+            }
+                <div>
+                    @Html.ActionLink("Back to quiz list", "Index", "Quiz")
+                </div>
+            </article>
 </section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $(".usermodalwindow").click(function (e) {
+
+            e.preventDefault();
+            $.get(this.href, function (data) {
+                jQuery('#dialogContent').html(data);
+                jQuery('#modDialog').modal('show');
+            });
+        });
+    })
+</script>
+}
