@@ -27,7 +27,12 @@
             routes.MapRoute(
                 name: "logoff",
                 url: "logoff",
-                defaults: new { controller = "logon", action = "LogOff" });
+                defaults: new { controller = "logon", action = "Logoff" });
+
+            routes.MapRoute(
+                name: "registeruser",
+                url: "registeruser",
+                defaults: new { controller = "logon", action = "Register" });
 
             routes.MapRoute(
                 name: "user-create",
@@ -147,12 +152,13 @@
 
             routes.MapRoute(
                 name: "myquizes",
-                url: "myquizes",
-                defaults: new { controller = "Myquizes", action = "Index" });
+                url: "myquizes/{user_id}",
+                defaults: new { controller = "Myquizes", action = "Index", user_id = "user_id" },
+                constraints: new { user_id = @"\d+" });
 
             routes.MapRoute(
-                name: "myquizes/{quizresult_id}",
-                url: "myquizes/{quizresult_id}",
+                name: "myquizesview",
+                url: "myquizes/{quizresult_id}/view",
                 defaults: new { controller = "Myquizes", action = "Details", quiz_id = "quizresult_id" },
                 constraints: new { quizresult_id = @"\d+" });
 

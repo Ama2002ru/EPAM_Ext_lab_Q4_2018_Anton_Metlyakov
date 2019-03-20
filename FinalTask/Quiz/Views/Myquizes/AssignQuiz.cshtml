@@ -1,0 +1,95 @@
+﻿@model Quiz.Models.AssignQuizModel
+<div class="modal-content">
+    <div class="modal-header">
+        <h4>Assign quizes</h4>
+    </div>
+    <div class="modal-body openUserDetails">
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+                using (Html.BeginForm("AssignQuiz", "Myquizes", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.User_Id)
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.User_Name)
+                        @Html.DisplayFor(model => model.User_Name)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayName("Quizes")
+
+                        @if (Model != null && Model.Assignquizlistmodel != null)
+                        {
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Selected</td>
+                                        <td>Quiz name</td>
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+
+                                @{
+                                    int max_quiz_id = 0;
+                                }
+                                @foreach (var quiz in Model.Assignquizlistmodel)
+                                {
+                                    <tr>
+                                        <td style="width: 20px">
+                                            @{
+                                                string checkboxname = "assigned_quiz_" + quiz.Quiz_Id.ToString();
+                                                string labelname = "labelvariant" + quiz.Quiz_Id.ToString();
+                                                string disabledFlag = "";
+                                                string checkedFlag = "";
+                                                if (quiz.Quiz_Id > max_quiz_id)
+                                                {
+                                                    max_quiz_id = quiz.Quiz_Id;
+                                                }
+
+                                                if (!(quiz.Quiz_Status == DAL.QuizStatusEnum.None ||
+                                                    quiz.Quiz_Status == DAL.QuizStatusEnum.Assigned))
+                                                {
+                                                    disabledFlag = "disabled";
+                                                }
+                                                if (!(quiz.Quiz_Status == DAL.QuizStatusEnum.None))
+                                                {
+                                                    checkedFlag = "checked";
+                                                }
+                                                <input type="checkbox" name=@checkboxname @disabledFlag @checkedFlag />
+                                            }
+                                        </td>
+                                        <td>
+                                            @quiz.Quiz_Name
+                                        </td>
+                                        <td>
+                                            @quiz.Quiz_Status
+                                        </td>
+                                        <td>
+                                            @Html.Hidden("QuizResult_Id_" + quiz.Quiz_Id.ToString(), quiz.QuizResult_Id.ToString())
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                            @Html.Hidden("MaxQuiz_ID", max_quiz_id.ToString())
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btnviewclose" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                <div>
+                    @Html.ActionLink("Back to quiz list", "Index", "Myquizes", null, null)
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -1,0 +1,8 @@
+﻿CREATE VIEW [dbo].[V_M_QUESTIONS]
+AS 
+SELECT [QUESTION_ID]
+      ,[QUIZ_ID]
+      ,[INFO]
+      ,[TEXT]
+      ,[CORRECT_OPTION_FLAG]
+  FROM [dbo].[M_QUESTIONS]

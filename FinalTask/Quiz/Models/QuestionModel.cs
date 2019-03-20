@@ -7,6 +7,9 @@
     using System.Web.Mvc;
     using DAL;
 
+    /// <summary>
+    /// Модель для отображения вопроса квиза
+    /// </summary>
     public class QuestionModel
     {
         public int Question_Id { get; set; }
@@ -26,7 +29,7 @@
         public Variant[] Options { get; set; }
 
         /// <summary>
-        /// ВВеду 2 свойства ниже для прохождения теста
+        /// Введу свойство ниже для прохождения теста
         /// </summary>
         public int QuizResult_Id { get; set; }
 

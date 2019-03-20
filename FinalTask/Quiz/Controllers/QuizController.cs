@@ -2,13 +2,19 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using System.Web;
+    using System.Web.Configuration;
     using System.Web.Mvc;
     using System.Web.Security;
     using DAL;
     using Quiz.Models;
 
+    /// <summary>
+    ///  контроллер редактирования квизов
+    /// </summary>
     [Authorize(Roles = "Instructor")]
     public class QuizController : Controller
     {
@@ -300,10 +306,6 @@
         {
             try
             {
-                // FormsAuthentication.SetAuthCookie("Admin", true);
-                // FormsAuthentication.RedirectFromLoginPage("Admin", true);
-                // var s = User.Identity.IsAuthenticated;
-                // var me = User.Identity.Name;
                 var searchedQuizes = new List<QuizModel>(0);
                 IEnumerable<Quiz> quizes;
                 if (name == string.Empty)
@@ -322,6 +324,21 @@
                 ViewBag.Error = "Error get quiz list !";
                 return PartialView();
             }
+        }
+
+        /// <summary>
+        /// Лечениее проблемы с JQuery Validate и точкой/запятой во Float поле
+        /// так как разделитьель-точка захардкожена в JQuery, переведу и свой UI в en-US вид
+        /// </summary>
+        /// <param name="requestContext"></param>
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+
+            var appsetting = WebConfigurationManager.AppSettings["quizlocale"] ?? "en-US";
+            var appuisetting = WebConfigurationManager.AppSettings["quizuilocale"] ?? "en";
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(appsetting, false);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(appuisetting, false);
         }
     }
 }

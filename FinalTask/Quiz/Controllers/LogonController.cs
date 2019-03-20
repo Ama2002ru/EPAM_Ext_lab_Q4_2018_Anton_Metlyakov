@@ -18,6 +18,7 @@
     public class LogonController : Controller
     {
         private readonly IAuthProvider myAuthProvider;
+        private readonly IPersonRepository personRepository;
 
         public LogonController()
         {
@@ -27,9 +28,10 @@
         /// конструктор
         /// </summary>
         /// <param name="_repository"></param>
-        public LogonController(IAuthProvider auth)
+        public LogonController(IAuthProvider auth, IPersonRepository personRepo)
         {
             myAuthProvider = auth;
+            personRepository = personRepo;
         }
 
         /// <summary>
@@ -45,23 +47,18 @@
         /// <summary>
         /// проверка пароля
         /// </summary>
-        /// <param name="userAndPassword"></param>
-        /// <param name="return_Url"></param>
         /// <returns></returns>
         /// 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Logon(LogonModel model, string returnUrl)
+        public ActionResult Logon(LogonModel model)
         {
             if (ModelState.IsValid)
             {
                 if (myAuthProvider.Authenticate(model.UserName, model.Password))
                 {
-                    string controller = string.Empty;
-                    if (User.IsInRole("Admin")) controller = "User";
-                    if (User.IsInRole("Student")) controller = "Myquizes";
-                    if (User.IsInRole("Instructor")) controller = "Quiz";
-                    return Redirect(returnUrl ?? Url.Action("Index", controller));
+                    SetLogonDate.Set_Logon_Date(personRepository, model.UserName);
+                    return Redirect(Url.Action("WelcomeView", "Logon"));
                 }
                 else
                 {
@@ -73,10 +70,87 @@
                 return View();
         }
 
+        /// <summary>
+        /// Регистрация нового пользователя. 
+        /// Откроем форму
+        /// </summary>
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            var registrationmodel = new UserModel();
+            registrationmodel.UserName = "test";
+            return View(registrationmodel);
+        }
+
+        /// <summary>
+        /// Регистрация нового пользователя. 
+        /// Роль зашью жестко - студент
+        /// </summary>
+        /// <param name="userAndPassword"></param>
+        /// <param name="return_Url"></param>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Register(UserModel registrationmodel)
+        {
+            if (registrationmodel == null)
+            {
+                ViewBag.Error = "Invalid HTTP request!";
+                return View();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Error = "Invalid user info!";
+                return View();
+            }
+
+            if (!(personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null))
+            {
+                ModelState.AddModelError(string.Empty, "Username already exists!");
+                return View();
+            }
+
+            // попробую переиспользовать код - создам контроллер
+            registrationmodel.Roles = RoleEnum.Student;
+            registrationmodel.Id = -1;  // new user
+            var userController = new UserController(personRepository, null);
+            userController.Create(registrationmodel);
+            if (personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null)
+            {
+                ViewBag.Error = "Error save user info!";
+                return View();
+            }
+
+            // залогиниться
+            Logon(new LogonModel()
+                {
+                    UserName = registrationmodel.UserName,
+                    Password = registrationmodel.Password
+                });
+            return Redirect(Url.Action("WelcomeView", "Logon"));
+        }
+
+        /// <summary>
+        /// логофф пользоватля
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "Admin,Student,Instructor")]
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
             return Redirect("~/logon");
+        }
+
+        /// <summary>
+        /// отображение формы приветсвия залогинившегося пользователя
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "Admin,Student,Instructor")]
+        public ActionResult WelcomeView()
+        {
+            return View();
         }
     }
 }

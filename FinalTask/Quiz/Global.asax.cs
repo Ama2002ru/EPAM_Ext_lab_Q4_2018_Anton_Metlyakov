@@ -25,12 +25,9 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // мои биндеры. 
             ModelBinders.Binders.Add(typeof(RoleEnum), new EnumFlagsModelBinder());
-            ModelBinders.Binders[typeof(float)] = new SingleModelBinder();
-        
-            var appsetting = WebConfigurationManager.AppSettings["quizlocale"] ?? "ru-RU";
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(appsetting);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(appsetting);
 
             var kernel = new StandardKernel();
             /// по совету Гугля уберу валидацию от Ninject

@@ -1,0 +1,91 @@
+﻿@model Quiz.Models.QuestionModel
+<div class="modal-content">
+    <div class="modal-header">
+        <h4>Question details</h4>
+    </div>
+    <div class="modal-body openUserDetails">
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Info)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Info)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Text)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Text)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CorrectOptionFlag)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CorrectOptionFlag)
+                    </dd>
+
+                </dl>
+
+
+                for (int i = 0; i < (Model.Options != null ? Model.Options.Length : 0); i++)
+                {
+                    <div>
+                        @if (Model.Options[i].Value == 1)
+                        {<input type="checkbox" name="variant" checked disabled />
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="variant" disabled />
+                        }
+                        <label for="@Model.Options[i].Value">
+                            @Model.Options[i].Text
+                        </label>
+                    </div>
+                }
+                }
+            }
+                <hr />
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+    <!--
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*onclick calling UPDATEMARK function
+                    which set assign the selected checkbox value to hidden field*@
+                <input type="submit" value="Create" class="btn btn-default" onclick="updatemark()" />
+            </div>
+        </div>
+    -->
+</div>
+
+@section Scripts {
+    <script>
+        function updatemark(arg) {
+            var abc = ""
+            //Iterating the collection of checkboxes which checked marked
+            $('input[type=checkbox]').each(function () {
+                if (this.checked) {
+                    abc = abc + $(this).val() + ","
+                    //assign set value to hidden field
+                    $('#SkillID').val(abc);
+                }
+            });
+        }
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

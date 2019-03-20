@@ -6,10 +6,14 @@
     using System.Linq;
     using System.Web;
 
+    /// <summary>
+    /// Класс для ввода строки поиска чего-либо
+    /// </summary>
     public class SearchModel
     {
-        [StringLength(100, MinimumLength = 2)]
+        [StringLength(100, MinimumLength = 1)]
         [Required]
+        [Display(Name = "Name")]
         public string Name { get; set; }
     }
 }

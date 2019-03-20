@@ -246,7 +246,7 @@ namespace DAL {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT.
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf, @LastLogonDate=@lld, @ERROR=@er OUT, @ERRORTEXT=@et OUT.
         /// </summary>
         internal static string P_SaveUser {
             get {
@@ -266,6 +266,15 @@ namespace DAL {
         internal static string P_SaveVariant {
             get {
                 return ResourceManager.GetString("P_SaveVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_SETLOGONDATE] @USERNAME = @uname.
+        /// </summary>
+        internal static string P_SetLogonDate {
+            get {
+                return ResourceManager.GetString("P_SetLogonDate", resourceCulture);
             }
         }
         
