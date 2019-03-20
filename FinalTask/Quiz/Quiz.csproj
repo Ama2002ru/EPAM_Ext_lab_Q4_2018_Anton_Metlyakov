@@ -180,11 +180,10 @@
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VariantController.cs" />
-    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="Providers\DependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelBinder.cs" />
     <Compile Include="Models\AnswerModel.cs" />
     <Compile Include="Models\AssignQuizModel.cs" />
     <Compile Include="Models\LogonModel.cs" />
@@ -324,6 +323,8 @@
     <Content Include="Views\Statistic\ByQuiz.cshtml" />
     <Content Include="Views\Statistic\ByUser.cshtml" />
     <Content Include="Views\Statistic\ByUserQuiz.cshtml" />
+    <Content Include="Views\Logon\WelcomeView.cshtml" />
+    <Content Include="Views\Logon\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

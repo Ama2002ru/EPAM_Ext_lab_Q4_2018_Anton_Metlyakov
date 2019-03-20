@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DAL.StatsByQuiz>
+
+@{
+    ViewBag.Title = "AllQuizes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <article>
+        <h4>Statistic for all Quizes</h4>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.User_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quiz_Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed_Rate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed_Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Started_Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time_Taken)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quiz_Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Completed_Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Completed_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Started_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time_Taken)
+                    </td>
+
+                </tr>
+            }
+        </table>
+        <div>
+            @Html.ActionLink("Back to statistic page", "Index", "Statistic")
+        </div>
+    </article>
+</section>

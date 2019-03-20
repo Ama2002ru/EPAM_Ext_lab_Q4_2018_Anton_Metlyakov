@@ -9,7 +9,7 @@
     using DAL;
 
     /// <summary>
-    /// Класс описывает Тест как совокупность вопросов
+    /// Класс описывает Квиз как совокупность вопросов
     /// </summary>
     public class QuizModel
     {
@@ -26,16 +26,19 @@
 
         public DateTime Creation_Date { get; set; }
 
-        [Required]
-        [Range(0.1, 1.0, ErrorMessage = "Success rate must be in range (0,1]")]
+        [Required(ErrorMessage = "decimal separator is '.'")]
+        [Range(0.1, 1.0, ErrorMessage = "Success rate must be in range (0,1], decimal separator is '.'")]
         [Display(Name = "Quiz pass success rate ")]
         [DisplayFormat(DataFormatString = "{0:F4}")]
         public float Success_Rate { get; set; }
 
+        /// <summary>
+        /// список вопросов
+        /// </summary>
         public List<QuestionModel> Questions { get; set; }
 
         /// <summary>
-        /// Упрощу код - приведу объекты Quiz -> QuizModel
+        /// Упрощу основной код - приведу объекты Quiz -> QuizModel
         /// </summary>
         /// <param name="q"></param>
         public static implicit operator QuizModel(Quiz q)

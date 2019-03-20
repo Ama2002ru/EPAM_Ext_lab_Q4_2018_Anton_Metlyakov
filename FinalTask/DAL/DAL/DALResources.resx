@@ -207,7 +207,7 @@
                     @ERRORTEXT=@et OUT</value>
   </data>
   <data name="P_SaveUser" xml:space="preserve">
-    <value>EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT</value>
+    <value>EXECUTE [dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln, @HASHEDPASSWORD=@hp, @SALT=@st,  @ROLESFLAG=@rf, @LastLogonDate=@lld, @ERROR=@er OUT, @ERRORTEXT=@et OUT</value>
   </data>
   <data name="P_SaveVariant" xml:space="preserve">
     <value>EXECUTE [dbo].[P_SAVEVARIANT] 
@@ -217,6 +217,9 @@
                                         @text=@t,
                                         @ERROR=@er OUT, 
                                         @ERRORTEXT=@et OUT</value>
+  </data>
+  <data name="P_SetLogonDate" xml:space="preserve">
+    <value>EXECUTE [dbo].[P_SETLOGONDATE] @USERNAME = @uname</value>
   </data>
   <data name="P_StatsAllQuizes" xml:space="preserve">
     <value>EXECUTE [dbo].[P_StatsAllQuizes]</value>

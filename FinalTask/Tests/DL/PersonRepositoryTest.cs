@@ -48,15 +48,55 @@
             {
                 switch (person.ID)
                 {
-                    case 1: { name = "Student"; break; }
-                    case 2: { name = "Instructor"; break; }
-                    case 3: { name = "Admin"; break; }
-                    case 6: { name = "gw"; break; }
-                    case 7: { name = "ja"; break; }
-                    case 9: { name = "tj"; break; }
-                    case 10: { name = "jm"; break; }
-                    case 11: { name = "jmonroe"; break; }
+                    case 1:
+                        {
+                            name = "Student";
+                            break;
+                        }
+
+                    case 2:
+                        {
+                            name = "Instructor";
+                            break;
+                        }
+
+                    case 3:
+                        {
+                            name = "Admin";
+                            break;
+                        }
+
+                    case 6:
+                        {
+                            name = "gw";
+                            break;
+                        }
+
+                    case 7:
+                        {
+                            name = "ja";
+                            break;
+                        }
+
+                    case 9:
+                        {
+                            name = "tj";
+                            break;
+                        }
+
+                    case 10:
+                        {
+                            name = "jm";
+                            break;
+                        }
+
+                    case 11:
+                        {
+                            name = "jmonroe";
+                            break;
+                        }
                 }
+
                 // проверю наличие 3х встроенных учеток
                 Assert.That(person.UserName == name);
             }
@@ -93,6 +133,7 @@
 
             // проверю что в БД стало больше персон
             Assert.That(people.GetAll().Count == count + 4);
+
             // удалю всё что навставлял...
             people.Delete(people.GetAll().Where(x => x.UserName == "jdoe").First().ID);
             people.Delete(people.GetAll().Where(x => x.UserName == "ki").First().ID);

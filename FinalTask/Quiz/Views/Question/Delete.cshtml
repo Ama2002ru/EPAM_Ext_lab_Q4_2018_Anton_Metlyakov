@@ -1,0 +1,74 @@
+﻿@model Quiz.Models.QuestionModel
+<div class="modal-content">
+    <div class="modal-header">
+        <h4>Delete question ?</h4>
+    </div>
+    <div class="modal-body openUserDetails">
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+                using (Html.BeginForm("Delete", "Question", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.Quiz_Id)
+                    @Html.HiddenFor(model => model.Question_Id)
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div>
+
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Info)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Info)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Text)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Text)
+                                </dd>
+                            </dl>
+                            @for (int i = 0; i < (Model.Options != null ? Model.Options.Length : 0); i++)
+                            {
+                                <div>
+                                    @if (Model.Options[i].Value == 1)
+                                    {<input type="checkbox" name="variant" checked disabled />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" name="variant" disabled />
+                                    }
+                                    <label for="@Model.Options[i].Value">
+                                        @Model.Options[i].Text
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" value="Delete" class="btnviewclose">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

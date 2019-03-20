@@ -7,13 +7,14 @@
 -- return : @error number, if any
 -- =============================================
 CREATE PROCEDURE [dbo].[P_SAVEUSER]
-	@USERID int=-1,
+		@USERID int=-1,
 	@USERNAME nvarchar(100),
 	@FIRSTNAME nvarchar(100),
 	@LASTNAME nvarchar(100),
 	@HASHEDPASSWORD nvarchar(100),
 	@SALT nvarchar(100),
 	@ROLESFLAG int = 1,
+	@LastLogonDate nvarchar(50),
 	@ERROR int out,
 	@ERRORTEXT nvarchar(100) out
 AS
@@ -57,6 +58,12 @@ BEGIN
 						ROLESFLAG = @ROLESFLAG
 					WHERE USER_ID = @USERID
 			END
+		END
+		IF (LEN(@LastLogonDate) >0)
+		BEGIN
+			UPDATE dbo.M_USERS 
+			SET LAST_LOGON_DATE = CAST(@LastLogonDate as datetime)
+			WHERE USER_ID  = @USERID
 		END
 	END TRY
 	BEGIN CATCH

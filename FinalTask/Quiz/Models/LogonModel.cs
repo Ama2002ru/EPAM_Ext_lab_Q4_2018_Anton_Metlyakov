@@ -6,6 +6,9 @@
     using System.Linq;
     using System.Web;
 
+    /// <summary>
+    /// Модель данных для логона пользователя
+    /// </summary>
     public class LogonModel
     {
         [Required]

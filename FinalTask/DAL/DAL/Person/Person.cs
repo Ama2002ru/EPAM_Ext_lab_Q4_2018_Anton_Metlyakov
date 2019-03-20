@@ -87,21 +87,7 @@
         /// </summary>
         public string Salt { get; set; }
 
-/*      /// <summary>
-        /// Удаление текущего пользователя в БД
-        /// Обновлено. Person более не имеет этого метода.
-        /// </summary>
-        /// <returns></returns>
-        public bool Delete()
-        {
-            Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-            // ki. Где реализация?
-            // Обновлено. Person более не имеет этого метода.
-            // there will be ADO.NET implementation;
-            return true;
-        }
-*/
-        /// <summary>
+       /// <summary>
         /// Проверка наличия роли у пользователя - Student, Admin и т.д.
         /// </summary>
         public bool IsAssignedRole(RoleEnum testrole)
@@ -125,9 +111,12 @@
                 {
                     dbconn.Open();
                     var command = dbconn.CreateCommand();
+                    var logonDate = string.Empty;
+                    if (LastLogonDate.HasValue)
+                        logonDate = string.Format("{0:s}", LastLogonDate.Value);
                     /*   эту команду угнал в файл ресурсов под именем P_SaveUser
                                         EXECUTE[dbo].[P_SAVEUSER] @USERID=@Uid, @USERNAME=@Unm, @FIRSTNAME=@fn, @LASTNAME=@ln,@HASHEDPASSWORD=@hp,@SALT=@st,
-                                        @ROLESFLAG=@rf,  @ERROR=@er OUT, @ERRORTEXT=@et OUT
+                                        @ROLESFLAG=@rf, @LastLogonDate=@lld, @ERROR=@er OUT, @ERRORTEXT=@et OUT
                     */
                     command.CommandText = P_SaveUser;
                     command.Parameters.Add(db.CreateParameter("@Uid", DbType.Int32, ID.ToString(), null, ParameterDirection.Input));
@@ -137,6 +126,7 @@
                     command.Parameters.Add(db.CreateParameter("@hp", DbType.String, HashedPassword, 100, ParameterDirection.Input));
                     command.Parameters.Add(db.CreateParameter("@st", DbType.String, Salt, 100, ParameterDirection.Input));
                     command.Parameters.Add(db.CreateParameter("@rf", DbType.Int32, ((int)Role).ToString(), null, ParameterDirection.Input));
+                    command.Parameters.Add(db.CreateParameter("@lld", DbType.String, logonDate, logonDate.Length, ParameterDirection.Input));
                     command.Parameters.Add(db.CreateParameter("@er", DbType.Int32, null, null, ParameterDirection.Output));
                     command.Parameters.Add(db.CreateParameter("@et", DbType.String, null, 100, ParameterDirection.Output));
                     command.CommandType = CommandType.Text;

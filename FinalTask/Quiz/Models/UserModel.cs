@@ -9,7 +9,7 @@
     using Quiz.Resources;
 
     /// <summary>
-    /// Class UserModel for user management
+    /// Class UserModel для управления пользователями
     /// </summary>
     public class UserModel
     {

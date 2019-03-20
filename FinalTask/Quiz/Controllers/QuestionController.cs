@@ -31,6 +31,11 @@
             personRepository = pers;
         }
 
+        /// <summary>
+        /// просмотр списка вопросов к квизу
+        /// </summary>
+        /// <param name="quiz_id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Instructor")]
         public ActionResult Index(int quiz_id)
         {

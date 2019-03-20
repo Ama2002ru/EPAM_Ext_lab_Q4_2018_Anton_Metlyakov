@@ -11,7 +11,7 @@
     using Quiz.Models;
 
     /// <summary> 
-    /// User controller 
+    /// Контроллер для работы с пользователями
     /// </summary>
     [Authorize(Roles = "Admin")]
     public class UserController : Controller
@@ -176,6 +176,11 @@
             }
         }
 
+        /// <summary>
+        /// взять пользователя на редактирование
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             try

@@ -1,0 +1,126 @@
+﻿@model Quiz.Models.QuestionModel
+
+@{
+
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<section>
+    <article>
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+                <h4>Edit Question</h4>
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Question_Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => model.Quiz_Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => model.CorrectOptionFlag, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => model.Options)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Info, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Info, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Info, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Variants:", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.Label("(select correct ones)", htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+
+                        <div>
+                            @if (Model.Options != null)
+                            {
+                                for (int i = 0; i < Model.Options.Length; i++)
+                                {
+                                    string checkboxname = "variant" + i.ToString();
+                                    string labelname = "labelvariant" + i.ToString();
+                                    <div>
+                                        @if (Model.Options[i].Value == 1)
+                                        {
+                                            <input type="checkbox" name=@checkboxname checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name=@checkboxname />
+                                        }
+                                        <label name=@labelname>
+                                            @Model.Options[i].Text
+                                        </label>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                @Html.Label("none", htmlAttributes: new { @class = "control-label col-md-2" })
+                            }
+                            <div>
+                                @Html.ActionLink("Edit variants", "Index", "Variant", new { quiz_id = Model.Quiz_Id, question_id = Model.Question_Id }, null)
+                            </div>
+                            <div>
+                                @Html.ActionLink("New variant", "Create", "Variant", new { quiz_id = Model.Quiz_Id, question_id = Model.Question_Id }, new { @class = "usermodalwindow" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btnviewclose" />
+                            </div>
+                        </div>
+                        <div>
+                            @Html.ActionLink("Back to quiestion list", "Index")
+                        </div>
+
+                    </div>
+                    }
+                }
+            }
+
+    </article>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $(".usermodalwindow").click(function (e) {
+
+            e.preventDefault();
+            $.get(this.href, function (data) {
+                jQuery('#dialogContent').html(data);
+                jQuery('#modDialog').modal('show');
+            });
+        });
+    })
+</script>
+}
+
+
+
+
+
+
+
+

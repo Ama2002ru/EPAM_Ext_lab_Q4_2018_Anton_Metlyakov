@@ -3,19 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Simple Quiz App</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/task2.css")
     @Styles.Render("~/Content/breadcrumbs.css")
-    @Styles.Render("~/Content/modal.css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @{ if (User.IsInRole("Student"))
+        {
+            @Styles.Render("~/Content/task2.css")
+            @Styles.Render("~/Content/modal.css")
+        }
+        else
+        {
+            @Styles.Render("~/Content/task2cyan.css")
+            @Styles.Render("~/Content/modalcyan.css")
+        }
+    }
+
 </head>
 <body>
     <header>
+        <h3>Welcome to Simple Quiz App!</h3>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.Label("Welcome, " + User.Identity.Name + "!");
+        }
+
         <ul class="breadcrumbs" id="breads">
             @if (!User.Identity.IsAuthenticated)
             {
                 <li><a href="~/logon">Logon</a></li>
+            }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/registeruser">Register</a></li>
             }
             @if (User.IsInRole("Admin"))
             {
@@ -31,27 +53,45 @@
             }
             @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
             {
-                <li><a href="~/statistic">statistic</a></li>
+                <li><a href="~/statistic">Statistic</a></li>
             }
             @if (User.Identity.IsAuthenticated)
             {
-                @Html.Label("Welcome, " + User.Identity.Name + "!");
-            }
-
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Logoff", "logoff", "logon")
+                <li><a href="~/Logoff">Logoff</a></li>
             }
         </ul>
         <p />
     </header>
     <nav>
         <ul class="ulnav">
-            <li><a href="signin.html">Sign in</a></li>
-            <li><a href="~/users">Users</a></li>
-            <li><a href="~/quizes">Quizes</a></li>
-            <li><a href="~/myquizes">My Quizes</a></li>
-            <li><a href="~/statistic">Statistic</a></li>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/logon">Logon</a></li>
+            }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/registeruser">Register</a></li>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <li><a href="~/users">Users</a></li>
+            }
+            @if (User.IsInRole("Instructor"))
+            {
+                <li><a href="~/quizes">Quizes</a></li>
+            }
+            @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
+            {
+                <li><a href="~/myquizes">My Quizes</a></li>
+            }
+            @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
+            {
+                <li><a href="~/statistic">Statistic</a></li>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/Logoff">Logoff</a></li>
+            }
         </ul>
     </nav>
 
