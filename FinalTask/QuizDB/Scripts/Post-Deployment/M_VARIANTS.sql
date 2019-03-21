@@ -9,8 +9,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_VARIANTS;
- insert into [dbo].[M_VARIANTS]
+DELETE FROM DBO.M_VARIANTS;
+ insert into [DBO].[M_VARIANTS]
   ([VARIANT_ID]      ,[QUESTION_ID]       ,[TEXT])
 VALUES 
 

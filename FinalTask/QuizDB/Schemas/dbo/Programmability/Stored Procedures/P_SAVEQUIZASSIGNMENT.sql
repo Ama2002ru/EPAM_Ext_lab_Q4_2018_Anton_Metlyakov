@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_SAVEQUIZASSIGNMENT]
+﻿CREATE PROCEDURE [DBO].[P_SAVEQUIZASSIGNMENT]
 										@XmlQuizes nvarchar(max)
                                         ,@ERROR int OUT, 
                                         @ERRORTEXT nvarchar(1000) OUT
@@ -43,8 +43,8 @@ BEGIN
 			IF (@QuizResult_Id <= 0) AND (@Quiz_Status = 1)
 			BEGIN
 			-- insert into M_QUIZ_RESULTS	
-				EXECUTE dbo.P_GETNEXTPK @TABLE_NAME = 'M_QUIZ_RESULTS', @ID = @NEWID OUT
-				INSERT INTO dbo.M_QUIZ_RESULTS
+				EXECUTE DBO.P_GETNEXTPK @TABLE_NAME = 'M_QUIZ_RESULTS', @ID = @NEWID OUT
+				INSERT INTO DBO.M_QUIZ_RESULTS
 					(QUIZ_RESULT_ID, USER_ID, QUIZ_ID,QUIZ_STATUS, ASSIGNED_BY_ID,ASSIGNED_DATE, COMPLETED_RATE,COMPLETED_DATE)
 					VALUES 
 					(@NEWID, @User_Id,@Quiz_Id,1 /*Assigned*/,@AssignedUser_Id, GETDATE(), NULL,NULL)
@@ -52,7 +52,7 @@ BEGIN
 			IF (@QuizResult_Id > 0) AND (@Quiz_Status = 0)
 			BEGIN
 			-- delete FROM M_QUIZ_RESULTS	
-				DELETE FROM dbo.M_QUIZ_RESULTS
+				DELETE FROM DBO.M_QUIZ_RESULTS
 					WHERE QUIZ_RESULT_ID = @QuizResult_Id AND
 						QUIZ_STATUS = 1	-- Assigned (Passed, Failed, InProgress - do not delete)
 			END

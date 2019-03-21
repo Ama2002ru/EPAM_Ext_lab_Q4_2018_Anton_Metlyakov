@@ -7,6 +7,7 @@
     using System.Web.Mvc;
     using DAL;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     /// <summary>
     ///  Класс-контроллер, содержащий методы для работыс назначенными и назначаемыми квизами пользователя
@@ -97,7 +98,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error load MyQuizes data !";
+                ViewBag.Error = S_ErrorLoadMyQuizes;
                 return View();
             }
         }
@@ -154,7 +155,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get next question !";
+                ViewBag.Error = S_ErrorGetNextQuiestion;
                 return View();
             }
         }
@@ -181,7 +182,7 @@
             {
                 if (!SaveAnswer(collection))
                 {
-                    ViewBag.Error = "Error save answer!";
+                    ViewBag.Error = S_ErrorSaveAnswer;
                     return View();
                 }
 
@@ -192,7 +193,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get next question !";
+                ViewBag.Error = S_ErrorGetNextQuiestion;
                 return View();
             }
 
@@ -209,7 +210,7 @@
                     action = "FinishQuiz",
                     quizresult_id
                 });
-            ViewBag.Error = "Error get next question !";
+            ViewBag.Error = S_ErrorGetNextQuiestion;
             return View();
         }
 
@@ -323,7 +324,7 @@
 
             if (!((QuizRepository)quizRepository).SaveQuizAssignment(assignedquizes))
             {
-                ViewBag.Error = "Error get next question !";
+                ViewBag.Error = S_ErrorGetNextQuiestion;
                 return View();
             }
 

@@ -129,10 +129,136 @@
   <data name="SQLLoadPersons" xml:space="preserve">
     <value>SELECT User_ID,FirstName,LastName,UserName,HashedPassword,RolesFlag FROM QuizDB.dbo.V_M_USERS;</value>
   </data>
+  <data name="S_CantDeleteUser" xml:space="preserve">
+    <value>This user can't be deleted, error :</value>
+  </data>
+  <data name="S_ErrorCreateQuestion" xml:space="preserve">
+    <value>Error create question!</value>
+  </data>
+  <data name="S_ErrorCreateQuiz" xml:space="preserve">
+    <value>Error create quiz!</value>
+  </data>
+  <data name="S_ErrorCreateVariants" xml:space="preserve">
+    <value>Error create variant !</value>
+  </data>
+  <data name="S_ErrorDeleteQuestion" xml:space="preserve">
+    <value>Error delete question!</value>
+  </data>
+  <data name="S_ErrorDeleteQuiz" xml:space="preserve">
+    <value>Error delete quiz!</value>
+  </data>
+  <data name="S_ErrorDeleteUser" xml:space="preserve">
+    <value>Delete user error!</value>
+  </data>
+  <data name="S_ErrorDeleteVariant" xml:space="preserve">
+    <value>Error delete variant!</value>
+  </data>
+  <data name="S_ErrorEditQuestion" xml:space="preserve">
+    <value>Error edit questions!</value>
+  </data>
+  <data name="S_ErrorEditVariant" xml:space="preserve">
+    <value>Error edit variant!</value>
+  </data>
+  <data name="S_ErrorGetNextQuiestion" xml:space="preserve">
+    <value>Error get next question !</value>
+  </data>
+  <data name="S_ErrorGetQuizList" xml:space="preserve">
+    <value>Error get quiz list !</value>
+  </data>
+  <data name="S_ErrorGetUserDetails" xml:space="preserve">
+    <value>Error get user details!</value>
+  </data>
+  <data name="S_ErrorGetUserList" xml:space="preserve">
+    <value>Error get user list!</value>
+  </data>
+  <data name="S_ErrorGetVariants" xml:space="preserve">
+    <value>Error get variants !</value>
+  </data>
+  <data name="S_ErrorLoadMyQuizes" xml:space="preserve">
+    <value>Error load MyQuizes data !</value>
+  </data>
+  <data name="S_ErrorOpenAllQuizes" xml:space="preserve">
+    <value>Error open allquizes statistic page !</value>
+  </data>
+  <data name="S_ErrorOpenAllUsers" xml:space="preserve">
+    <value>Error open allusers statistic page !</value>
+  </data>
+  <data name="S_ErrorOpenQuiz" xml:space="preserve">
+    <value>Error open quiz statistic page !</value>
+  </data>
+  <data name="S_ErrorOpenStatistic" xml:space="preserve">
+    <value>Error open statistic page!</value>
+  </data>
+  <data name="S_ErrorOpenUser" xml:space="preserve">
+    <value>Error open user statistic page !</value>
+  </data>
+  <data name="S_ErrorSaveAnswer" xml:space="preserve">
+    <value>Error save answer!</value>
+  </data>
+  <data name="S_ErrorSaveQuestion" xml:space="preserve">
+    <value>Error save question!</value>
+  </data>
+  <data name="S_ErrorSaveQuiz" xml:space="preserve">
+    <value>Error save quiz!</value>
+  </data>
+  <data name="S_ErrorSaveUser" xml:space="preserve">
+    <value>Error save user info!</value>
+  </data>
+  <data name="S_ErrorSaveVariants" xml:space="preserve">
+    <value>Error save variant!</value>
+  </data>
+  <data name="S_ErrorViewQuestion" xml:space="preserve">
+    <value>Error view questions!</value>
+  </data>
+  <data name="S_ErrorViewQuiz" xml:space="preserve">
+    <value>Error view quiz!</value>
+  </data>
+  <data name="S_ErrorViewVariant" xml:space="preserve">
+    <value>Error view variant!</value>
+  </data>
+  <data name="S_IncorrectUsername" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="S_InvalidHTTP" xml:space="preserve">
+    <value>Invalid HTTP request!</value>
+  </data>
+  <data name="S_InvalidQuestionRequest" xml:space="preserve">
+    <value>Invalid question request!</value>
+  </data>
+  <data name="S_InvalidQuiz" xml:space="preserve">
+    <value>Quiz is not valid!</value>
+  </data>
+  <data name="S_InvalidQuizRequest" xml:space="preserve">
+    <value>Invalid quiz request!</value>
+  </data>
+  <data name="S_InvalidUserInfo" xml:space="preserve">
+    <value>Invalid user info!</value>
+  </data>
+  <data name="S_InvalidUserInfoError" xml:space="preserve">
+    <value>Invalid user info, error :</value>
+  </data>
+  <data name="S_InvalidUserRequest" xml:space="preserve">
+    <value>Invalid user request!</value>
+  </data>
+  <data name="S_InvalidVariantRequest" xml:space="preserve">
+    <value>Invalid variant request!</value>
+  </data>
+  <data name="S_PasswordValidationError" xml:space="preserve">
+    <value>Password validation failed, error :</value>
+  </data>
+  <data name="S_QuizNotFinished" xml:space="preserve">
+    <value>Quiz is not finished, question view is not allowed !</value>
+  </data>
+  <data name="S_QuizNotFound" xml:space="preserve">
+    <value>Quiz not found!</value>
+  </data>
+  <data name="S_UsernameExists" xml:space="preserve">
+    <value>Username already exists!</value>
+  </data>
+  <data name="S_UserNotFound" xml:space="preserve">
+    <value>User not found!</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
-  </data>
-  <data name="x" xml:space="preserve">
-    <value>X</value>
   </data>
 </root>

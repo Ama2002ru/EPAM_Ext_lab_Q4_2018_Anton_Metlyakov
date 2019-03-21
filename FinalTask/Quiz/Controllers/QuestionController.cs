@@ -7,6 +7,7 @@
     using System.Web.Mvc;
     using DAL;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     [Authorize(Roles = "Instructor")]
     public class QuestionController : Controller
@@ -44,7 +45,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -56,7 +57,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error view questions !";
+                ViewBag.Error = S_ErrorViewQuestion;
                 return PartialView();
             }
         }
@@ -73,7 +74,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -90,7 +91,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error create question !";
+                ViewBag.Error = S_ErrorCreateQuestion;
                 return PartialView();
             }
         }
@@ -114,7 +115,7 @@
                 createdQuestion.CorrectOptionFlag = q.CorrectOptionFlag;
                 if (!createdQuestion.Save())
                 {
-                    ViewBag.Error = "Error save question!";
+                    ViewBag.Error = S_ErrorSaveQuestion;
                     return PartialView();
                 }
 
@@ -128,7 +129,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error create question !";
+                ViewBag.Error = S_ErrorCreateQuestion;
                 return PartialView();
             }
         }
@@ -146,7 +147,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -157,7 +158,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -177,7 +178,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete question !";
+                ViewBag.Error = S_ErrorDeleteQuestion;
                 return PartialView();
             }
         }
@@ -196,7 +197,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(question.Quiz_Id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -206,7 +207,7 @@
 
                 if (!q.Delete())
                 {
-                    ViewBag.Error = "Delete question error!";
+                    ViewBag.Error = S_ErrorDeleteQuestion;
                     return View();
                 }
 
@@ -220,7 +221,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete question !";
+                ViewBag.Error = S_ErrorDeleteQuestion;
                 return PartialView();
             }
         }
@@ -237,7 +238,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -248,7 +249,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -267,7 +268,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error view question !";
+                ViewBag.Error = S_ErrorViewQuestion;
                 return PartialView();
             }
         }
@@ -284,7 +285,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -295,7 +296,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -315,7 +316,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error edit question !";
+                ViewBag.Error = S_ErrorEditQuestion;
                 return PartialView();
             }
         }
@@ -355,7 +356,7 @@
                 editedQuestion.CorrectOptionFlag = q.CorrectOptionFlag;
                 if (!editedQuestion.Save())
                 {
-                    ViewBag.Error = "Error save question!";
+                    ViewBag.Error = S_ErrorSaveQuestion;
                     return PartialView();
                 }
 
@@ -369,7 +370,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error edit question !";
+                ViewBag.Error = S_ErrorEditQuestion;
                 return PartialView();
             }
         }

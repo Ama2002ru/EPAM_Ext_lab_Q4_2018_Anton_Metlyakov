@@ -132,9 +132,6 @@
                     command.CommandType = CommandType.Text;
                     command.CommandTimeout = 10;
                     command.ExecuteNonQuery();
-
-                    /* это действительно всё так сложно надо преобразовывать ? */
-
                     var saveError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
                     var saveErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
                     if (saveError == 0) saveResult = true;

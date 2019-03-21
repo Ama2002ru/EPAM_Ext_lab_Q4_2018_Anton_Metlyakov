@@ -13,7 +13,7 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            /* route - еще поиск по строке ... */
+            // поиск по строке ...
             routes.MapRoute(
                 name: "user-search",
                 url: "users/{name}",

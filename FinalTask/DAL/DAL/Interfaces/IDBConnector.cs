@@ -18,28 +18,22 @@
         IDbConnection CreateConnection();
 
         /// <summary>
-        /// сигнатура метода для выполнения SQL-скрипта, 1 возвращаемое значение (например  результат хранимой процедуры)
-        /// </summary>
-        /// <param name="command"> Объект-типа IDbCommand</param>
-        /// <returns></returns>
-        object ExecuteScalar(string commandText, List<IDbDataParameter> sqlParams);
-
-        /// <summary>
         ///  сигнатура метода для выполнения SQL-скрипта, метод должен возвращать Датасет
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        IDataReader ExecuteReader(string commandText /* позже добавлю список параметров */);
+        IDataReader ExecuteReader(string commandText);
 
         /// <summary>
         ///  сигнатура метода для выполнения SQL-скрипта
         /// </summary>
         /// <param name="command"></param>
         /// <returns> возвращает количество обработанных записей</returns>
-        int ExecuteNonQuery(string commandText /* позже добавлю список параметров */);
+        int ExecuteNonQuery(string commandText);
 
         /// <summary>
         /// Сигнатура метода добавления параметра
+        /// для улучшения читаемости основного кода
         /// </summary>
         /// <param name="name"></param>
         /// <param name="t"></param>

@@ -59,7 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns=string.Empty xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -238,6 +238,24 @@
   </data>
   <data name="SQLLoadPersons" xml:space="preserve">
     <value>SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, REGISTRATION_DATE,LAST_LOGON_DATE FROM QuizDB.dbo.V_M_USERS;</value>
+  </data>
+  <data name="S_DatetimeFormatString" xml:space="preserve">
+    <value>yyyy-MM-dd HH:mm:ss.fff</value>
+  </data>
+  <data name="S_ISDeleteOk" xml:space="preserve">
+    <value>Delete is Ok</value>
+  </data>
+  <data name="S_IsValidMessageAlreadyUsed" xml:space="preserve">
+    <value>Username already used! Choose another!</value>
+  </data>
+  <data name="S_IsValidMessageOk" xml:space="preserve">
+    <value>Person is Ok</value>
+  </data>
+  <data name="S_ValidatePassword_Empty" xml:space="preserve">
+    <value>Password is empty, it is not allowed!</value>
+  </data>
+  <data name="S_ValidatePassword_TooShort" xml:space="preserve">
+    <value>Password is too short, minimal length is 2 symbols!</value>
   </data>
   <data name="TestDBString" xml:space="preserve">
     <value>QuizDBTestConnection</value>

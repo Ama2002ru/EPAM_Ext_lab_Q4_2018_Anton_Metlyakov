@@ -324,6 +324,60 @@ namespace DAL {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to yyyy-MM-dd HH:mm:ss.fff.
+        /// </summary>
+        internal static string S_DatetimeFormatString {
+            get {
+                return ResourceManager.GetString("S_DatetimeFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete is Ok.
+        /// </summary>
+        internal static string S_ISDeleteOk {
+            get {
+                return ResourceManager.GetString("S_ISDeleteOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username already used! Choose another!.
+        /// </summary>
+        internal static string S_IsValidMessageAlreadyUsed {
+            get {
+                return ResourceManager.GetString("S_IsValidMessageAlreadyUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person is Ok.
+        /// </summary>
+        internal static string S_IsValidMessageOk {
+            get {
+                return ResourceManager.GetString("S_IsValidMessageOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is empty, it is not allowed!.
+        /// </summary>
+        internal static string S_ValidatePassword_Empty {
+            get {
+                return ResourceManager.GetString("S_ValidatePassword_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is too short, minimal length is 2 symbols!.
+        /// </summary>
+        internal static string S_ValidatePassword_TooShort {
+            get {
+                return ResourceManager.GetString("S_ValidatePassword_TooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT USER_ID,FIRSTNAME,LASTNAME, USERNAME,HASHEDPASSWORD, SALT, ROLESFLAG, REGISTRATION_DATE,LAST_LOGON_DATE FROM QuizDB.dbo.V_M_USERS;.
         /// </summary>
         internal static string SQLLoadPersons {

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_SAVEQUIZ]
+﻿CREATE PROCEDURE [DBO].[P_SAVEQUIZ]
                                         @QuizID int, 
                                         @QuizName nvarchar(100),
                                         @AuthorID int, 
@@ -17,13 +17,13 @@ BEGIN TRY
 		IF (@QuizID = -1) 
 		BEGIN
 		/* new quiz */
-			IF EXISTS(SELECT * FROM dbo.M_QUIZES WHERE QUIZ_NAME = @QuizName)
+			IF EXISTS(SELECT * FROM DBO.M_QUIZES WHERE QUIZ_NAME = @QuizName)
 				SELECT @ERROR = -1,	@ERRORTEXT = N'Dublicate Quiz name '+@QuizName + N' in M_QUIZES table';
 			ELSE
 			BEGIN
 				DECLARE @NEWID NUMERIC;
-				EXECUTE dbo.P_GETNEXTPK @TABLE_NAME = 'M_QUIZES', @ID = @NEWID OUT
-				INSERT INTO dbo.M_QUIZES 
+				EXECUTE DBO.P_GETNEXTPK @TABLE_NAME = 'M_QUIZES', @ID = @NEWID OUT
+				INSERT INTO DBO.M_QUIZES 
 				([QUIZ_ID],[QUIZ_NAME], [AUTHOR_ID], [CREATED_DATE], [SUCCESS_RATE])
 					VALUES (@NEWID,@QuizName,@AuthorID,GETDATE(),@SuccessRate)
 			END
@@ -31,16 +31,16 @@ BEGIN TRY
 		ELSE
 		BEGIN
 		/* Update existing quiz info */
-			IF NOT EXISTS(SELECT * FROM dbo.M_QUIZES WHERE QUIZ_ID = @QuizID)
+			IF NOT EXISTS(SELECT * FROM DBO.M_QUIZES WHERE QUIZ_ID = @QuizID)
 			/* DB consistency error */
 				SELECT @ERROR = -1,	@ERRORTEXT = N'No Quiz '+CAST(@QuizID as nvarchar(10)) + N' in M_QUIZES table';
 			ELSE
 			BEGIN
 			/* change quiz name of existing quiz. Is new Quiz name free ?*/
-				IF EXISTS(SELECT * FROM dbo.M_QUIZES WHERE [QUIZ_NAME] = @QuizName AND QUIZ_ID != @QuizID )
+				IF EXISTS(SELECT * FROM DBO.M_QUIZES WHERE [QUIZ_NAME] = @QuizName AND QUIZ_ID != @QuizID )
 					SELECT @ERROR = -1,	@ERRORTEXT = N'Can''t change quiz name to '+@QuizName + N' in M_QUIZES table, this quiz name already exists';
 				ELSE
-					UPDATE dbo.M_QUIZES 
+					UPDATE DBO.M_QUIZES 
 					SET [QUIZ_NAME] = @QuizName,
 						[AUTHOR_ID] = @AuthorID,
 						[SUCCESS_RATE] = @SuccessRate

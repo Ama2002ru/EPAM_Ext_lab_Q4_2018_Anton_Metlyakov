@@ -283,7 +283,8 @@
                     var saveError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
                     var saveErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
                     if (saveError == 0) saveResult = true;
-                    //// проверю, что действительно что-то возвращается
+
+                    // проверю, что действительно что-то возвращается
                     Logger.Debug(string.Format("P_SaveQuiz out : {0} {1}\n", saveError.ToString(), saveErrorText));
                 }
             }
@@ -393,7 +394,8 @@
                     var saveError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
                     var saveErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
                     if (saveError == 0) saveResult = true;
-                    //// проверю, что действительно что-то возвращается
+
+                    // проверю, что действительно что-то возвращается
                     Logger.Debug(string.Format("P_SAVEQUIZASSIGNMENT out : {0} {1}\n", saveError.ToString(), saveErrorText));
                 }
             }

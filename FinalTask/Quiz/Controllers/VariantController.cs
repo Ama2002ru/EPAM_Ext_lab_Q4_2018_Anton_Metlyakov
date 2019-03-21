@@ -7,6 +7,7 @@
     using System.Web.Mvc;
     using DAL;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     /// <summary>
     /// Контроллер для редактирования вариантов ответов на вопросы квиза
@@ -43,7 +44,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -54,7 +55,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid questopn request!";
+                    ViewBag.Error = S_InvalidQuestionRequest;
                     return PartialView();
                 }
 
@@ -66,7 +67,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get variants !";
+                ViewBag.Error = S_ErrorGetVariants;
                 return PartialView();
             }
         }
@@ -85,7 +86,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -100,7 +101,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error create variant !";
+                ViewBag.Error = S_ErrorCreateVariants;
                 return PartialView();
             }
         }
@@ -123,7 +124,7 @@
                 createdVariant.Variant_Id = -1;
                 if (!createdVariant.Save())
                 {
-                    ViewBag.Error = "Error save variant!";
+                    ViewBag.Error = S_ErrorSaveVariants;
                     return PartialView();
                 }
 
@@ -138,7 +139,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error create variant !";
+                ViewBag.Error = S_ErrorCreateVariants;
                 return PartialView();
             }
         }
@@ -155,7 +156,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -166,7 +167,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid question request!";
+                    ViewBag.Error = S_InvalidQuestionRequest;
                     return PartialView();
                 }
 
@@ -177,7 +178,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid variant request!";
+                    ViewBag.Error = S_InvalidVariantRequest;
                     return PartialView();
                 }
 
@@ -187,7 +188,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error view details !";
+                ViewBag.Error = S_ErrorViewVariant;
                 return PartialView();
             }
         }
@@ -207,7 +208,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -218,7 +219,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid question request!";
+                    ViewBag.Error = S_InvalidQuestionRequest;
                     return PartialView();
                 }
 
@@ -229,7 +230,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid variant request!";
+                    ViewBag.Error = S_InvalidVariantRequest;
                     return PartialView();
                 }
 
@@ -239,7 +240,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error edit variant !";
+                ViewBag.Error = S_ErrorEditVariant;
                 return PartialView();
             }
         }
@@ -262,7 +263,7 @@
                 editedVariant.Variant_Id = v.Variant_Id;
                 if (!editedVariant.Save())
                 {
-                    ViewBag.Error = "Error save variant!";
+                    ViewBag.Error = S_ErrorSaveVariants;
                     return PartialView();
                 }
 
@@ -277,7 +278,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error edit variant!";
+                ViewBag.Error = S_ErrorEditVariant;
                 return PartialView();
             }
         }
@@ -295,7 +296,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(quiz_id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -306,7 +307,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid question request!";
+                    ViewBag.Error = S_InvalidQuestionRequest;
                     return PartialView();
                 }
 
@@ -317,7 +318,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid variant request!";
+                    ViewBag.Error = S_InvalidVariantRequest;
                     return PartialView();
                 }
 
@@ -327,7 +328,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete variant !";
+                ViewBag.Error = S_ErrorDeleteVariant;
                 return PartialView();
             }
         }
@@ -346,7 +347,7 @@
                 Quiz quiz;
                 if ((quiz = this.quizRepository.Get(vm.Quiz_Id)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -357,7 +358,7 @@
                 }
                 catch (InvalidOperationException)
                 {
-                    ViewBag.Error = "Invalid question request!";
+                    ViewBag.Error = S_InvalidQuestionRequest;
                     return PartialView();
                 }
 
@@ -368,7 +369,7 @@
 
                 if (!deletingVariant.Delete())
                 {
-                    ViewBag.Error = "Error delete variant!";
+                    ViewBag.Error = S_ErrorDeleteVariant;
                     return PartialView();
                 }
 
@@ -383,7 +384,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete variant !";
+                ViewBag.Error = S_ErrorDeleteVariant;
                 return PartialView();
             }
         }

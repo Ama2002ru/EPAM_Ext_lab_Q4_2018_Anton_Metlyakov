@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[M_ROLES]
+﻿CREATE TABLE [DBO].[M_ROLES]
 (
 	[ROLE_ID] [int] NOT NULL,
 	[ROLE_NAME] [nvarchar](100) NOT NULL,

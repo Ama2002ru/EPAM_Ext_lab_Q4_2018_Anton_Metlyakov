@@ -10,6 +10,7 @@
     using DAL;
     using Ninject;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     /// <summary>
     /// логика проверки пароля пользователя
@@ -62,7 +63,7 @@
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Incorrect username or password");
+                    ModelState.AddModelError(string.Empty, S_IncorrectUsername);
                     return View();
                 }
             }
@@ -78,7 +79,7 @@
         public ActionResult Register()
         {
             var registrationmodel = new UserModel();
-            registrationmodel.UserName = "test";
+            registrationmodel.UserName = string.Empty;
             return View(registrationmodel);
         }
 
@@ -96,19 +97,19 @@
         {
             if (registrationmodel == null)
             {
-                ViewBag.Error = "Invalid HTTP request!";
+                ViewBag.Error = S_InvalidHTTP;
                 return View();
             }
 
             if (!ModelState.IsValid)
             {
-                ViewBag.Error = "Invalid user info!";
+                ViewBag.Error = S_InvalidUserInfo;
                 return View();
             }
 
             if (!(personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null))
             {
-                ModelState.AddModelError(string.Empty, "Username already exists!");
+                ModelState.AddModelError(string.Empty, S_UsernameExists);
                 return View();
             }
 
@@ -119,7 +120,7 @@
             userController.Create(registrationmodel);
             if (personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null)
             {
-                ViewBag.Error = "Error save user info!";
+                ViewBag.Error = S_ErrorSaveUser;
                 return View();
             }
 

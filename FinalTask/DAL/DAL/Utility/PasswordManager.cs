@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Security.Cryptography;
+    using static DALResources;
     
     // класс для работы с паролями
     // Алгоритм работы :
@@ -64,13 +65,13 @@
             message = "Ok";
             if (string.IsNullOrEmpty(userPassword))
             {
-                message = "Password is empty, it is not allowed!";
+                message = S_ValidatePassword_Empty;
                 return false;
             }
 
             if (userPassword.Length < 2)
             {
-                message = "Password is too short, minimal length is 2 symbols!";
+                message = S_ValidatePassword_TooShort;
                 return false;
             }
 

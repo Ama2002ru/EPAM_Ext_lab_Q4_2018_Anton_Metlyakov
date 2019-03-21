@@ -13,22 +13,10 @@
     using static DALResources;
 
     /// <summary>
-    /// 
+    /// Класс содержит методы, обращающиеся в БД за статистикой квизов
     /// </summary>
     public static class Statistic
     {
-/*        private IQuizRepository quizRepository;
-
-        public Statistic()
-        {
-        }
-
-        public Statistic(IQuizRepository repo)
-        {
-            quizRepository = repo;
-        }
-*/
-
         /// <summary>
         /// Получить из БД отчет №1
         /// </summary>

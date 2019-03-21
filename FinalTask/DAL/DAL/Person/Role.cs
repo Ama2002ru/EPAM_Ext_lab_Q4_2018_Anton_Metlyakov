@@ -24,7 +24,7 @@
             ID = 1;
             Name = "Student";
             RoleFlag = RoleEnum.Student;
-            AllowedMethods = "QuizClass.Show;QuizClass.Run;";
+            AllowedMethods = string.Empty;
         }
 
         /// <summary>
@@ -45,8 +45,8 @@
         public string Name { get; }
 
         /// <summary>
-        /// comma-separated string с именами разрешенных к исплнению 
-        /// методов для данной роли в виде Класс.Метод;
+        /// Не используется. 
+        /// 
         /// </summary>
         public string AllowedMethods { get; }
 

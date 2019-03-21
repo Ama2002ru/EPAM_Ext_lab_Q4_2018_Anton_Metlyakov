@@ -10,16 +10,16 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DELETE FROM  [dbo].[S_PK_GENERATOR]
+DELETE FROM  [DBO].[S_PK_GENERATOR]
 
-INSERT INTO [dbo].[S_PK_GENERATOR] ([TABLE_NAME],[TABLE_ID]) 
+INSERT INTO [DBO].[S_PK_GENERATOR] ([TABLE_NAME],[TABLE_ID]) 
 VALUES 
 	('M_ROLES',4),
 	('M_USERS',12),
-	('M_QUIZES',10),
+	('M_QUIZES',20),
 	('M_QUESTIONS',100),
 	('M_VARIANTS',400),
-	('M_QUIZ_RESULTS',10),
+	('M_QUIZ_RESULTS',20),
 	('M_QUIZ_ANSWERS',40),
 	('T_LOG',1)
 GO
