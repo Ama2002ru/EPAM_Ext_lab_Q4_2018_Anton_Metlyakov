@@ -1,0 +1,38 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[M_COURSES] (Table)
+       [dbo].[M_QUESTIONS] (Table)
+       [dbo].[M_QUIZ_ANSWERS] (Table)
+       [dbo].[M_QUIZ_RESULTS] (Table)
+       [dbo].[M_QUIZES] (Table)
+       [dbo].[M_USERS] (Table)
+       [dbo].[M_VARIANTS] (Table)
+       [dbo].[S_PK_GENERATOR] (Table)
+       [dbo].[T_LOG] (Table)
+       [dbo].[FK1_M_QUESTIONS] (Foreign Key)
+       [dbo].[FK1_M_QUIZ_ANSWERS] (Foreign Key)
+       [dbo].[FK2_M_QUIZ_ANSWERS] (Foreign Key)
+       [dbo].[FK1_M_QUIZ_RESULTS] (Foreign Key)
+       [dbo].[FK2_M_QUIZ_RESULTS] (Foreign Key)
+       [dbo].[FK3_M_QUIZ_RESULTS] (Foreign Key)
+       [dbo].[FK1_M_QUIZES] (Foreign Key)
+       [dbo].[FK2_M_QUIZES] (Foreign Key)
+       [dbo].[FK1_M_VARIANTS] (Foreign Key)
+       [dbo].[CK1_M_QUIZ_RESULTS] (Check Constraint)
+       [dbo].[CK1_M_QUIZES] (Check Constraint)
+       [dbo].[V_M_USERS] (View)
+       [dbo].[P_GETALLUSERS] (Procedure)
+       [dbo].[P_GETNEXTPK] (Procedure)
+       [dbo].[P_SAVEUSER] (Procedure)
+
+** Supporting actions

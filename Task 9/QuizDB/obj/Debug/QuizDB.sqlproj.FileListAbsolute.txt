@@ -1,0 +1,16 @@
+E:\Мои документы\EPAM\FinalTask\QuizDB\bin\Debug\QuizDB.dacpac
+E:\Мои документы\EPAM\FinalTask\QuizDB\bin\Debug\QuizDB.dll
+E:\Мои документы\EPAM\FinalTask\QuizDB\bin\Debug\QuizDB.pdb
+E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache
+E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\QuizDB.dll
+E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\QuizDB.pdb
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\bin\Debug\QuizDB.dacpac
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\bin\Debug\QuizDB.dll
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\bin\Debug\QuizDB.pdb
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\Model.xml
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\refactor.xml
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\postdeploy.sql
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\predeploy.sql
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\QuizDB.dll
+C:\Users\Антон\Desktop\EPAM 2018\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\Task 9\QuizDB\obj\Debug\QuizDB.pdb

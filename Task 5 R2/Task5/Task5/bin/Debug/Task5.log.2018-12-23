@@ -1,0 +1,255 @@
+2018-12-23 09:16:28,028 INFO  Logging start
+2018-12-23 09:16:28,036 DEBUG Welcome to Task5 "Generics and Collections" lab.
+
+2018-12-23 09:16:28,037 DEBUG PersonRepository..ctor start
+2018-12-23 09:16:28,038 DEBUG PersonRepository.Init start
+2018-12-23 09:16:28,039 DEBUG PersonClass..ctor start
+2018-12-23 09:16:28,039 DEBUG PersonClass..ctor start
+2018-12-23 09:16:28,039 DEBUG PersonClass..ctor start
+2018-12-23 09:16:28,040 DEBUG PersonClass..ctor start
+2018-12-23 09:16:28,040 DEBUG Test person list is :
+2018-12-23 09:16:28,040 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:16:28,042 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:16:28,042 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:16:28,043 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:16:28,043 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:16:28,044 DEBUG 
+Person with ID = 2 :
+2018-12-23 09:16:28,045 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:16:28,046 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:16:28,047 DEBUG 
+Adding new person ... 
+2018-12-23 09:16:28,047 DEBUG PersonClass..ctor start
+2018-12-23 09:16:28,048 DEBUG PersonValidator.IsValid start
+2018-12-23 09:16:28,048 DEBUG BaseRepositoryClass`1.Save start
+2018-12-23 09:16:28,049 DEBUG PersonClass.Save start
+2018-12-23 09:16:28,049 DEBUG Ok
+2018-12-23 09:16:28,052 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:16:28,052 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:16:28,053 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:16:28,053 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:16:28,053 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:16:28,054 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:16:28,054 DEBUG 
+Deleting person with ID = 2 ... 
+2018-12-23 09:16:28,054 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:16:28,055 DEBUG PersonValidator.IsDeleteOK start
+2018-12-23 09:16:28,056 DEBUG BaseRepositoryClass`1.Delete start
+2018-12-23 09:16:28,056 DEBUG PersonClass.Delete start
+2018-12-23 09:16:28,057 DEBUG Ok
+2018-12-23 09:16:28,057 DEBUG 
+Final person list :
+2018-12-23 09:16:28,057 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:16:28,058 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:16:28,058 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:16:28,058 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:16:28,059 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:16:28,059 INFO  Logging end
+2018-12-23 09:17:01,786 INFO  Logging start
+2018-12-23 09:17:01,794 DEBUG Welcome to Task5 "Generics and Collections" lab.
+
+
+2018-12-23 09:17:01,795 DEBUG PersonRepository..ctor start
+2018-12-23 09:17:01,795 DEBUG PersonRepository.Init start
+2018-12-23 09:17:01,796 DEBUG PersonClass..ctor start
+2018-12-23 09:17:01,797 DEBUG PersonClass..ctor start
+2018-12-23 09:17:01,797 DEBUG PersonClass..ctor start
+2018-12-23 09:17:01,797 DEBUG PersonClass..ctor start
+2018-12-23 09:17:01,798 DEBUG Test person list is :
+
+2018-12-23 09:17:01,798 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:17:01,799 DEBUG 0, John, Doe, JDoe, None
+
+2018-12-23 09:17:01,799 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+
+2018-12-23 09:17:01,799 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+
+2018-12-23 09:17:01,800 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+
+2018-12-23 09:17:01,800 DEBUG 
+Person with ID = 2 :
+
+2018-12-23 09:17:01,801 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:17:01,802 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+
+2018-12-23 09:17:01,803 DEBUG 
+Adding new person ... 
+2018-12-23 09:17:01,803 DEBUG PersonClass..ctor start
+2018-12-23 09:17:01,803 DEBUG PersonValidator.IsValid start
+2018-12-23 09:17:01,804 DEBUG BaseRepositoryClass`1.Save start
+2018-12-23 09:17:01,805 DEBUG PersonClass.Save start
+2018-12-23 09:17:01,805 DEBUG Ok
+
+2018-12-23 09:17:01,806 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:17:01,806 DEBUG 0, John, Doe, JDoe, None
+
+2018-12-23 09:17:01,806 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+
+2018-12-23 09:17:01,807 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+
+2018-12-23 09:17:01,807 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+
+2018-12-23 09:17:01,808 DEBUG 4, Barak, Obama, bo, Student
+
+2018-12-23 09:17:01,808 DEBUG 
+Deleting person with ID = 2 ... 
+2018-12-23 09:17:01,808 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:17:01,809 DEBUG PersonValidator.IsDeleteOK start
+2018-12-23 09:17:01,810 DEBUG BaseRepositoryClass`1.Delete start
+2018-12-23 09:17:01,810 DEBUG PersonClass.Delete start
+2018-12-23 09:17:01,811 DEBUG Ok
+
+2018-12-23 09:17:01,812 DEBUG 
+Final person list :
+
+2018-12-23 09:17:01,812 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:17:01,812 DEBUG 0, John, Doe, JDoe, None
+
+2018-12-23 09:17:01,813 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+
+2018-12-23 09:17:01,813 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+
+2018-12-23 09:17:01,814 DEBUG 4, Barak, Obama, bo, Student
+
+2018-12-23 09:17:01,815 INFO  Logging end
+2018-12-23 09:18:02,547 INFO  Logging start
+2018-12-23 09:18:02,559 DEBUG Welcome to Task5 "Generics and Collections" lab.
+
+2018-12-23 09:18:02,560 DEBUG PersonRepository..ctor start
+2018-12-23 09:18:02,561 DEBUG PersonRepository.Init start
+2018-12-23 09:18:02,562 DEBUG PersonClass..ctor start
+2018-12-23 09:18:02,562 DEBUG PersonClass..ctor start
+2018-12-23 09:18:02,568 DEBUG PersonClass..ctor start
+2018-12-23 09:18:02,569 DEBUG PersonClass..ctor start
+2018-12-23 09:18:02,569 DEBUG Test person list is :
+2018-12-23 09:18:02,570 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:18:02,570 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:18:02,571 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:18:02,571 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:18:02,571 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:18:02,571 DEBUG 
+Person with ID = 2 :
+2018-12-23 09:18:02,573 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:18:02,573 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:18:02,574 DEBUG 
+Adding new person ... 
+2018-12-23 09:18:02,574 DEBUG PersonClass..ctor start
+2018-12-23 09:18:02,574 DEBUG PersonValidator.IsValid start
+2018-12-23 09:18:02,575 DEBUG BaseRepositoryClass`1.Save start
+2018-12-23 09:18:02,576 DEBUG PersonClass.Save start
+2018-12-23 09:18:02,576 DEBUG Ok
+2018-12-23 09:18:02,576 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:18:02,577 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:18:02,577 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:18:02,577 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:18:02,577 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:18:02,578 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:18:02,578 DEBUG 
+Deleting person with ID = 2 ... 
+2018-12-23 09:18:02,578 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:18:02,578 DEBUG PersonValidator.IsDeleteOK start
+2018-12-23 09:18:02,579 DEBUG BaseRepositoryClass`1.Delete start
+2018-12-23 09:18:02,580 DEBUG PersonClass.Delete start
+2018-12-23 09:18:02,580 DEBUG Ok
+2018-12-23 09:18:02,580 DEBUG 
+Final person list :
+2018-12-23 09:18:02,581 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:18:02,581 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:18:02,581 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:18:02,581 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:18:02,582 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:18:02,582 INFO  Logging end
+2018-12-23 09:53:29,006 DEBUG PersonRepository..ctor start
+2018-12-23 09:53:29,013 INFO  Logging start
+2018-12-23 09:53:29,013 DEBUG Welcome to Task5 "Generics and Collections" lab.
+
+2018-12-23 09:53:29,014 DEBUG PersonRepository.Init start
+2018-12-23 09:53:29,015 DEBUG PersonClass..ctor start
+2018-12-23 09:53:29,016 DEBUG PersonClass..ctor start
+2018-12-23 09:53:29,016 DEBUG PersonClass..ctor start
+2018-12-23 09:53:29,016 DEBUG PersonClass..ctor start
+2018-12-23 09:53:29,016 DEBUG Test person list is :
+2018-12-23 09:53:29,017 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:53:29,018 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:53:29,018 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:53:29,019 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:53:29,019 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:53:29,019 DEBUG 
+Person with ID = 2 :
+2018-12-23 09:53:29,020 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:53:29,022 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:53:29,022 DEBUG 
+Adding new person ... 
+2018-12-23 09:53:29,023 DEBUG PersonClass..ctor start
+2018-12-23 09:53:29,023 DEBUG PersonValidator.IsValid start
+2018-12-23 09:53:29,024 DEBUG BaseRepositoryClass`1.Save start
+2018-12-23 09:53:29,024 DEBUG PersonClass.Save start
+2018-12-23 09:53:29,025 DEBUG Ok
+2018-12-23 09:53:29,025 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:53:29,025 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:53:29,026 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:53:29,026 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:53:29,027 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:53:29,027 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:53:29,027 DEBUG 
+Deleting person with ID = 2 ... 
+2018-12-23 09:53:29,027 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:53:29,028 DEBUG PersonValidator.IsDeleteOK start
+2018-12-23 09:53:29,029 DEBUG BaseRepositoryClass`1.Delete start
+2018-12-23 09:53:29,029 DEBUG PersonClass.Delete start
+2018-12-23 09:53:29,030 DEBUG Ok
+2018-12-23 09:53:29,030 DEBUG 
+Final person list :
+2018-12-23 09:53:29,030 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:53:29,030 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:53:29,031 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:53:29,032 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:53:29,032 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:53:29,033 INFO  Logging end
+2018-12-23 09:54:11,573 DEBUG PersonRepository..ctor start
+2018-12-23 09:54:11,584 INFO  Logging start
+2018-12-23 09:54:11,585 DEBUG Welcome to Task5 "Generics and Collections" lab.
+
+2018-12-23 09:54:11,585 DEBUG PersonRepository.Init start
+2018-12-23 09:54:11,586 DEBUG PersonClass..ctor start
+2018-12-23 09:54:11,586 DEBUG PersonClass..ctor start
+2018-12-23 09:54:11,587 DEBUG PersonClass..ctor start
+2018-12-23 09:54:11,587 DEBUG PersonClass..ctor start
+2018-12-23 09:54:11,587 DEBUG Test person list is :
+2018-12-23 09:54:11,587 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:54:11,588 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:54:11,588 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:54:11,589 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:54:11,589 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:54:11,589 DEBUG 
+Person with ID = 2 :
+2018-12-23 09:54:11,591 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:54:11,591 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:54:11,591 DEBUG 
+Adding new person ... 
+2018-12-23 09:54:11,592 DEBUG PersonClass..ctor start
+2018-12-23 09:54:11,592 DEBUG PersonValidator.IsValid start
+2018-12-23 09:54:11,593 DEBUG BaseRepositoryClass`1.Save start
+2018-12-23 09:54:11,593 DEBUG PersonClass.Save start
+2018-12-23 09:54:11,593 DEBUG Ok
+2018-12-23 09:54:11,594 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:54:11,594 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:54:11,594 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:54:11,594 DEBUG 2, Nikolay, Piskarev, np, Admin, Student, Instructor
+2018-12-23 09:54:11,595 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:54:11,595 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:54:11,595 DEBUG 
+Deleting person with ID = 2 ... 
+2018-12-23 09:54:11,596 DEBUG BaseRepositoryClass`1.Get start
+2018-12-23 09:54:11,596 DEBUG PersonValidator.IsDeleteOK start
+2018-12-23 09:54:11,597 DEBUG BaseRepositoryClass`1.Delete start
+2018-12-23 09:54:11,597 DEBUG PersonClass.Delete start
+2018-12-23 09:54:11,597 DEBUG Ok
+2018-12-23 09:54:11,598 DEBUG 
+Final person list :
+2018-12-23 09:54:11,598 DEBUG BaseRepositoryClass`1.GetAll start
+2018-12-23 09:54:11,598 DEBUG 0, John, Doe, JDoe, None
+2018-12-23 09:54:11,598 DEBUG 1, Igor, Kalugin, ki, Admin, Student, Instructor
+2018-12-23 09:54:11,599 DEBUG 3, Anton, Metlyakov, am, Admin, Student, Instructor
+2018-12-23 09:54:11,599 DEBUG 4, Barak, Obama, bo, Student
+2018-12-23 09:54:11,600 INFO  Logging end

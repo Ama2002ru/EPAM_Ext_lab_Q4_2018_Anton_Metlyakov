@@ -1,0 +1,68 @@
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\DAL.dll
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\DAL.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\log4net.dll
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\nunit.framework.dll
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\nunit.framework.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\bin\Debug\net471\nunit.framework.xml
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfoInputs.cache
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfo.cs
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.csproj.CopyComplete
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.dll
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Task 5\DAL\DAL\obj\Debug\net471\DAL.csprojAssemblyReference.cache
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\DAL.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\DAL.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\log4net.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\nunit.framework.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\nunit.framework.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\nunit.framework.xml
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.csprojAssemblyReference.cache
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfoInputs.cache
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfo.cs
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.csproj.CopyComplete
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\obj\Debug\net471\DAL.pdb
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\System.Configuration.ConfigurationManager.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\System.Security.AccessControl.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\System.Security.Permissions.dll
+C:\Users\Антон\Desktop\EPAM 2018\Final\DAL\DAL\bin\Debug\net471\System.Security.Principal.Windows.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\DAL.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\DAL.pdb
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\log4net.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\System.Configuration.ConfigurationManager.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\System.Security.AccessControl.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\System.Security.Permissions.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\System.Security.Principal.Windows.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\nunit.framework.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\nunit.framework.pdb
+E:\Мои документы\EPAM\Final\DAL\DAL\bin\Debug\net471\nunit.framework.xml
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.csprojAssemblyReference.cache
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.csproj.CoreCompileInputs.cache
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfoInputs.cache
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfo.cs
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.csproj.CopyComplete
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.dll
+E:\Мои документы\EPAM\Final\DAL\DAL\obj\Debug\net471\DAL.pdb
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\NUnit3.TestAdapter.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\NUnit3.TestAdapter.pdb
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\nunit.engine.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\nunit.engine.api.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\DAL.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\DAL.pdb
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\log4net.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\nunit.framework.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\System.Configuration.ConfigurationManager.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\System.Security.AccessControl.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\System.Security.Permissions.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\bin\Debug\net471\System.Security.Principal.Windows.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.csprojAssemblyReference.cache
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.DALResources.resources
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.csproj.GenerateResource.cache
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.csproj.CoreCompileInputs.cache
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfoInputs.cache
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.AssemblyInfo.cs
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.csproj.CopyComplete
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.dll
+E:\Мои документы\EPAM\FinalTask\DAL\DAL\obj\Debug\net471\DAL.pdb

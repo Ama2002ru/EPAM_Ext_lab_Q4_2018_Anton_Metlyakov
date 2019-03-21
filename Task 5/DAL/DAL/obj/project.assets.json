@@ -1,0 +1,95 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.1": {
+      "log4net/2.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "log4net/2.0.8": {
+      "sha512": "dwvu/YELc2nF5gjAnJMXJToYXVdK8Ma0BfLTEugMTM6l8kFysL9Np5LnwhUV6EKTkbRmVTa0/X1/8oSICcoHHw==",
+      "type": "package",
+      "path": "log4net/2.0.8",
+      "files": [
+        ".signature.p7s",
+        "lib/net20-full/log4net.dll",
+        "lib/net20-full/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35-full/log4net.dll",
+        "lib/net35-full/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40-full/log4net.dll",
+        "lib/net40-full/log4net.xml",
+        "lib/net45-full/log4net.dll",
+        "lib/net45-full/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "log4net.2.0.8.nupkg.sha512",
+        "log4net.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.1": [
+      "log4net >= 2.0.8"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Антон\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Антон\\Desktop\\EPAM 2018\\Task 5\\DAL\\DAL\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "C:\\Users\\Антон\\Desktop\\EPAM 2018\\Task 5\\DAL\\DAL\\DAL.csproj",
+      "packagesPath": "C:\\Users\\Антон\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Антон\\Desktop\\EPAM 2018\\Task 5\\DAL\\DAL\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Антон\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net471"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net471": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net471": {
+        "dependencies": {
+          "log4net": {
+            "target": "Package",
+            "version": "[2.0.8, )"
+          }
+        }
+      }
+    }
+  }
+}
