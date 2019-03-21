@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="QuizDB.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\AAMETLYA\DESKTOP\2019\EPAM_EXT_LAB_Q4_2018_ANTON_METLYAKOV\FINALTASK\QUIZDB\OBJ\RELEASE\QUIZDB.DLL" />
+			<Metadata Name="FileName" Value="E:\МОИ ДОКУМЕНТЫ\EPAM\FINALTASK\QUIZDB\OBJ\RELEASE\QUIZDB.DLL" />
 			<Metadata Name="AssemblyName" Value="QuizDB" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\QuizDB.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Release\QuizDB.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

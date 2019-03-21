@@ -25,7 +25,7 @@
         /// Логика проверки введенной инф. о пользователе
         /// </summary>
         /// <param name="person">Класс персона</param>
-        /// <param name=string.Empty>сообщение об ошибке</param>
+        /// <param name="">сообщение об ошибке</param>
         /// <returns>результат, прошла проверка или нет</returns>
         public bool IsValid(Person person, out string message)
         {
@@ -50,7 +50,7 @@
         /// Проверка, разрешу ли удалять пользователя
         /// </summary>
         /// <param name="person">Класс персона<</param>
-        /// <param name=string.Empty>сообщение, причина отказа</param>
+        /// <param name="">сообщение, причина отказа</param>
         /// <returns>результат, прошла проверка или нет</returns>
         public bool IsDeleteOK(Person person, out string message)
         {

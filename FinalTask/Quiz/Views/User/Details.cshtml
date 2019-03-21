@@ -1,0 +1,97 @@
+﻿@model Quiz.Models.UserModel
+<div class="modal-content">
+    <div class="modal-header">
+        <h4>User details</h4>
+    </div>
+    <div class="modal-body openUserDetails">
+        <!--   <div class="two_columns">
+
+               <p>@Html.DisplayNameFor(model => model.UserName)</p>
+               <p>@Html.DisplayNameFor(model => model.FirstName)</p>
+               <p>@Html.DisplayNameFor(model => model.LastName)</p>
+               <p>@Html.DisplayNameFor(model => model.RegistrationDate)</p>
+               <p>@Html.DisplayNameFor(model => model.LastLogonDate)</p>
+               <p>@Html.DisplayNameFor(model => model.Roles)</p>
+
+           </div>
+           <div class="two_columns">
+               <p>@Html.DisplayFor(model => model.UserName)</p>
+               <p>@Html.DisplayFor(model => model.FirstName)</p>
+               <p>@Html.DisplayFor(model => model.LastName)</p>
+               <p>@Html.DisplayFor(model => model.RegistrationDate)</p>
+               <p>
+                   @Html.DisplayFor(model => (model.LastLogonDate))
+
+               </p>
+
+               <p>@Html.DisplayFor(model => model.Roles)</p>
+            -->
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RegistrationDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastLogonDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastLogonDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Roles)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Roles)
+            </dd>
+
+
+        </dl>
+        <hr />
+        <!--    <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" value="create" class="btnviewclose">Create</button>
+                </div>
+            </div>
+        -->
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+       @Scripts.Render("~/bundles/jqueryval")
+
+}

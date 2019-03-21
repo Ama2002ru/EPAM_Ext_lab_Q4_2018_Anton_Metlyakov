@@ -1,0 +1,36 @@
+﻿@model Quiz.Models.VariantModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4>Variant details</h4>
+    </div>
+    <div class="modal-body openUserDetails">
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+            else
+            {
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Variant_Text)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Variant_Text)
+                    </dd>
+
+                </dl>
+            }
+       }
+                <p>
+                    @Html.ActionLink("Back to variant list", "Index", "Variant", new { quiz_id = Model.Quiz_Id, question_id = Model.Question_Id }, null)
+                </p>
+            </div>
+</div>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

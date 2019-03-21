@@ -16,12 +16,3 @@ E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Release\postdeploy.sql
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Release\predeploy.sql
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Release\QuizDB.dll
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Release\QuizDB.pdb
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\bin\Release\QuizDB.dacpac
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\bin\Release\QuizDB.dll
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\bin\Release\QuizDB.pdb
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\Model.xml
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\refactor.xml
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\postdeploy.sql
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\predeploy.sql
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\QuizDB.dll
-C:\Users\aametlya\Desktop\2019\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\FinalTask\QuizDB\obj\Release\QuizDB.pdb

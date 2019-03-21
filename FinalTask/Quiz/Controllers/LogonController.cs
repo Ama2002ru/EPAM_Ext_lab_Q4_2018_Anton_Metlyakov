@@ -79,7 +79,7 @@
         public ActionResult Register()
         {
             var registrationmodel = new UserModel();
-            registrationmodel.UserName = string.Empty;
+            registrationmodel.UserName = "test";
             return View(registrationmodel);
         }
 
