@@ -1,0 +1,13 @@
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\DAL.dll
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\DAL.pdb
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\log4net.dll
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\nunit.framework.dll
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\nunit.framework.pdb
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\bin\Debug\net461\nunit.framework.xml
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.csprojAssemblyReference.cache
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.csproj.CoreCompileInputs.cache
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.AssemblyInfoInputs.cache
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.AssemblyInfo.cs
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.csproj.CopyComplete
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.dll
+C:\Users\aametlya\Desktop\2018\Task 5\DAL\DAL\obj\Debug\net461\DAL.pdb
