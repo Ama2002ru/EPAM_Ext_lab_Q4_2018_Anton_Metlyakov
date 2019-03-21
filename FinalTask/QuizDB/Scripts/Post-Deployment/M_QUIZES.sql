@@ -9,8 +9,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_QUIZES;
-INSERT INTO dbo.M_QUIZES
+DELETE FROM DBO.M_QUIZES;
+INSERT INTO DBO.M_QUIZES
 ([QUIZ_ID],[QUIZ_NAME],[AUTHOR_ID]      ,[CREATED_DATE]      ,[SUCCESS_RATE])
 VALUES
 (6, N'C#', 2,'2019-03-12 20:35:06.910',0.7),

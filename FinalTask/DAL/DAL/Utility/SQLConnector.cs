@@ -87,7 +87,7 @@
         /// </summary>
         /// <param name="command"> SQL-строка </param>
         /// <returns>метод должен возвращать Датасет</returns>
-        public IDataReader ExecuteReader(string commandText /* позже добавлю список параметров */)
+        public IDataReader ExecuteReader(string commandText)
         {
             IDataReader result;
             using (IDbConnection idbConnection = this.factory.CreateConnection())
@@ -109,7 +109,7 @@
         /// </summary>
         /// <param name="command"> SQL-строка </param>
         /// <returns> возвращает количество обработанных записей</returns>
-        public int ExecuteNonQuery(string commandText /* позже добавлю список параметров */)
+        public int ExecuteNonQuery(string commandText)
         {
             int affected;
             using (IDbConnection idbConnection = this.factory.CreateConnection())

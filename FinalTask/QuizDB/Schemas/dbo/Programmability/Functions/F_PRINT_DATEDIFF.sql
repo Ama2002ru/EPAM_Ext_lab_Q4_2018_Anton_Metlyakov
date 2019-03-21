@@ -6,7 +6,7 @@
 RETURNS nvarchar(8)
 AS
 BEGIN
-	DECLARE @seconds int = DATEDIFF(second,@D1,@d2)
+	DECLARE @seconds int = DATEDIFF(second,@D1,@D2)
 	DECLARE @hours int, @minutes int , @sec int
 	SELECT @hours = @seconds/3600 , 
 	 @minutes = (@seconds - ( @seconds/3600) * 3600) / 60 ,

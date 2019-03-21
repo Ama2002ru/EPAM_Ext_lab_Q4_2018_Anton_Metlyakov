@@ -58,12 +58,12 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Schemas" />
-    <Folder Include="Schemas\dbo" />
-    <Folder Include="Schemas\dbo\Programmability" />
-    <Folder Include="Schemas\dbo\Programmability\Functions" />
-    <Folder Include="Schemas\dbo\Programmability\Stored Procedures" />
-    <Folder Include="Schemas\dbo\Tables" />
-    <Folder Include="Schemas\dbo\Views" />
+    <Folder Include="Schemas\DBO" />
+    <Folder Include="Schemas\DBO\Programmability" />
+    <Folder Include="Schemas\DBO\Programmability\Functions" />
+    <Folder Include="Schemas\DBO\Programmability\Stored Procedures" />
+    <Folder Include="Schemas\DBO\Tables" />
+    <Folder Include="Schemas\DBO\Views" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\Post-Deployment" />
     <Folder Include="Scripts\Pre-Deployment" />

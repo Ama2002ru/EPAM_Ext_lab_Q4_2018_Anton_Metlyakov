@@ -46,9 +46,9 @@
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             return new List<Role>
             {
-                 new Role(id: 1, name: "Admin", role: RoleEnum.Admin, allowedMethods: "PersonRepository.Add;PersonRepository.Delete;"), // последняя ";" обязательна
-                 new Role(id: 2, name: "Student", role: RoleEnum.Student, allowedMethods: "QuizClass.Show;QuizClass.Run;"),
-                 new Role(id: 3, name: "Instructor", role: RoleEnum.Instructor, allowedMethods: "QuizClass.Show;QuizClass.Run;QuizClass.Add;QuizClass.Delete;")
+                 new Role(id: 1, name: "Admin", role: RoleEnum.Admin, allowedMethods: string.Empty), // последняя ";" обязательна
+                 new Role(id: 2, name: "Student", role: RoleEnum.Student, allowedMethods: string.Empty),
+                 new Role(id: 3, name: "Instructor", role: RoleEnum.Instructor, allowedMethods: string.Empty)
             };
         }
 
@@ -140,6 +140,7 @@
         /// <summary>
         /// Проверим, допускает ли какая-либо роль пользователя выполнение указанного метода
         /// </summary>
+        [Obsolete]
         public bool CheckIsAllowed(Person person, string callingMethod)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));

@@ -15,11 +15,8 @@
   <Comment CommentText="Ответ на один вопрос теста">
     <Position X="0.726" Y="5.487" Height="0.75" Width="1.49" />
   </Comment>
-  <Comment CommentText="Состояние  одного теста">
-    <Position X="3.184" Y="5.499" Height="0.75" Width="1.49" />
-  </Comment>
   <Comment CommentText="Список назначенных и пройденных тестов студента&#xD;&#xA;">
-    <Position X="5.976" Y="5.487" Height="0.75" Width="1.49" />
+    <Position X="3.259" Y="5.454" Height="0.75" Width="1.49" />
   </Comment>
   <Comment CommentText="Список ролей и разрешенных классов/методов для Person ">
     <Position X="3.226" Y="11.237" Height="0.75" Width="1.49" />
@@ -34,155 +31,111 @@
     <Position X="0.726" Y="11.237" Height="0.75" Width="1.561" />
   </Comment>
   <Comment CommentText="Ведение журнала событий">
-    <Position X="3.273" Y="15.033" Height="0.75" Width="1.49" />
+    <Position X="0.75" Y="15.75" Height="0.75" Width="1.49" />
   </Comment>
   <Comment CommentText="Класс для взаимодействия с СУБД">
-    <Position X="6.023" Y="15.033" Height="0.75" Width="1.49" />
-  </Comment>
-  <Comment CommentText="Чтение настроек приложения">
-    <Position X="0.75" Y="15" Height="0.75" Width="1.49" />
+    <Position X="3.306" Y="15.683" Height="0.75" Width="1.49" />
   </Comment>
   <Comment CommentText="Список участников в системе">
     <Position X="8.75" Y="11.25" Height="0.75" Width="1.49" />
   </Comment>
   <Comment CommentText="Класс работы с паролями">
-    <Position X="8.75" Y="15" Height="0.75" Width="1.49" />
+    <Position X="5.983" Y="15.758" Height="0.75" Width="1.49" />
   </Comment>
-  <Class Name="DAL.QuestionClass">
-    <Position X="3.25" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAIAAAAAAAAAAAAAAAAAAEAAAAEAAAAAEAAAAA=</HashCode>
-      <FileName>Quiz\QuestionClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.QuizClass">
-    <Position X="6" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAgAAAAAQAAAEAAAAEAkAAAAAAAAA=</HashCode>
-      <FileName>Quiz\QuizClass.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="QuestionClass" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DAL.QuizResultClass">
-    <Position X="3.25" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAEAAAAAQAAAAAAAAAACAABAAAAAAAAAABABABBA=</HashCode>
-      <FileName>Results\QuizResultClass.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="AnswerList" />
-      <Property Name="QuizStatusEnum" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DAL.AnswerClass">
-    <Position X="0.75" Y="6.25" Width="1.5" />
-    <InheritanceLine Type="DAL.VariantsClass" ManuallyRouted="true" FixedToPoint="true">
-      <Path>
-        <Point X="1.5" Y="4.048" />
-        <Point X="1.5" Y="6.25" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Results\AnswerClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.VariantsClass">
-    <Position X="0.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAABAAAA=</HashCode>
-      <FileName>Shared\VariantsClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.QuizCollection">
-    <Position X="8.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAA=</HashCode>
-      <FileName>Quiz\QuizCollection.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="QuizList" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DAL.WorkBookClass">
-    <Position X="6" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Results\WorkBookClass.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="QuizResultList" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DALClass">
-    <Position X="6" Y="12" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAQAAAAAkAAAAAAAAAAAAACAAAAg=</HashCode>
-      <FileName>Person\PersonClass.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="WorkBook" />
-      <Property Name="RolesFlag" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DAL.StatisticClass">
-    <Position X="8.5" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAACAAgCAQAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Shared\StatisticClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.RolesClass">
-    <Position X="3.25" Y="12" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAoAAAAQAAAAAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
-      <FileName>Person\RolesClass.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="RoleFlag" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DAL.LoggerClass">
-    <Position X="3.25" Y="15.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Utility\LoggerClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DBConnectorClass">
-    <Position X="6" Y="15.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAABAQAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Utility\DBConnectorClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.ConfigClass">
-    <Position X="0.75" Y="15.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Utility\ConfigClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DAL.PersonRepository">
     <Position X="8.75" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAEIAAAAAAAABAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAABAEAAAgAQAAAEAIAAAAgACAAAAAAA=</HashCode>
       <FileName>Person\PersonRepository.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="PersonList" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DAL.PasswordManagerClass">
-    <Position X="8.75" Y="15.75" Width="1.5" />
+  <Class Name="DAL.Variant">
+    <Position X="0.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgIAAAAA=</HashCode>
-      <FileName>Utility\PasswordManagerClass.cs</FileName>
+      <HashCode>IAAgAIAAAAAAAAACAAAAAAAAEAEAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Shared\Variant.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="DAL.Question">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAgAIAAAAAAAAACAAAAIAAAAAEAAAAAAAAACEBAAAA=</HashCode>
+      <FileName>Quiz\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Quiz">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAgAAAgAAAAgAAAAAAAACEAAAAAAgAAAA=</HashCode>
+      <FileName>Quiz\Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.QuizRepository">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAIBAEAAEgAQAAAEAAAAAEgAAAAAAAAA=</HashCode>
+      <FileName>Quiz\QuizRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DAL.Answer">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAgAICAAAAAAAACAAAAAAAAAAAAAQAAAAACAAAAAAA=</HashCode>
+      <FileName>Results\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.QuizResult">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAoAIAhAAAAAAhAAAAAAgAAAAAAAAAAAQAIBAAAQAA=</HashCode>
+      <FileName>Results\QuizResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Statistic">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAwAAAAAAIAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.RolesRepository">
+    <Position X="3.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACAgAAABAEAAEAAQAAAEAAAAAAgACAAAAAAA=</HashCode>
+      <FileName>Person\RolesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DAL.Person">
+    <Position X="6" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAMAAAAAAgAAQEAAAAAAgAQAAAAAAAQAAAAgAAAg=</HashCode>
+      <FileName>Person\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Logger">
+    <Position X="0.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAACAAAAAgAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Utility\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.PasswordManager">
+    <Position X="6" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Utility\PasswordManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DAL.IdbConnector">
+    <Position X="3.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACEAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDBConnector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="DAL.RoleEnum">
     <Position X="0.75" Y="12" Width="1.5" />
     <TypeIdentifier>

@@ -9,6 +9,7 @@
     using DAL;
     using Ninject;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     /// <summary> 
     /// Контроллер для работы с пользователями
@@ -61,7 +62,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get user list !";
+                ViewBag.Error = S_ErrorGetUserList;
                 return View();
             }
         }
@@ -78,7 +79,7 @@
                 Person person;
                 if (!id.HasValue || (person = this.repository.Get(id.Value)) == null)
                 {
-                    ViewBag.Error = "Invalid user request!";
+                    ViewBag.Error = S_InvalidUserRequest;
                     return View();
                 }
 
@@ -88,7 +89,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get User details !";
+                ViewBag.Error = S_ErrorGetUserDetails;
                 return View();
             }
         }
@@ -117,19 +118,19 @@
                 Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
                 if (!ModelState.IsValid)
                 {
-                    ViewBag.Error = "Invalid user info!";
+                    ViewBag.Error = S_InvalidUserInfo;
                     return View();
                 }
 
                 if (p == null)
                 {
-                    ViewBag.Error = "Invalid HTTP request!";
+                    ViewBag.Error = S_InvalidHTTP;
                     return View();
                 }
 
                 if (!PasswordManager.ValidatePassword(p.Password, out message))
                 {
-                    ViewBag.Error = "Password validation failed, error :" + message;
+                    ViewBag.Error = S_PasswordValidationError + message;
                     return View();
                 }
 
@@ -158,7 +159,7 @@
 
                 if (!repository.Save(createdPerson))
                 {
-                    ViewBag.Error = "Error saving user!";
+                    ViewBag.Error = S_ErrorSaveUser;
                     return View();
                 }
 
@@ -171,7 +172,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error save created user !";
+                ViewBag.Error = S_ErrorSaveUser;
                 return View();
             }
         }
@@ -187,14 +188,14 @@
             {
                 if (!id.HasValue)
                 {
-                    ViewBag.Error = "Invalid HTTP request!";
+                    ViewBag.Error = S_InvalidHTTP;
                     return PartialView();
                 }
 
                 var person = repository.Get(id.Value);
                 if (person == null)
                 {
-                    ViewBag.Error = "User not found!";
+                    ViewBag.Error = S_UserNotFound;
                     return PartialView();
                 }
 
@@ -204,7 +205,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get user info!";
+                ViewBag.Error = S_ErrorGetUserDetails;
                 return PartialView();
             }
         }
@@ -223,7 +224,7 @@
                 string message;
                 if (!ModelState.IsValid)
                 {
-                    ViewBag.Error = "Invalid user info!";
+                    ViewBag.Error = S_InvalidUserInfo;
                     return View();
                 }
 
@@ -238,7 +239,7 @@
                 {
                     if (!PasswordManager.ValidatePassword(p.Password, out message))
                     {
-                        ViewBag.Error = "Password validation failed, error : " + message;
+                        ViewBag.Error = S_PasswordValidationError + message;
                         return PartialView();
                     }
 
@@ -252,7 +253,7 @@
                 var personValidator = new PersonValidator(repository);
                 if (!personValidator.IsValid(editedPerson, out message))
                 {
-                    ViewBag.Error = "Invalid user info, error : " + message;
+                    ViewBag.Error = S_InvalidUserInfoError + message;
                     return PartialView();
                 }
 
@@ -260,7 +261,7 @@
                 // а так бы мог передать информативное сообщение об ошибке
                 if (!repository.Save(editedPerson))
                 {
-                    ViewBag.Error = "User save failed!";
+                    ViewBag.Error = S_ErrorSaveUser;
                     return PartialView();
                 }
 
@@ -274,7 +275,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error save user !";
+                ViewBag.Error = S_ErrorSaveUser;
                 return PartialView();
             }
         }
@@ -292,13 +293,13 @@
                 var personValidator = new PersonValidator(repository);
                 if (!personValidator.IsDeleteOK(repository.Get(user.Id), out string message))
                 {
-                    ViewBag.Error = "This user can't be deleted, error : " + message;
+                    ViewBag.Error = S_CantDeleteUser + message;
                     return PartialView();
                 }
 
                 if (!repository.Delete(user.Id))
                 {
-                    ViewBag.Error = "Delete user error!";
+                    ViewBag.Error = S_ErrorDeleteUser;
                     return PartialView();
                 }
 
@@ -311,7 +312,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete user !";
+                ViewBag.Error = S_ErrorDeleteUser;
                 return PartialView();
             }
         }
@@ -327,7 +328,7 @@
             {
                 if (!id.HasValue)
                 {
-                    ViewBag.Error = "Invalid HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return PartialView();
                 }
 
@@ -344,7 +345,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete user !";
+                ViewBag.Error = S_ErrorDeleteUser;
                 return PartialView();
             }
         }

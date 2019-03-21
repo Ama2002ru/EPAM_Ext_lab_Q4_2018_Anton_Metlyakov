@@ -9,8 +9,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_QUESTIONS;
-  INSERT INTO [dbo].[M_QUESTIONS]
+DELETE FROM DBO.M_QUESTIONS;
+  INSERT INTO [DBO].[M_QUESTIONS]
 (QUESTION_ID, QUIZ_ID, info, text,CORRECT_OPTION_FLAG)
 values
 (2,	6,	N'Вопрос 1',	N'Какой тип переменной используется в коде: int a = 5',	8),

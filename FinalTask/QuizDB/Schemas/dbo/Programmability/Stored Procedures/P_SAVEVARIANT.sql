@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_SAVEVARIANT]
+﻿CREATE PROCEDURE [DBO].[P_SAVEVARIANT]
 										@QuizID int , 
                                         @QuestionID int , 
                                         @VariantID int,
@@ -12,17 +12,17 @@ BEGIN
 	SET NOCOUNT ON;
 	SET @ERROR = 0;
 	SET @ERRORTEXT = N'Ok';
-	IF NOT EXISTS(SELECT * FROM dbo.M_QUIZES WHERE QUIZ_ID  = @QuizID) OR NOT EXISTS(SELECT * FROM dbo.M_QUESTIONS WHERE QUESTION_ID  = @QuestionID)
+	IF NOT EXISTS(SELECT * FROM DBO.M_QUIZES WHERE QUIZ_ID  = @QuizID) OR NOT EXISTS(SELECT * FROM DBO.M_QUESTIONS WHERE QUESTION_ID  = @QuestionID)
 	/* DB consistency error */
 		SELECT @ERROR = -1,	@ERRORTEXT = N'No Quiz/Questiuon '+ CAST(@QuizID as nvarchar(10)) + N' in M_QUIZES/M_QUESTIONS table';
 	ELSE
 	BEGIN
 		BEGIN TRY
-			IF (EXISTS(SELECT * FROM dbo.[M_VARIANTS] V WHERE V.QUESTION_ID = @QuestionID )
+			IF (EXISTS(SELECT * FROM DBO.[M_VARIANTS] V WHERE V.QUESTION_ID = @QuestionID )
 				AND @VariantID >0)
 			BEGIN
 			/* update record */
-				UPDATE dbo.[M_VARIANTS]
+				UPDATE DBO.[M_VARIANTS]
 				SET 
 					[TEXT] = @text
 				WHERE 
@@ -32,8 +32,8 @@ BEGIN
 			BEGIN
 			/* new record */
 				DECLARE @NEWID NUMERIC;
-				EXECUTE dbo.P_GETNEXTPK @TABLE_NAME = 'M_VARIANTS', @ID = @NEWID OUT
-				INSERT INTO dbo.[M_VARIANTS]
+				EXECUTE DBO.P_GETNEXTPK @TABLE_NAME = 'M_VARIANTS', @ID = @NEWID OUT
+				INSERT INTO DBO.[M_VARIANTS]
 				([QUESTION_ID],[VARIANT_ID], [TEXT])
 				VALUES (@QuestionID, @NEWID, @text)
 			END

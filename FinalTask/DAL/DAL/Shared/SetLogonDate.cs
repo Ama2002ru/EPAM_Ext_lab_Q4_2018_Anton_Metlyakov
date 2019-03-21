@@ -12,6 +12,9 @@
     using log4net;
     using static DALResources;
 
+    /// <summary>
+    /// Небольшой класс обновления логон даты пользователя
+    /// </summary>
     public static class SetLogonDate
     {
         /// <summary>

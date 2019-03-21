@@ -15,6 +15,9 @@
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
         }
 
+        /// <summary>
+        /// Параметризованный конструктор
+        /// </summary>
         public Quiz(int id, string name, int author_id, string author, DateTime created_date, float success_rate, List<Question> questions)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
@@ -39,6 +42,9 @@
         /// </summary>
         public int Author_Id { get; set; }
 
+        /// <summary>
+        /// Автор, создавший тест
+        /// </summary>
         public string Author { get; set; }
 
         /// <summary>

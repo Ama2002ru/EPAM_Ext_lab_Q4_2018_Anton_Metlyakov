@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Класс для View назначения квизов пользователю
+    /// Класс для запроса из БД и последующего отображения на View назначения квизов пользователю
     /// </summary>
     public class AssignQuiz
     {

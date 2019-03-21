@@ -10,8 +10,8 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DELETE FROM [dbo].[M_USERS]
-INSERT INTO [dbo].[M_USERS]
+DELETE FROM [DBO].[M_USERS]
+INSERT INTO [DBO].[M_USERS]
            ([USER_ID]
            ,[FIRSTNAME]
            ,[LASTNAME]

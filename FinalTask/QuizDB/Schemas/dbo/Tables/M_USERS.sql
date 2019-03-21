@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[M_USERS](
+﻿CREATE TABLE [DBO].[M_USERS](
 	[USER_ID] [int] NOT NULL,
 	[FIRSTNAME] [nvarchar](100) NOT NULL,
 	[LASTNAME] [nvarchar](100) NOT NULL,

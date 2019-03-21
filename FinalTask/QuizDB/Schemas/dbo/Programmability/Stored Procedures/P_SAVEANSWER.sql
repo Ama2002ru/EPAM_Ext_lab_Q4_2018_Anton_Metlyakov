@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_SAVEANSWER]
+﻿CREATE PROCEDURE [DBO].[P_SAVEANSWER]
 										@QuizResultId int,
                                         @QuestionID int , 
                                         @AnswerID int,
@@ -12,8 +12,8 @@ BEGIN
 	SET NOCOUNT ON;
 	SET @ERROR = 0;
 	SET @ERRORTEXT = N'Ok';
-	IF ( NOT EXISTS(SELECT * FROM dbo.M_QUESTIONS WHERE QUESTION_ID = @QuestionID) OR 
-	   NOT EXISTS(SELECT * FROM dbo.M_QUIZ_RESULTS WHERE QUIZ_RESULT_ID = @QuizResultId))
+	IF ( NOT EXISTS(SELECT * FROM DBO.M_QUESTIONS WHERE QUESTION_ID = @QuestionID) OR 
+	   NOT EXISTS(SELECT * FROM DBO.M_QUIZ_RESULTS WHERE QUIZ_RESULT_ID = @QuizResultId))
 	/* DB consistency error */
 		SELECT @ERROR = -1,	@ERRORTEXT = N'No Quiz|Question|Result '+ CAST(@QuizResultId as nvarchar(10)) + N' in M_QUESTIONS|M_QUIZ_RESULTS table';
 	ELSE
@@ -27,13 +27,13 @@ BEGIN
 			BEGIN TRY
 				/* new record */
 				DECLARE @NEWID NUMERIC;
-				EXECUTE dbo.P_GETNEXTPK @TABLE_NAME = 'M_QUIZ_ANSWERS', @ID = @NEWID OUT
-				INSERT INTO dbo.[M_QUIZ_ANSWERS]
+				EXECUTE DBO.P_GETNEXTPK @TABLE_NAME = 'M_QUIZ_ANSWERS', @ID = @NEWID OUT
+				INSERT INTO DBO.[M_QUIZ_ANSWERS]
 					([QUIZ_ANSWERS_ID], [QUIZ_RESULT_ID], [QUIZ_ID], [QUESTION_ID],[ANSWER_FLAG], [TIMESTAMP])
 					VALUES (
 						@NEWID,
 						@QuizResultId,
-						(SELECT QUIZ_ID FROM dbo.[M_QUIZ_RESULTS] QR WHERE QR.QUIZ_RESULT_ID = @QuizResultId),
+						(SELECT QUIZ_ID FROM DBO.[M_QUIZ_RESULTS] QR WHERE QR.QUIZ_RESULT_ID = @QuizResultId),
 						@QuestionID,
 						@AnswerFlag,
 						GETDATE())

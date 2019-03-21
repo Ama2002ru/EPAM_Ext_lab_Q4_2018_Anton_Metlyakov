@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
   <Operation Name="Rename Refactor" Key="a83bd177-679f-407f-b5c0-9bc765bde1ad" ChangeDateTime="03/13/2019 16:28:21">
-    <Property Name="ElementName" Value="[dbo].[M_QUIZ_ANSWERS].[QUIZ_RESULTS_ID]" />
+    <Property Name="ElementName" Value="[DBO].[M_QUIZ_ANSWERS].[QUIZ_RESULTS_ID]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[dbo].[M_QUIZ_ANSWERS]" />
+    <Property Name="ParentElementName" Value="[DBO].[M_QUIZ_ANSWERS]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="QUIZ_RESULT_ID" />
   </Operation>
   <Operation Name="Rename Refactor" Key="1fcd2e4c-3faf-4f46-ba3d-1c3fb38a75b5" ChangeDateTime="03/13/2019 16:28:43">
-    <Property Name="ElementName" Value="[dbo].[M_QUIZ_RESULTS].[QUIZ_RESULTS_ID]" />
+    <Property Name="ElementName" Value="[DBO].[M_QUIZ_RESULTS].[QUIZ_RESULTS_ID]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[dbo].[M_QUIZ_RESULTS]" />
+    <Property Name="ParentElementName" Value="[DBO].[M_QUIZ_RESULTS]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="QUIZ_RESULT_ID" />
   </Operation>
   <Operation Name="Rename Refactor" Key="a8e42ba6-8f8e-455e-a863-628a475bbc63" ChangeDateTime="03/16/2019 04:35:16">
-    <Property Name="ElementName" Value="[dbo].[M_QUIZ_RESULTS].[Time_Taken]" />
+    <Property Name="ElementName" Value="[DBO].[M_QUIZ_RESULTS].[Time_Taken]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[dbo].[M_QUIZ_RESULTS]" />
+    <Property Name="ParentElementName" Value="[DBO].[M_QUIZ_RESULTS]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="TIME_TAKEN" />
   </Operation>

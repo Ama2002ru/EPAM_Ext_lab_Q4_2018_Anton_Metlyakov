@@ -5,7 +5,7 @@
 -- Input : @RecordsCount, -1 - no limit
 -- returns : table
 -- =============================================
-CREATE PROCEDURE [dbo].[P_GETALLUSERS]
+CREATE PROCEDURE [DBO].[P_GETALLUSERS]
 @RecordsCount int = 2147483647 /* max INT value*/
 AS
 SET NOCOUNT ON
@@ -22,5 +22,5 @@ BEGIN
 		[ROLESFLAG], 
 		CONVERT(nvarchar(23),[REGISTRATION_DATE],121) as [REGISTRATION_DATE] , 
 		CONVERT(nvarchar(23),[LAST_LOGON_DATE],121) as [LAST_LOGON_DATE]
-	FROM  dbo.V_M_USERS
+	FROM  DBO.V_M_USERS
 END

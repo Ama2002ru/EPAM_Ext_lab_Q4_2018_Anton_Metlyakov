@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_GETALLQUIZES]
+﻿CREATE PROCEDURE [DBO].[P_GETALLQUIZES]
 @RecordsCount int = 2147483647 /* max INT value*/
 AS
 SET NOCOUNT ON
@@ -25,10 +25,10 @@ CAST (A.SUCCESS_RATE as numeric(10,2)) as Success_Rate,
 			C.QUESTION_ID as Question_Id,
 			B.QUIZ_ID as Quiz_Id,
 			C.[TEXT] as [Text]
-			FROM  dbo.M_VARIANTS C WHERE C.QUESTION_ID= B.QUESTION_ID
+			FROM  DBO.M_VARIANTS C WHERE C.QUESTION_ID= B.QUESTION_ID
 		FOR XML PATH('Variant'),type) as Options 
-	FROM  dbo.M_QUESTIONS B WHERE B.QUIZ_ID= A.QUIZ_ID
+	FROM  DBO.M_QUESTIONS B WHERE B.QUIZ_ID= A.QUIZ_ID
 	FOR XML PATH('Question'),type)  as "Questions"
-FROM dbo.M_QUIZES A
+FROM DBO.M_QUIZES A
 FOR XML PATH('Quiz'), type, root('ArrayOfQuiz')
 END

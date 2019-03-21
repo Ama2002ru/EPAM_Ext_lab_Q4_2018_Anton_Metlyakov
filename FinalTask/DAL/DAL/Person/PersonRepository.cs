@@ -125,7 +125,7 @@
                             if (users.IsDBNull(8))
                                 lastLogonDate = null;
                             else
-                                lastLogonDate = DateTime.ParseExact(users[8].ToString(), "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                                lastLogonDate = DateTime.ParseExact(users[8].ToString(), S_DatetimeFormatString, System.Globalization.CultureInfo.InvariantCulture);
                             person = new Person(
                                                         (int)users[0],       // user_id
                                                         users[1].ToString(), // firstname
@@ -135,7 +135,7 @@
                                                         users[5].ToString(), // salt
                                                         null,                // QuizResults
                                                         (RoleEnum)users[6],  // roles
-                                                        DateTime.ParseExact(users[7].ToString(), "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture),
+                                                        DateTime.ParseExact(users[7].ToString(), S_DatetimeFormatString, System.Globalization.CultureInfo.InvariantCulture),
                                                         lastLogonDate);      // lastlogondate
                         }
                     }
@@ -227,7 +227,7 @@
                             if (users.IsDBNull(8))
                                 lastLogonDate = null;
                             else
-                                lastLogonDate = DateTime.ParseExact(users[8].ToString(), "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                                lastLogonDate = DateTime.ParseExact(users[8].ToString(), S_DatetimeFormatString, System.Globalization.CultureInfo.InvariantCulture);
                             int id = (int)users[0];
                             var roles = (RoleEnum)users[6];
                             newPersonList.Add(new Person(
@@ -239,7 +239,7 @@
                                                         users[5].ToString(), // salt
                                                         null,                  // workbook
                                                         roles,  // roles
-                                                        DateTime.ParseExact(users[7].ToString(), "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture),
+                                                        DateTime.ParseExact(users[7].ToString(), S_DatetimeFormatString, System.Globalization.CultureInfo.InvariantCulture),
                                                         lastLogonDate));      // lastlogondate
                         }
                     }

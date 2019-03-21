@@ -7,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using DAL;
+    using static DALResources;
 
     /// <summary>
     /// класс, содержащий метод проверки инф о пользователе
@@ -24,13 +25,13 @@
         /// Логика проверки введенной инф. о пользователе
         /// </summary>
         /// <param name="person">Класс персона</param>
-        /// <param name="">сообщение об ошибке</param>
+        /// <param name=string.Empty>сообщение об ошибке</param>
         /// <returns>результат, прошла проверка или нет</returns>
         public bool IsValid(Person person, out string message)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             bool boolresult = true;
-            message = "Person is Ok";
+            message = S_IsValidMessageOk;
             var persons2 = personRepository.GetAll();
             var personfound = personRepository.GetAll().Find(x => (x.UserName.ToLower() == person.UserName.ToLower()));
 
@@ -39,7 +40,7 @@
             {
                 // Новый person, коллизия Username
                 boolresult = false;
-                message = "Username already used! Choose another!";
+                message = S_IsValidMessageAlreadyUsed;
             }
 
             return boolresult;
@@ -49,13 +50,13 @@
         /// Проверка, разрешу ли удалять пользователя
         /// </summary>
         /// <param name="person">Класс персона<</param>
-        /// <param name="">сообщение, причина отказа</param>
+        /// <param name=string.Empty>сообщение, причина отказа</param>
         /// <returns>результат, прошла проверка или нет</returns>
         public bool IsDeleteOK(Person person, out string message)
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             bool boolresult = false;
-            string strresult = "Delete is Ok";
+            string strresult = S_ISDeleteOk;
 
             // в будущем проверю - 
             // а) это последний админ ?

@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Класс для получения из БД статистики
+    /// Класс для получения из БД статистики - по квизу
     /// </summary>
     public class StatsByQuiz
     {

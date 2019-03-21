@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[P_DELETEQUESTION]
+﻿CREATE PROCEDURE [DBO].[P_DELETEQUESTION]
 @QuizID int , 
                                         @QuestionID int , 
                                         @ERROR int OUT, 
@@ -10,15 +10,15 @@ BEGIN
 	SET NOCOUNT ON;
 	SET @ERROR = 0;
 	SET @ERRORTEXT = N'Ok';
-	IF NOT EXISTS(SELECT * FROM dbo.M_QUIZES WHERE QUIZ_ID  = @QuizID)
+	IF NOT EXISTS(SELECT * FROM DBO.M_QUIZES WHERE QUIZ_ID  = @QuizID)
 	/* DB consistency error */
 		SELECT @ERROR = -1,	@ERRORTEXT = N'No Quiz '+ CAST(@QuizID as nvarchar(10)) + N' in M_QUIZES table';
 	ELSE
 	BEGIN
 		BEGIN TRY
-			IF (EXISTS(SELECT * FROM dbo.[M_QUESTIONS] Q WHERE Q.QUESTION_ID = @QuestionID AND Q.QUIZ_ID = @QuizID))
+			IF (EXISTS(SELECT * FROM DBO.[M_QUESTIONS] Q WHERE Q.QUESTION_ID = @QuestionID AND Q.QUIZ_ID = @QuizID))
 			BEGIN
-				DELETE FROM dbo.[M_QUESTIONS] WHERE QUIZ_ID = @QuizID AND QUESTION_ID = @QuestionID
+				DELETE FROM DBO.[M_QUESTIONS] WHERE QUIZ_ID = @QuizID AND QUESTION_ID = @QuestionID
 			END
 			ELSE
 			BEGIN

@@ -8,6 +8,7 @@
     using System.Web.Security;
     using DAL;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
    /// <summary>
    /// Контроллер для расчета статистики
@@ -46,7 +47,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open allquizes statistic page !";
+                ViewBag.Error = S_ErrorOpenAllQuizes;
                 return View();
             }
         }
@@ -66,7 +67,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open allusers statistic page !";
+                ViewBag.Error = S_ErrorOpenAllUsers;
                 return View();
             }
         }
@@ -82,7 +83,7 @@
             {
                 if (!quiz_id.HasValue)
                 {
-                    ViewBag.Error = "Bad HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return View();
                 }
 
@@ -92,7 +93,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open user statistic page !";
+                ViewBag.Error = S_ErrorOpenQuiz;
                 return View();
             }
         }
@@ -108,7 +109,7 @@
             {
                 if (!user_id.HasValue)
                 {
-                    ViewBag.Error = "Bad HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return View();
                 }
 
@@ -118,7 +119,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open user statistic page !";
+                ViewBag.Error = S_ErrorOpenUser;
                 return View();
             }
         }
@@ -134,7 +135,7 @@
             {
                 if (!user_id.HasValue || !quiz_id.HasValue)
                 {
-                    ViewBag.Error = "Bad HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return View();
                 }
 
@@ -153,13 +154,13 @@
                     return PartialView(statsByUser);
                 }
 
-                ViewBag.Error = "Quiz is not finished, question view is not allowed !";
+                ViewBag.Error = S_QuizNotFinished;
                 return View();
             }
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open user statistic page !";
+                ViewBag.Error = S_ErrorOpenUser;
                 return View();
             }
         }
@@ -181,7 +182,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open statistic page !";
+                ViewBag.Error = S_ErrorOpenStatistic;
                 return View();
             }
         }
@@ -260,13 +261,13 @@
                     });
                 }
 
-                ViewBag.Error = "Invalid HTTP request !";
+                ViewBag.Error = S_InvalidHTTP;
                 return View();
             }
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error open statistic page !";
+                ViewBag.Error = S_ErrorOpenStatistic;
                 return View();
             }
         }

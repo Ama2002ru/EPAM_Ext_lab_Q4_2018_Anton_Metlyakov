@@ -11,6 +11,7 @@
     using System.Web.Security;
     using DAL;
     using Quiz.Models;
+    using static Quiz.Resources.QuizResources;
 
     /// <summary>
     ///  контроллер редактирования квизов
@@ -67,7 +68,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error create quiz !";
+                ViewBag.Error = S_ErrorCreateQuiz;
                 return PartialView();
             }
         }
@@ -86,8 +87,8 @@
             {
                 if (!ModelState.IsValid)
                 {
-                    ViewBag.Message = "Quiz is Non Valid!";
-                    return PartialView(quiz);
+                    ViewBag.Message = S_InvalidQuiz;
+                    return View(quiz);
                 }
 
                 var createdQuiz = new Quiz();
@@ -100,7 +101,7 @@
 
                 if (!repository.Save(createdQuiz))
                 {
-                    ViewBag.Error = "Quiz save failed!";
+                    ViewBag.Error = S_ErrorSaveQuiz;
                     return View();
                 }
 
@@ -113,7 +114,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error save quiz!";
+                ViewBag.Error = S_ErrorSaveQuiz;
                 return PartialView();
             }
         }
@@ -130,14 +131,14 @@
             {
                 if (!id.HasValue)
                 {
-                    ViewBag.Error = "Invalid HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return PartialView();
                 }
 
                 Quiz quiz;
                 if ((quiz = repository.Get(id.Value)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request !";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -146,7 +147,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete quiz !";
+                ViewBag.Error = S_ErrorDeleteQuiz;
                 return PartialView();
             }
         }
@@ -164,7 +165,7 @@
             {
                 if (!repository.Delete(qm.Quiz_Id))
                 {
-                    ViewBag.Error = "Delete question error!";
+                    ViewBag.Error = S_ErrorDeleteQuestion;
                     return View();
                 }
 
@@ -178,7 +179,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error delete quiz !";
+                ViewBag.Error = S_ErrorDeleteQuiz;
                 return PartialView();
             }
         }
@@ -194,14 +195,14 @@
             {
                 if (!id.HasValue)
                 {
-                    ViewBag.Error = "Invalid HTTP request !";
+                    ViewBag.Error = S_InvalidHTTP;
                     return PartialView();
                 }
 
                 Quiz quiz;
                 if ((quiz = this.repository.Get(id.Value)) == null)
                 {
-                    ViewBag.Error = "Invalid quiz request!";
+                    ViewBag.Error = S_InvalidQuizRequest;
                     return PartialView();
                 }
 
@@ -210,7 +211,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error view quiz !";
+                ViewBag.Error = S_ErrorViewQuiz;
                 return PartialView();
             }
         }
@@ -228,8 +229,8 @@
                 Quiz quiz = repository.Get(id);
                 if (quiz == null)
                 {
-                    ViewBag.Error = "Quiz not found!";
-                    return PartialView("Error");
+                    ViewBag.Error = S_QuizNotFound;
+                    return PartialView();
                 }
 
                 List<SelectListItem> authors = new List<SelectListItem>();
@@ -247,7 +248,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error view quiz !";
+                ViewBag.Error = S_ErrorViewQuiz;
                 return PartialView();
             }
         }
@@ -266,7 +267,7 @@
             {
                 if (!ModelState.IsValid)
                 {
-                    ViewBag.Message = "Quiz Non Valid";
+                    ViewBag.Message = S_InvalidQuiz;
                     return View(quiz);
                 }
 
@@ -277,7 +278,7 @@
 
                 if (!repository.Save(editedQuiz))
                 {
-                    ViewBag.Error = "Quiz save failed!";
+                    ViewBag.Error = S_ErrorSaveQuiz;
                     return View(quiz);
                 }
 
@@ -291,7 +292,7 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error save quiz !";
+                ViewBag.Error = S_ErrorSaveQuiz;
                 return PartialView();
             }
         }
@@ -321,14 +322,14 @@
             catch (Exception ex)
             {
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error get quiz list !";
+                ViewBag.Error = S_ErrorGetQuizList;
                 return PartialView();
             }
         }
 
         /// <summary>
-        /// Лечениее проблемы с JQuery Validate и точкой/запятой во Float поле
-        /// так как разделитьель-точка захардкожена в JQuery, переведу и свой UI в en-US вид
+        /// Лечение проблемы с JQuery Validate и точкой/запятой во Float поле
+        /// так как разделитель-точка захардкожена в JQuery, переведу и свой UI в en-US вид
         /// </summary>
         /// <param name="requestContext"></param>
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)

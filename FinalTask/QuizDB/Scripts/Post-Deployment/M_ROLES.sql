@@ -9,11 +9,11 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.[M_ROLES];
-INSERT INTO dbo.[M_ROLES]
+DELETE FROM DBO.[M_ROLES];
+INSERT INTO DBO.[M_ROLES]
 ([ROLE_ID], [ROLE_NAME], [ROLE_FLAG], [ALLOWED_METHODS])
 VALUES
-(1,N'Student',1,'QuizClass.Show;'),
-(2,N'Instructor',2,'PersonRepository.Add;'),
+(1,N'Student',1,''),
+(2,N'Instructor',2,''),
 (3,N'Admin',4,'')
 GO

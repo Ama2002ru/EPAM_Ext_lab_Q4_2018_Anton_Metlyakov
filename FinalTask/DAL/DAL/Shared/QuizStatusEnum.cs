@@ -6,7 +6,7 @@
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Статусы тестов, назначенных студенту
+    /// Возможные статусы тестов, назначенных студенту
     /// </summary>
     public enum QuizStatusEnum
     {

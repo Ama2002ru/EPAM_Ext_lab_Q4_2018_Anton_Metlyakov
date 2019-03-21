@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[T_LOG](
+﻿CREATE TABLE [DBO].[T_LOG](
 	[Id] [int] NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[Thread] [varchar](255) NOT NULL,
