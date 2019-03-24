@@ -3,11 +3,15 @@
   <project key="200363438">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <project key="1995547839">
+    <configuration>
+    </configuration>
+  </project>
   <sourcecode name="BundleConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.07 20:14:06.701</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.845</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -29,8 +33,8 @@
   <sourcecode name="FilterConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.05 15:59:50.385</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.845</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -52,8 +56,8 @@
   <sourcecode name="RouteConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.21 10:13:02.152</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.845</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -75,8 +79,8 @@
   <sourcecode name="LogonController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 19:28:55.307</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.870</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -98,8 +102,8 @@
   <sourcecode name="MyquizesController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.24 07:32:23.883</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 23:20:36.691</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -121,8 +125,8 @@
   <sourcecode name="QuestionController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 20:11:38.395</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.871</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -144,8 +148,8 @@
   <sourcecode name="QuizController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 20:13:20.605</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.871</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -167,8 +171,8 @@
   <sourcecode name="StatisticController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 20:19:45.116</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.872</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -190,8 +194,8 @@
   <sourcecode name="UserController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 20:21:38.494</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.872</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -213,8 +217,8 @@
   <sourcecode name="VariantController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.23 20:24:36.300</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.872</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -236,8 +240,8 @@
   <sourcecode name="QuizExceptionHandler.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.24 07:32:12.491</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.873</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -259,8 +263,8 @@
   <sourcecode name="Global.asax.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.24 10:00:32.607</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.873</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -282,8 +286,8 @@
   <sourcecode name="AnswerModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:08:21.240</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.875</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -305,8 +309,8 @@
   <sourcecode name="AssignQuizModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:09:59.554</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.875</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -328,8 +332,8 @@
   <sourcecode name="LogonModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:09:34.676</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.875</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -351,8 +355,8 @@
   <sourcecode name="MyQuizesIndexModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:04:24.047</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.876</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -374,8 +378,8 @@
   <sourcecode name="QuestionModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:12:58.834</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.876</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -397,8 +401,8 @@
   <sourcecode name="QuizModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 15:10:16.007</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.876</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -420,8 +424,8 @@
   <sourcecode name="QuizResultModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:15:00.846</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.876</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -443,8 +447,8 @@
   <sourcecode name="SearchModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:17:34.116</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.877</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -466,8 +470,8 @@
   <sourcecode name="StatisticModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:18:02.892</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.877</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -489,8 +493,8 @@
   <sourcecode name="UserModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:18:16.333</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.877</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -512,8 +516,8 @@
   <sourcecode name="VariantModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.15 20:00:24.150</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.877</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -535,8 +539,8 @@
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.01.24 15:46:22.062</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.878</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -558,8 +562,8 @@
   <sourcecode name="DependencyResolver.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.17 22:54:35.875</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.878</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -581,8 +585,8 @@
   <sourcecode name="MyAuthProvider.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:19:15.927</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.878</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -604,8 +608,8 @@
   <sourcecode name="QuizRolesProvider.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.20 14:19:50.564</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.879</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -627,8 +631,8 @@
   <sourcecode name="QuizResources.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019.02.24 09:29:28.855</styleCop>
-      <settingsFile>2019.02.24 09:29:28.834</settingsFile>
-      <sourceFile>2019.03.21 11:30:23.130</sourceFile>
+      <settingsFile>2019.03.24 22:28:59.901</settingsFile>
+      <sourceFile>2019.03.24 22:28:59.880</sourceFile>
       <parser>2019.02.24 09:29:28.855</parser>
       <StyleCop.CSharp.DocumentationRules>2019.02.24 09:29:28.855</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1077196476</StyleCop.CSharp.DocumentationRules.FilesHashCode>

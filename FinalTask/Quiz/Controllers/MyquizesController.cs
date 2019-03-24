@@ -152,15 +152,38 @@
         public ActionResult GetNextQuestion(FormCollection collection)
         {
             int quizresult_id = 0;
+            int.TryParse(collection["QuizResult_Id"], out quizresult_id);
             QuestionModel currentQuestion = null;
-            if (!SaveAnswer(collection))
+
+            // Save answer if there is one ...
+            var currentAnswer = new Answer(quizRepository);
+            currentAnswer.QuizResult_Id = quizresult_id;
+            int result = 0;
+            int.TryParse(collection["Question_Id"], out result);
+            currentAnswer.Question_Id = result;
+            currentAnswer.TimeStamp = null;
+            currentAnswer.Answer_Id = -1;  // новая запись в БД
+                                           // соберу чекнутые чекбоксы с формы
+            currentAnswer.Answer_Flag = 0;
+            for (int i = 0; i < 32; i++)
+            {
+                var res = collection["variant" + i.ToString()];
+                if (res == "on")
+                    currentAnswer.Answer_Flag |= 1 << i;
+            }
+
+            if (currentAnswer.Answer_Flag == 0)
+            {
+                // Ни один чекбох не нажат. Ответ не засчитываю
+                return View(GetNextQuestion(quizresult_id));
+            }
+
+            if (!currentAnswer.Save())
             {
                 ViewBag.Error = S_ErrorSaveAnswer;
                 return View("Error");
             }
 
-            // буду таскать эту переменную между форм ? (QuizResult_Id)
-            int.TryParse(collection["QuizResult_Id"], out quizresult_id);
             currentQuestion = GetNextQuestion(quizresult_id);
  
             if (currentQuestion != null)
@@ -196,34 +219,6 @@
             // добавлю доп поля на форму
             nextQuestionModel.QuizResult_Id = quizresult_id;
             return nextQuestionModel;
-        }
-
-        /// <summary>
-        /// сохранить ответ в БД
-        /// </summary>
-        /// <param name="collection"></param>
-        /// <returns></returns>
-        [Authorize(Roles = "Student,Instructor")]
-        public bool SaveAnswer(FormCollection collection)
-        {
-            var currentAnswer = new Answer(quizRepository);
-            int result = 0;
-            int.TryParse(collection["QuizResult_Id"], out result);
-            currentAnswer.QuizResult_Id = result;
-            int.TryParse(collection["Question_Id"], out result);
-            currentAnswer.Question_Id = result;
-            currentAnswer.TimeStamp = null;
-            currentAnswer.Answer_Id = -1;  // новая запись в БД
-                                           // соберу чекнутые чекбоксы с формы
-            currentAnswer.Answer_Flag = 0;
-            for (int i = 0; i < 32; i++)
-            {
-                var res = collection["variant" + i.ToString()];
-                if (res == "on")
-                    currentAnswer.Answer_Flag |= 1 << i;
-            }
-
-            return currentAnswer.Save();
         }
 
         /// <summary>
