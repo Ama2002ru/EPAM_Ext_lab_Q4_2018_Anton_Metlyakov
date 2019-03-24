@@ -13,10 +13,10 @@
     using Quiz.Models;
     using static Quiz.Resources.QuizResources;
 
-
     /// <summary>
     ///  контроллер редактирования квизов
     /// </summary>
+    [QuizExceptionHandler]
     [Authorize(Roles = "Instructor")]
     public class QuizController : Controller
     {
@@ -51,27 +51,20 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Create()
         {
-            try
+            var qm = new QuizModel
             {
-                var qm = new QuizModel();
-                qm.Quiz_Id = -1;
-                qm.Author = User.Identity.Name;
-                qm.Author_Id = personRepository.GetAll().First(x => x.UserName == qm.Author).ID;
-                if (User.Identity.IsAuthenticated)
-                {
-                    var person = personRepository.GetAll().Find(x => x.UserName == User.Identity.Name);
-                    qm.Author_Id = person.ID;
-                    qm.Author = person.FirstName + ' ' + person.LastName;
-                }
+                Quiz_Id = -1,
+                Author = User.Identity.Name
+            };
+            qm.Author_Id = personRepository.GetAll().First(x => x.UserName == qm.Author).ID;
+            if (User.Identity.IsAuthenticated)
+            {
+                var person = personRepository.GetAll().Find(x => x.UserName == User.Identity.Name);
+                qm.Author_Id = person.ID;
+                qm.Author = person.FirstName + ' ' + person.LastName;
+            }
 
-                return PartialView(qm);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorCreateQuiz;
-                return PartialView();
-            }
+            return PartialView(qm);
         }
 
         /// <summary>
@@ -84,40 +77,33 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Create(QuizModel quiz)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.Message = S_InvalidQuiz;
-                    return View(quiz);
-                }
-
-                var createdQuiz = new Quiz();
-                createdQuiz.ID = -1;
-                createdQuiz.Quiz_Name = quiz.Name;
-                createdQuiz.Success_Rate = quiz.Success_Rate;
-                createdQuiz.Author = quiz.Author;
-                createdQuiz.Author_Id = quiz.Author_Id;
-                createdQuiz.Created_Date = DateTime.Now;
-
-                if (!repository.Save(createdQuiz))
-                {
-                    ViewBag.Error = S_ErrorSaveQuiz;
-                    return View();
-                }
-
-                return RedirectToRoute(new
-                {
-                    controller = "Quiz",
-                    action = "Index"
-                });
+                ViewBag.Message = S_InvalidQuiz;
+                return View(quiz);
             }
-            catch (Exception ex)
+
+            var createdQuiz = new Quiz
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                ID = -1,
+                Quiz_Name = quiz.Name,
+                Success_Rate = quiz.Success_Rate,
+                Author = quiz.Author,
+                Author_Id = quiz.Author_Id,
+                Created_Date = DateTime.Now
+            };
+
+            if (!repository.Save(createdQuiz))
+            {
                 ViewBag.Error = S_ErrorSaveQuiz;
-                return PartialView();
+                return View("Error");
             }
+
+            return RedirectToRoute(new
+            {
+                controller = "Quiz",
+                action = "Index"
+            });
         }
 
         /// <summary>
@@ -128,29 +114,20 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Delete(int? id)
         {
-            try
+            if (!id.HasValue)
             {
-                if (!id.HasValue)
-                {
-                    ViewBag.Error = S_InvalidHTTP;
-                    return PartialView();
-                }
-
-                Quiz quiz;
-                if ((quiz = repository.Get(id.Value)) == null)
-                {
-                    ViewBag.Error = S_InvalidQuizRequest;
-                    return PartialView();
-                }
-
-                return PartialView((QuizModel)quiz);
+                ViewBag.Error = S_InvalidHTTP;
+                return View("Error");
             }
-            catch (Exception ex)
+
+            Quiz quiz;
+            if ((quiz = repository.Get(id.Value)) == null)
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorDeleteQuiz;
+                ViewBag.Error = S_InvalidQuizRequest;
                 return PartialView();
             }
+
+            return PartialView((QuizModel)quiz);
         }
 
         /// <summary>
@@ -162,27 +139,18 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Delete(QuizModel qm)
         {
-            try
+            if (!repository.Delete(qm.Quiz_Id))
             {
-                if (!repository.Delete(qm.Quiz_Id))
-                {
-                    ViewBag.Error = S_ErrorDeleteQuestion;
-                    return View();
-                }
+                ViewBag.Error = S_ErrorDeleteQuestion;
+                return View("Error");
+            }
 
-                return RedirectToRoute(new
-                {
-                    controller = "Quiz",
-                    action = "Index",
-                    quiz_id = string.Empty
-                });
-            }
-            catch (Exception ex)
+            return RedirectToRoute(new
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorDeleteQuiz;
-                return PartialView();
-            }
+                controller = "Quiz",
+                action = "Index",
+                quiz_id = string.Empty
+            });
         }
 
         /// <summary>
@@ -192,29 +160,20 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Details(int? id)
         {
-            try
+            if (!id.HasValue)
             {
-                if (!id.HasValue)
-                {
-                    ViewBag.Error = S_InvalidHTTP;
-                    return PartialView();
-                }
-
-                Quiz quiz;
-                if ((quiz = this.repository.Get(id.Value)) == null)
-                {
-                    ViewBag.Error = S_InvalidQuizRequest;
-                    return PartialView();
-                }
-
-                return PartialView((QuizModel)quiz);
+                ViewBag.Error = S_InvalidHTTP;
+                return PartialView("Error");
             }
-            catch (Exception ex)
+
+            Quiz quiz;
+            if ((quiz = this.repository.Get(id.Value)) == null)
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorViewQuiz;
-                return PartialView();
+                ViewBag.Error = S_InvalidQuizRequest;
+                return View("Error");
             }
+
+            return PartialView((QuizModel)quiz);
         }
 
         /// <summary>
@@ -225,33 +184,26 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Edit(int id)
         {
-            try
+            Quiz quiz = repository.Get(id);
+            if (quiz == null)
             {
-                Quiz quiz = repository.Get(id);
-                if (quiz == null)
-                {
-                    ViewBag.Error = S_QuizNotFound;
-                    return PartialView();
-                }
-
-                List<SelectListItem> authors = new List<SelectListItem>();
-                authors.Add(new SelectListItem { Text = "Please select", Value = "0" });
-                foreach (var user in personRepository.GetAll())
-                    if (user.ID == quiz.Author_Id)
-                        authors.Add(new SelectListItem { Text = user.FirstName + ' ' + user.LastName, Value = user.ID.ToString(), Selected = true });
-                    else
-                        authors.Add(new SelectListItem { Text = user.FirstName + ' ' + user.LastName, Value = user.ID.ToString() });
-
-                ViewBag.Authors = authors;
-                QuizModel q = quiz;
-                return View(q);
+                ViewBag.Error = S_QuizNotFound;
+                return View("Error");
             }
-            catch (Exception ex)
+
+            List<SelectListItem> authors = new List<SelectListItem>
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorViewQuiz;
-                return PartialView();
-            }
+                new SelectListItem { Text = "Please select", Value = "0" }
+            };
+            foreach (var user in personRepository.GetAll())
+                if (user.ID == quiz.Author_Id)
+                    authors.Add(new SelectListItem { Text = user.FirstName + ' ' + user.LastName, Value = user.ID.ToString(), Selected = true });
+                else
+                    authors.Add(new SelectListItem { Text = user.FirstName + ' ' + user.LastName, Value = user.ID.ToString() });
+
+            ViewBag.Authors = authors;
+            QuizModel q = quiz;
+            return View(q);
         }
 
         /// <summary>
@@ -264,38 +216,29 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Edit(QuizModel quiz)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.Message = S_InvalidQuiz;
-                    return View(quiz);
-                }
-
-                var editedQuiz = repository.Get(quiz.Quiz_Id);
-                editedQuiz.ID = quiz.Quiz_Id;
-                editedQuiz.Quiz_Name = quiz.Name;
-                editedQuiz.Success_Rate = quiz.Success_Rate;
-
-                if (!repository.Save(editedQuiz))
-                {
-                    ViewBag.Error = S_ErrorSaveQuiz;
-                    return View(quiz);
-                }
-
-                return RedirectToRoute(new
-                {
-                    controller = "Quiz",
-                    action = "Index",
-                    id = string.Empty
-                });
+                ViewBag.Message = S_InvalidQuiz;
+                return View(quiz);
             }
-            catch (Exception ex)
+
+            var editedQuiz = repository.Get(quiz.Quiz_Id);
+            editedQuiz.ID = quiz.Quiz_Id;
+            editedQuiz.Quiz_Name = quiz.Name;
+            editedQuiz.Success_Rate = quiz.Success_Rate;
+
+            if (!repository.Save(editedQuiz))
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
                 ViewBag.Error = S_ErrorSaveQuiz;
-                return PartialView();
+                return View(quiz);
             }
+
+            return RedirectToRoute(new
+            {
+                controller = "Quiz",
+                action = "Index",
+                id = string.Empty
+            });
         }
 
         /// <summary>
@@ -306,41 +249,17 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Index(string name = "")
         {
-            try
-            {
-                var searchedQuizes = new List<QuizModel>(0);
-                IEnumerable<Quiz> quizes;
-                if (name == string.Empty)
-                    quizes = this.repository.GetAll();
-                else
+            var searchedQuizes = new List<QuizModel>(0);
+            IEnumerable<Quiz> quizes;
+            if (name == string.Empty)
+                quizes = this.repository.GetAll();
+            else
 
-                    // применю строку поиска
-                    quizes = this.repository.GetAll().Where(x => x.Quiz_Name.ToLower().Contains(name.ToLower()));
-                foreach (var q in quizes)
-                    searchedQuizes.Add(q);
-                return PartialView(searchedQuizes);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorGetQuizList;
-                return PartialView();
-            }
-        }
-
-        /// <summary>
-        /// Лечение проблемы с JQuery Validate и точкой/запятой во Float поле
-        /// так как разделитель-точка захардкожена в JQuery, переведу и свой UI в en-US вид
-        /// </summary>
-        /// <param name="requestContext"></param>
-        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
-        {
-            base.Initialize(requestContext);
-
-            var appsetting = WebConfigurationManager.AppSettings["quizlocale"] ?? "en-US";
-            var appuisetting = WebConfigurationManager.AppSettings["quizuilocale"] ?? "en";
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(appsetting, false);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(appuisetting, false);
+                // применю строку поиска
+                quizes = this.repository.GetAll().Where(x => x.Quiz_Name.ToLower().Contains(name.ToLower()));
+            foreach (var q in quizes)
+                searchedQuizes.Add(q);
+            return PartialView(searchedQuizes);
         }
     }
 }

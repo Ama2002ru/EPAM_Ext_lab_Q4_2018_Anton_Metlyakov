@@ -33,16 +33,16 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DELETE FROM  [dbo].[S_PK_GENERATOR]
+DELETE FROM  [DBO].[S_PK_GENERATOR]
 
-INSERT INTO [dbo].[S_PK_GENERATOR] ([TABLE_NAME],[TABLE_ID]) 
+INSERT INTO [DBO].[S_PK_GENERATOR] ([TABLE_NAME],[TABLE_ID]) 
 VALUES 
 	('M_ROLES',4),
 	('M_USERS',12),
-	('M_QUIZES',10),
+	('M_QUIZES',20),
 	('M_QUESTIONS',100),
 	('M_VARIANTS',400),
-	('M_QUIZ_RESULTS',10),
+	('M_QUIZ_RESULTS',20),
 	('M_QUIZ_ANSWERS',40),
 	('T_LOG',1)
 GO
@@ -59,12 +59,12 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.[M_ROLES];
-INSERT INTO dbo.[M_ROLES]
+DELETE FROM DBO.[M_ROLES];
+INSERT INTO DBO.[M_ROLES]
 ([ROLE_ID], [ROLE_NAME], [ROLE_FLAG], [ALLOWED_METHODS])
 VALUES
-(1,N'Student',1,'QuizClass.Show;'),
-(2,N'Instructor',2,'PersonRepository.Add;'),
+(1,N'Student',1,''),
+(2,N'Instructor',2,''),
 (3,N'Admin',4,'')
 GO
 /*
@@ -79,8 +79,8 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DELETE FROM [dbo].[M_USERS]
-INSERT INTO [dbo].[M_USERS]
+DELETE FROM [DBO].[M_USERS]
+INSERT INTO [DBO].[M_USERS]
            ([USER_ID]
            ,[FIRSTNAME]
            ,[LASTNAME]
@@ -111,8 +111,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_QUIZES;
-INSERT INTO dbo.M_QUIZES
+DELETE FROM DBO.M_QUIZES;
+INSERT INTO DBO.M_QUIZES
 ([QUIZ_ID],[QUIZ_NAME],[AUTHOR_ID]      ,[CREATED_DATE]      ,[SUCCESS_RATE])
 VALUES
 (6, N'C#', 2,'2019-03-12 20:35:06.910',0.7),
@@ -132,8 +132,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_QUESTIONS;
-  INSERT INTO [dbo].[M_QUESTIONS]
+DELETE FROM DBO.M_QUESTIONS;
+  INSERT INTO [DBO].[M_QUESTIONS]
 (QUESTION_ID, QUIZ_ID, info, text,CORRECT_OPTION_FLAG)
 values
 (2,	6,	N'Вопрос 1',	N'Какой тип переменной используется в коде: int a = 5',	8),
@@ -181,8 +181,8 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-DELETE FROM dbo.M_VARIANTS;
- insert into [dbo].[M_VARIANTS]
+DELETE FROM DBO.M_VARIANTS;
+ insert into [DBO].[M_VARIANTS]
   ([VARIANT_ID]      ,[QUESTION_ID]       ,[TEXT])
 VALUES 
 
@@ -335,7 +335,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-INSERT INTO [dbo].[M_QUIZ_RESULTS]
+INSERT INTO [DBO].[M_QUIZ_RESULTS]
   ([QUIZ_RESULT_ID],USER_ID, QUIZ_ID,ASSIGNED_BY_ID,ASSIGNED_DATE, COMPLETED_DATE, QUIZ_STATUS,COMPLETED_RATE)
   VALUES
   (1,1,6,2,'2019-03-13 10:00:00', null, 1,null),

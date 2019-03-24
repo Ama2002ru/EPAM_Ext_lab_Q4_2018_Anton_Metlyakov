@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <article>
+        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <h3>Error: @ViewBag.Error</h3>
+            }
+        }
+    </article>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

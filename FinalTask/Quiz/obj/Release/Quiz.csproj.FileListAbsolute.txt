@@ -110,3 +110,4 @@ C:\Users\Антон\Desktop\EPAM 2018\FinalTask\Quiz\obj\Release\Quiz.csproj.Cop
 C:\Users\Антон\Desktop\EPAM 2018\FinalTask\Quiz\obj\Release\Quiz.dll
 C:\Users\Антон\Desktop\EPAM 2018\FinalTask\Quiz\obj\Release\Quiz.pdb
 C:\Users\Антон\Desktop\EPAM 2018\FinalTask\Quiz\obj\Release\Quiz.Resources.QuizResources.resources
+C:\Users\Антон\Desktop\EPAM 2018\FinalTask\Quiz\bin\MvcEnumFlags.dll

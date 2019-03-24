@@ -4,13 +4,7 @@
     <div class="modal-body-- openUserDetails--">
         <section>
             <article>
-                @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-                    {
-                        <h3>Error: @ViewBag.Error</h3>
-                    }
-                    else
-                    {
-                        using (Html.BeginForm())
+                @{using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
                             @Html.HiddenFor(model => model.Author)
@@ -88,7 +82,6 @@
                             </div>
                         }
                     }
-                }
                 <div>
                     @Html.ActionLink("Back to quiz list", "Index")
                 </div>

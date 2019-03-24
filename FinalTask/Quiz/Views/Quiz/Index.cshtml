@@ -11,12 +11,6 @@
         <div id="modDialog" class="modal fade">
             <div id="dialogContent" class="modal-dialog"></div>
         </div>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
                 <div>
                     @using (Html.BeginForm("Index", "Quiz", FormMethod.Get))
 
@@ -78,8 +72,6 @@
                     }
 
                 </table>
-           }
-            }
           @Html.ActionLink("Create quiz", "Create", "Quiz", null, htmlAttributes: new { @class = "usermodalwindow" })
 
     </article>

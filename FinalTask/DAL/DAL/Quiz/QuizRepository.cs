@@ -136,6 +136,16 @@
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
                 throw new Exception(string.Empty, ex);
             }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.Message == "There is an error in XML document (0, 0).")
+                {
+                    quiz = null;
+                    Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                }
+
+                throw new Exception(string.Empty, ex);
+            }
 
             return quiz;
         }
@@ -147,7 +157,7 @@
         public List<Quiz> GetAll()
         {
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
-            List<Quiz> newQuizesList = new List<Quiz>(0);
+            List<Quiz> newQuizesList = null;
             try
             {
                 using (var dbconn = Db.CreateConnection())
@@ -177,6 +187,15 @@
                 newQuizesList = null;
                 Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
                 throw new Exception(string.Empty, ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.Message == "There is an error in XML document (0, 0).")
+                {
+                    // это значит список квизов в БД пуст   
+                    // пляшем дальше
+                    newQuizesList = new List<Quiz>(0);
+                }
             }
 
             ItemList = newQuizesList;
@@ -333,8 +352,11 @@
                                     quizAssignment = (AssignQuiz)quizFormat.Deserialize(ms);
                                 }
                             }
-                            catch (InvalidOperationException)
+                            catch (InvalidOperationException ex)
                             {
+                                quizAssignment = null;
+                                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                                throw new Exception(string.Empty, ex);
                             }
                         }
                     }

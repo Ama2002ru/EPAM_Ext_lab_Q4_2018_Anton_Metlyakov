@@ -16,6 +16,7 @@
     /// логика проверки пароля пользователя
     /// </summary>
     [AllowAnonymous]
+    [QuizExceptionHandler]
     public class LogonController : Controller
     {
         private readonly IAuthProvider myAuthProvider;
@@ -67,8 +68,9 @@
                     return View();
                 }
             }
-            else
-                return View();
+////            else
+            ModelState.AddModelError(string.Empty, S_IncorrectUsername);
+            return View();
         }
 
         /// <summary>
@@ -78,8 +80,10 @@
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var registrationmodel = new UserModel();
-            registrationmodel.UserName = "test";
+            var registrationmodel = new UserModel
+            {
+                UserName = string.Empty
+            };
             return View(registrationmodel);
         }
 
@@ -98,13 +102,13 @@
             if (registrationmodel == null)
             {
                 ViewBag.Error = S_InvalidHTTP;
-                return View();
+                return View("Error");
             }
 
             if (!ModelState.IsValid)
             {
                 ViewBag.Error = S_InvalidUserInfo;
-                return View();
+                return View("Error");
             }
 
             if (!(personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null))
@@ -121,7 +125,7 @@
             if (personRepository.GetAll().Find(x => x.UserName.ToUpper() == registrationmodel.UserName.ToUpper()) == null)
             {
                 ViewBag.Error = S_ErrorSaveUser;
-                return View();
+                return View("Error");
             }
 
             // залогиниться

@@ -37,7 +37,7 @@
             this.kernel.Bind<IQuizRepository>().To<QuizRepository>().WithConstructorArgument("db", new SQLConnector("QuizDBConection"));
             this.kernel.Bind<IAuthProvider>().To<MyAuthProvider>();
 
-            // this is black !@#$%^ magic :(
+            // black !@#$%^ magic :(
             this.kernel.Inject(Roles.Provider);
         }
     }

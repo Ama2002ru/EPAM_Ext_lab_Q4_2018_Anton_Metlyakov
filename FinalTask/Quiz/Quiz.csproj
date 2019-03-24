@@ -171,6 +171,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\LogonController.cs" />
+    <Compile Include="Filters\QuizExceptionHandler.cs" />
     <Compile Include="Models\MyQuizesIndexModel.cs" />
     <Compile Include="Providers\MyAuthProvider.cs" />
     <Compile Include="Controllers\MyquizesController.cs" />
@@ -283,7 +284,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\ErrorPage.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
@@ -315,7 +316,6 @@
     <Content Include="Views\Myquizes\FinishQuiz.cshtml" />
     <Content Include="Views\Myquizes\AssignQuiz.cshtml" />
     <Content Include="Views\Error\InternalError.cshtml" />
-    <Content Include="Views\Quiz\_Layout.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Statistic\AllQuizes.cshtml" />
     <Content Include="Views\Statistic\AllUsers.cshtml" />
@@ -324,6 +324,13 @@
     <Content Include="Views\Statistic\ByUserQuiz.cshtml" />
     <Content Include="Views\Logon\WelcomeView.cshtml" />
     <Content Include="Views\Logon\Register.cshtml" />
+    <Content Include="Views\Logon\Error.cshtml" />
+    <Content Include="Views\Question\Error.cshtml" />
+    <Content Include="Views\Myquizes\Error.cshtml" />
+    <Content Include="Views\Quiz\Error.cshtml" />
+    <Content Include="Views\Statistic\Error.cshtml" />
+    <Content Include="Views\User\Error.cshtml" />
+    <Content Include="Views\Variant\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,6 +364,9 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -377,6 +387,9 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:60677/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

@@ -16,3 +16,4 @@ E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\postdeploy.sql
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\predeploy.sql
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\QuizDB.dll
 E:\Мои документы\EPAM\FinalTask\QuizDB\obj\Debug\QuizDB.pdb
+C:\Users\Антон\Desktop\EPAM 2018\FinalTask\QuizDB\obj\Debug\QuizDB.sqlprojAssemblyReference.cache

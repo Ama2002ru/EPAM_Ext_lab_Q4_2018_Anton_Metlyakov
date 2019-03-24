@@ -46,7 +46,7 @@
             }
         }
 
-        private IdbConnector Db { get; set; }
+        public IdbConnector Db { get; set; }
 
         private List<Person> ItemList { get; set; }
 
@@ -61,35 +61,32 @@
             bool boolresult = false;
             try
             {
-                try
+                using (var dbconn = Db.CreateConnection())
                 {
-                    using (var dbconn = Db.CreateConnection())
-                    {
-                        dbconn.Open();
-                        var command = dbconn.CreateCommand();
-                        command.CommandText = P_DeleteUser;
-                        command.Parameters.Add(Db.CreateParameter("@id", DbType.Int32, id.ToString(), null, ParameterDirection.Input));
-                        command.Parameters.Add(Db.CreateParameter("@er", DbType.Int32, null, null, ParameterDirection.Output));
-                        command.Parameters.Add(Db.CreateParameter("@et", DbType.String, null, 100, ParameterDirection.Output));
-                        command.CommandType = CommandType.Text;
-                        command.CommandTimeout = 10;
-                        command.ExecuteNonQuery();
-                        var deleteError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
-                        var deleteErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
-                        Logger.Info(string.Format("P_DeleteUser out : {0} {1}\n", deleteError.ToString(), deleteErrorText));
-                        if (deleteError == 0) boolresult = true;
-                    }
+                    dbconn.Open();
+                    var command = dbconn.CreateCommand();
+                    command.CommandText = P_DeleteUser;
+                    command.Parameters.Add(Db.CreateParameter("@id", DbType.Int32, id.ToString(), null, ParameterDirection.Input));
+                    command.Parameters.Add(Db.CreateParameter("@er", DbType.Int32, null, null, ParameterDirection.Output));
+                    command.Parameters.Add(Db.CreateParameter("@et", DbType.String, null, 100, ParameterDirection.Output));
+                    command.CommandType = CommandType.Text;
+                    command.CommandTimeout = 10;
+                    command.ExecuteNonQuery();
+                    var deleteError = (int)((IDbDataParameter)command.Parameters["@er"]).Value;
+                    var deleteErrorText = (string)((IDbDataParameter)command.Parameters["@et"]).Value;
+                    Logger.Info(string.Format("P_DeleteUser out : {0} {1}\n", deleteError.ToString(), deleteErrorText));
+                    if (deleteError == 0) boolresult = true;
                 }
-                catch (DbException ex)
-                {
-                    Logger.Info(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                    throw new Exception(string.Empty, ex);
-                }
+            }
+            catch (DbException ex)
+            {
+                Logger.Info(string.Format("{0} {1}\n", ex.Message, ex.Source));
+                throw new Exception(string.Empty, ex);
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                boolresult = false;
                 Logger.Error(string.Format("{0}.{1} {2}", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name, ex.ToString()));
+                throw new Exception(string.Empty, ex);
             }
 
             return boolresult;

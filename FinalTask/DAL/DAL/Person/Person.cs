@@ -103,8 +103,7 @@
         public bool Save(IdbConnector db)
         {
             bool saveResult = false;
-            string currentUserName = "anonymous user";
-            Logger.Debug(string.Format("{0}.{1} start, committed by {2} ", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name, currentUserName));
+            Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             try
             {
                 using (var dbconn = db.CreateConnection())

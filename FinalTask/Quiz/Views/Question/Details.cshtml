@@ -4,12 +4,6 @@
         <h4>Question details</h4>
     </div>
     <div class="modal-body openUserDetails">
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
                 <dl class="dl-horizontal">
 
                     <dt>
@@ -54,38 +48,13 @@
                         </label>
                     </div>
                 }
-                }
-            }
                 <hr />
                 <div>
                     @Html.ActionLink("Back to List", "Index")
                 </div>
             </div>
-    <!--
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @*onclick calling UPDATEMARK function
-                    which set assign the selected checkbox value to hidden field*@
-                <input type="submit" value="Create" class="btn btn-default" onclick="updatemark()" />
-            </div>
-        </div>
-    -->
 </div>
 
 @section Scripts {
-    <script>
-        function updatemark(arg) {
-            var abc = ""
-            //Iterating the collection of checkboxes which checked marked
-            $('input[type=checkbox]').each(function () {
-                if (this.checked) {
-                    abc = abc + $(this).val() + ","
-                    //assign set value to hidden field
-                    $('#SkillID').val(abc);
-                }
-            });
-        }
-    </script>
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -5,15 +5,7 @@
 }
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-
         <h4>Statistic for User and Quiz</h4>
-
         <table class="table">
             <tr>
                 <th>
@@ -42,9 +34,6 @@
                 </tr>
             }
         </table>
-    }
-    }
-
         <div>
             @Html.ActionLink("Back to statistic page", "Index", "Statistic")
         </div>

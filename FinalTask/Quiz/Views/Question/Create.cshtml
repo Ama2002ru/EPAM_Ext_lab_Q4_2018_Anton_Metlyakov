@@ -7,12 +7,6 @@
 
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
                 <h4>Create Question</h4>
                 using (Html.BeginForm())
                 {
@@ -47,8 +41,6 @@
                         </div>
                     </div>
                 }
-                }
-            }
                 <div>
                     @Html.ActionLink("Back to List", "Index")
                 </div>

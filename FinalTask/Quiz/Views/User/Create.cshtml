@@ -4,13 +4,7 @@
         <h4>Create user</h4>
     </div>
     <div class="modal-body openUserDetails">
-    @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-        {
-            <h3>Error: @ViewBag.Error</h3>
-        }
-        else
-        {
-            using (Html.BeginForm("Create", "User", FormMethod.Post))
+          @using (Html.BeginForm("Create", "User", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
@@ -62,8 +56,6 @@
                         </div>
                     </div>
                 </div>
-                }
-            }
         }
         <div>
             @Html.ActionLink("Back to List", "Index")

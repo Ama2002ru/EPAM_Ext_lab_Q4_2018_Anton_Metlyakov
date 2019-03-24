@@ -1,20 +1,10 @@
 ﻿@model Quiz.Models.MyQuizesIndexModel
 @{
-                Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "List";
 }
-
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
                 <h2>My quizes list</h2>
                 <div id="modDialog" class="modal fade">
                     <div id="dialogContent" class="modal-dialog"></div>
@@ -37,7 +27,7 @@
                         }
                     }
                 </div>
-                if (Model.List != null)
+                @if (Model.List != null)
                 {
                     <table class="table">
                         <tr>
@@ -98,8 +88,6 @@
                         }
 
                     </table>
-                }
-            }
             <p>
                 @Html.ActionLink("Assign quizes", "AssignQuiz", "Myquizes", new { user_id = Model.User_id }, htmlAttributes: new { @class = "usermodalwindow" })
             </p>

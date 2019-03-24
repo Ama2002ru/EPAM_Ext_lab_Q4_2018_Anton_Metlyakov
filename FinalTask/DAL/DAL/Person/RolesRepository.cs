@@ -34,7 +34,7 @@
         /// <summary>
         /// реализация инверсии зависимостей
         /// </summary>
-        private IdbConnector Db { get; set; }
+        public IdbConnector Db { get; set; }
 
          /// <summary>
         /// Метод создает набор ролей приложения, пока не реализован ADO.NET коннектор
@@ -46,9 +46,9 @@
             Logger.Debug(string.Format("{0}.{1} start", MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name));
             return new List<Role>
             {
-                 new Role(id: 1, name: "Admin", role: RoleEnum.Admin, allowedMethods: ""), // последняя ";" обязательна
-                 new Role(id: 2, name: "Student", role: RoleEnum.Student, allowedMethods: ""),
-                 new Role(id: 3, name: "Instructor", role: RoleEnum.Instructor, allowedMethods: "")
+                 new Role(id: 1, name: "Admin", role: RoleEnum.Admin, allowedMethods: string.Empty), // последняя ";" обязательна
+                 new Role(id: 2, name: "Student", role: RoleEnum.Student, allowedMethods: string.Empty),
+                 new Role(id: 3, name: "Instructor", role: RoleEnum.Instructor, allowedMethods: string.Empty)
             };
         }
 

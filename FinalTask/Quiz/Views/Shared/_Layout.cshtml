@@ -33,31 +33,46 @@
         <ul class="breadcrumbs" id="breads">
             @if (!User.Identity.IsAuthenticated)
             {
-                <li><a href="~/logon">Logon</a></li>
+                <li>
+                    @Html.ActionLink("Logon","Logon","Logon",null,null)
+                </li>
             }
             @if (!User.Identity.IsAuthenticated)
             {
-                <li><a href="~/registeruser">Register</a></li>
+                <li>
+                    @Html.ActionLink("Register", "Register", "Logon", null, null)
+
+                </li>
             }
             @if (User.IsInRole("Admin"))
             {
-                <li><a href="~/users">Users</a></li>
+                <li>
+                    @Html.ActionLink("Users", "Index", "User", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor"))
             {
-                <li><a href="~/quizes">Quizes</a></li>
+                <li>
+                    @Html.ActionLink("Quizes", "Index", "Quiz", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
             {
-                <li><a href="~/myquizes">My Quizes</a></li>
+                <li>
+                    @Html.ActionLink("My Quizes", "Index", "Myquizes", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
             {
-                <li><a href="~/statistic">Statistic</a></li>
+                <li>
+                    @Html.ActionLink("Statistic", "Index", "Statistic", null, null)
+                </li>
             }
             @if (User.Identity.IsAuthenticated)
             {
-                <li><a href="~/Logoff">Logoff</a></li>
+                <li>
+                    @Html.ActionLink("Logoff", "Logoff", "Logon", null, null)
+                </li>
             }
         </ul>
         <p />
@@ -66,31 +81,46 @@
         <ul class="ulnav">
             @if (!User.Identity.IsAuthenticated)
             {
-                <li><a href="~/logon">Logon</a></li>
+                <li>
+                    @Html.ActionLink("Logon", "Logon", "Logon", null, null)
+                </li>
             }
             @if (!User.Identity.IsAuthenticated)
             {
-                <li><a href="~/registeruser">Register</a></li>
+                <li>
+                    @Html.ActionLink("Register", "Register", "Logon", null, null)
+
+                </li>
             }
             @if (User.IsInRole("Admin"))
             {
-                <li><a href="~/users">Users</a></li>
+                <li>
+                    @Html.ActionLink("Users", "Index", "User", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor"))
             {
-                <li><a href="~/quizes">Quizes</a></li>
+                <li>
+                    @Html.ActionLink("Quizes", "Index", "Quiz", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
             {
-                <li><a href="~/myquizes">My Quizes</a></li>
+                <li>
+                    @Html.ActionLink("My Quizes", "Index", "Myquizes", null, null)
+                </li>
             }
             @if (User.IsInRole("Instructor") || User.IsInRole("Student"))
             {
-                <li><a href="~/statistic">Statistic</a></li>
+                <li>
+                    @Html.ActionLink("Statistic", "Index", "Statistic", null, null)
+                </li>
             }
             @if (User.Identity.IsAuthenticated)
             {
-                <li><a href="~/Logoff">Logoff</a></li>
+                <li>
+                    @Html.ActionLink("Logoff", "Logoff", "Logon", null, null)
+                </li>
             }
         </ul>
     </nav>

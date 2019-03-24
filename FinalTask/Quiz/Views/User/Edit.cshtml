@@ -4,13 +4,7 @@
         <h4>Edit user info</h4>
     </div>
     <div class="modal-body openUserDetails">
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                using (Html.BeginForm())
+         @using (Html.BeginForm())
                 {
 
                     @Html.AntiForgeryToken()
@@ -61,9 +55,6 @@
                             <button type="submit" value="Save" class="btnviewclose">Save</button>
                         </div>
                     </div>
-                }
-            }
-
             <div>
                 @Html.ActionLink("Back to List", "Index")
             </div>

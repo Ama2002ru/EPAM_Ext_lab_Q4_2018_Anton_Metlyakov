@@ -1,0 +1,22 @@
+﻿@model System.Web.Mvc.ExceptionContext
+
+@{
+    ViewBag.Title = "Logon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <article>
+        <h2>Error.</h2>
+        <h3>An error occurred while processing your request.</h3>
+        <h4>Controller: @Model.Controller.ToString()</h4>
+        <h4>Info: @Model.Exception.Message</h4>
+        @{ if (@Model.Exception.InnerException != null)
+         {
+           <h4>Extra info: @Model.Exception.InnerException.Message</h4>
+         }
+        }
+
+    </article>
+</section>

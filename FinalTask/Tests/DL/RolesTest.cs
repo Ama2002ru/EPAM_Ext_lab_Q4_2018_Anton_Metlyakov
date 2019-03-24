@@ -27,6 +27,5 @@
             Assert.That(roles.Get(id: 2).Name == "Instructor" && roles.Get(id: 2).RoleFlag == RoleEnum.Instructor);
             Assert.That(roles.Get(id: 3).Name == "Admin" && roles.Get(id: 3).RoleFlag == RoleEnum.Admin);
         }
-
     }
 }

@@ -7,14 +7,6 @@
     <article>
         @using (Html.BeginForm("Index", "Statistic", FormMethod.Post))
         {
-        { if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                <div>
-                    <div>
                         <h4>Quiz Statistic</h4>
                         <hr />
                         <div class="form-horizontal">
@@ -41,11 +33,6 @@
                                 <input type="submit" value="Show detailed stats" />
                             </p>
                         </div>
-
-                    </div>
-                </div>
-                }
-        }
         }
                 @if (User.IsInRole("Instructor"))
                     {

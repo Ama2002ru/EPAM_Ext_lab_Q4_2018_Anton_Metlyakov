@@ -13,6 +13,7 @@
     ///  Класс-контроллер, содержащий методы для работыс назначенными и назначаемыми квизами пользователя
     /// </summary>
     [Authorize(Roles = "Student,Instructor")]
+    [QuizExceptionHandler]
     public class MyquizesController : Controller
     {
         private readonly IQuizRepository quizRepository;
@@ -58,49 +59,41 @@
         [Authorize(Roles = "Student,Instructor")]
         public ActionResult Index(int? user_id)
         {
-            try
+            var listOfQuizResult = new MyQuizesIndexModel();
+            List<QuizResult> myQuizes = null;
+            int internal_user_id = 0;
+            if (User.IsInRole("Student") && !User.IsInRole("Instructor"))
             {
-                var listOfQuizResult = new MyQuizesIndexModel();
-                List<QuizResult> myQuizes = null;
-                int internal_user_id = 0;
-                if (User.IsInRole("Student") && !User.IsInRole("Instructor"))
-                {
+                string username = User.Identity.Name;
+                if (user_id.HasValue)
+                    internal_user_id = user_id.Value;
+                else
+
                     // Заполним User_id - возьму текущего пользователя
-                    string username = User.Identity.Name;
-                    if (user_id.HasValue)
-                        internal_user_id = user_id.Value;
-                    else
-                        internal_user_id = personRepository.GetAll().First(x => x.UserName == username).ID;
-                    listOfQuizResult.User_id = internal_user_id;
+                    internal_user_id = personRepository.GetAll().First(x => x.UserName == username).ID;
+                listOfQuizResult.User_id = internal_user_id;
 
-                    // запрошу список назначенных квизов для пользователя
-                    var dummyQuizResult = new QuizResult(quizRepository);
-                    myQuizes = dummyQuizResult.Get(internal_user_id) ?? new List<QuizResult>(0);
-                    var new_list = new List<QuizResultModel>(myQuizes.Count);
+                // запрошу список назначенных квизов для пользователя
+                var dummyQuizResult = new QuizResult(quizRepository);
+                myQuizes = dummyQuizResult.Get(internal_user_id) ?? new List<QuizResult>(0);
+                var new_list = new List<QuizResultModel>(myQuizes.Count);
 
-                    // преобразование типов
-                    foreach (var t in myQuizes)
-                        new_list.Add(t);
-                    listOfQuizResult.List = new_list;
-                }
-
-                if (User.IsInRole("Instructor"))
-                {
-                    // Заполним список пользователей
-                    listOfQuizResult.Users = new SelectList(personRepository.GetAll(), "ID", "UserName");
-
-                    // список квизов  обнулю
-                    listOfQuizResult.List = null;
-                }
-
-                return View(listOfQuizResult);
+                // преобразование типов
+                foreach (var t in myQuizes)
+                    new_list.Add(t);
+                listOfQuizResult.List = new_list;
             }
-            catch (Exception ex)
+
+            if (User.IsInRole("Instructor"))
             {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorLoadMyQuizes;
-                return View();
+                // Заполним список пользователей
+                listOfQuizResult.Users = new SelectList(personRepository.GetAll(), "ID", "UserName");
+
+                // список квизов  обнулю
+                listOfQuizResult.List = null;
             }
+
+            return View(listOfQuizResult);
         }
 
        /// <summary>
@@ -117,28 +110,19 @@
         [Authorize(Roles = "Instructor")]
         public ActionResult Index(MyQuizesIndexModel myQuizesIndexModel)
         {
-            try
-            {
-                // заполню таблицу назначенных квизов
-                // User_id возьму из модели
-                List<QuizResult> myQuizes = null;
-                var dummyQuizResult = new QuizResult(quizRepository);
-                myQuizes = dummyQuizResult.Get(myQuizesIndexModel.User_id) ?? new List<QuizResult>(0);
-                var listOfQuizResultModel = new MyQuizesIndexModel();
-                var new_list = new List<QuizResultModel>(myQuizes.Count);
-                foreach (var t in myQuizes)
-                    new_list.Add(t);
-                myQuizesIndexModel.List = new_list;
-                myQuizesIndexModel.Users = new SelectList(personRepository.GetAll(), "ID", "UserName");
-                return View(myQuizesIndexModel);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = "Error load MyQuizes data !";
-                return View();
-            }
-        }
+            // заполню таблицу назначенных квизов
+            // User_id возьму из модели
+            List<QuizResult> myQuizes = null;
+            var dummyQuizResult = new QuizResult(quizRepository);
+            myQuizes = dummyQuizResult.Get(myQuizesIndexModel.User_id) ?? new List<QuizResult>(0);
+            var listOfQuizResultModel = new MyQuizesIndexModel();
+            var new_list = new List<QuizResultModel>(myQuizes.Count);
+            foreach (var t in myQuizes)
+                new_list.Add(t);
+            myQuizesIndexModel.List = new_list;
+            myQuizesIndexModel.Users = new SelectList(personRepository.GetAll(), "ID", "UserName");
+            return View(myQuizesIndexModel);
+    }
 
         /// <summary>
         /// Запуск прохождения теста из списка назначенных квизов
@@ -148,16 +132,7 @@
         [Authorize(Roles = "Student,Instructor")]
         public ActionResult StartQuiz(int quizresult_id)
         {
-            try
-            {
-                return View(GetNextQuestion(quizresult_id));
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorGetNextQuiestion;
-                return View();
-            }
+            return View(GetNextQuestion(quizresult_id));
         }
 
         /// <summary>
@@ -178,25 +153,16 @@
         {
             int quizresult_id = 0;
             QuestionModel currentQuestion = null;
-            try
+            if (!SaveAnswer(collection))
             {
-                if (!SaveAnswer(collection))
-                {
-                    ViewBag.Error = S_ErrorSaveAnswer;
-                    return View();
-                }
-
-                // буду таскать эту переменную между форм ? (QuizResult_Id)
-                int.TryParse(collection["QuizResult_Id"], out quizresult_id);
-                currentQuestion = GetNextQuestion(quizresult_id);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(string.Format("{0} {1}\n", ex.Message, ex.Source));
-                ViewBag.Error = S_ErrorGetNextQuiestion;
-                return View();
+                ViewBag.Error = S_ErrorSaveAnswer;
+                return View("Error");
             }
 
+            // буду таскать эту переменную между форм ? (QuizResult_Id)
+            int.TryParse(collection["QuizResult_Id"], out quizresult_id);
+            currentQuestion = GetNextQuestion(quizresult_id);
+ 
             if (currentQuestion != null)
                 return View(currentQuestion);
 
@@ -211,7 +177,7 @@
                     quizresult_id
                 });
             ViewBag.Error = S_ErrorGetNextQuiestion;
-            return View();
+            return View("Error");
         }
 
         /// <summary>
@@ -227,7 +193,7 @@
             if (nextQuestionList == null || nextQuestionList.Count <= 0) return null;  // значит вопросы кончились, завершаем квиз
             QuestionModel nextQuestionModel = nextQuestionList.First();
 
-            // добавлю доп поля на форму, которых нет в стандартном вопросе
+            // добавлю доп поля на форму
             nextQuestionModel.QuizResult_Id = quizresult_id;
             return nextQuestionModel;
         }
@@ -325,7 +291,7 @@
             if (!((QuizRepository)quizRepository).SaveQuizAssignment(assignedquizes))
             {
                 ViewBag.Error = S_ErrorGetNextQuiestion;
-                return View();
+                return View("Error");
             }
 
             return RedirectToRoute(new

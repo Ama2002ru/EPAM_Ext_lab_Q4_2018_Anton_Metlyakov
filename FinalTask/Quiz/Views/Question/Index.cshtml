@@ -4,13 +4,7 @@
 }
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                <h3>Question list</h3>
+               <h3>Question list</h3>
                 <div id="modDialog" class="modal fade">
                     <div id="dialogContent" class="modal-dialog"></div>
                 </div>
@@ -52,8 +46,6 @@
                     }
 
                 </table>
-                }
-            }
                 <div>
                     @Html.ActionLink("Back to quiz list", "Index", "Quiz")
                 </div>

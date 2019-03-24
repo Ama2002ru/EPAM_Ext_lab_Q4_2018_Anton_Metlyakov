@@ -5,19 +5,12 @@
 }
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                <h3>Variants list</h3>
+        <h3>Variants list</h3>
                 <div id="modDialog" class="modal fade">
                     <div id="dialogContent" class="modal-dialog"></div>
                 </div>
                 <table class="table">
                     <tr>
-
                         <th>
                             @Html.DisplayNameFor(model => model.Variant_Text)
                         </th>
@@ -41,8 +34,6 @@
                     }
 
                 </table>
-                }
-            }
                 <div>
                     @Html.ActionLink("Back to question list", "Index", "Question")
                 </div>

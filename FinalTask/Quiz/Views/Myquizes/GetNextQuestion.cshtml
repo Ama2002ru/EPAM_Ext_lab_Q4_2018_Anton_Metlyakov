@@ -4,12 +4,7 @@
 }
 <section>
     <article>
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
+
                 <div>
                     @using (Html.BeginForm("GetNextQuestion", "Myquizes", FormMethod.Post))
                     {
@@ -70,8 +65,6 @@
                         @Html.ActionLink("Terminate quiz", "Index")
                     </div>
                 </div>
-                }
-            }
             </article>
 </section>
 @section Scripts {

@@ -26,15 +26,16 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // мои биндеры. 
+            Logger.Log = new Log4NetLogger();
+            Logger.Info("Logging start");
+
+            // биндер для bitwise RoleEnum. 
             ModelBinders.Binders.Add(typeof(RoleEnum), new EnumFlagsModelBinder());
 
             var kernel = new StandardKernel();
-            /// по совету Гугля уберу валидацию от Ninject
+            //// по совету Гугля уберу валидацию от Ninject
             kernel.Unbind<ModelValidatorProvider>();
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
-            Logger.Log = new Log4NetLogger();
-            Logger.Info("Logging start");
         }
 
         protected void Application_Stop()

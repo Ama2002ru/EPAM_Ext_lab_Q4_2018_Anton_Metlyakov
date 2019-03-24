@@ -24,7 +24,7 @@
             ID = 1;
             Name = "Student";
             RoleFlag = RoleEnum.Student;
-            AllowedMethods = "";
+            AllowedMethods = string.Empty;
         }
 
         /// <summary>

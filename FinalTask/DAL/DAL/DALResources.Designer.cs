@@ -157,7 +157,7 @@ namespace DAL {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXECUTE P_GETQUIZRESULT @QuizResultId = @qrid.
+        ///   Looks up a localized string similar to EXECUTE [dbo].[P_GETQUIZRESULT] @QuizResultId = @qrid.
         /// </summary>
         internal static string P_GetQuizResult {
             get {

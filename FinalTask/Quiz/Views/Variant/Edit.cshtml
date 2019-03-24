@@ -5,13 +5,7 @@
         <h4>Edit variant</h4>
     </div>
     <div class="modal-body openUserDetails">
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                using (Html.BeginForm("Edit", "Variant", FormMethod.Post))
+        @using (Html.BeginForm("Edit", "Variant", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
 
@@ -35,8 +29,6 @@
                             </div>
                         </div>
                     </div>
-                    }
-                }
             }
                 <div>
                     @Html.ActionLink("Back to variants list", "Index", "Variant", new { quiz_id = Model.Quiz_Id, question_id = Model.Question_Id }, null)

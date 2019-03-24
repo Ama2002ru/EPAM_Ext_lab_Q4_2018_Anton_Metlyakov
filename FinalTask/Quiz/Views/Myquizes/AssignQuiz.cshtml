@@ -4,13 +4,7 @@
         <h4>Assign quizes</h4>
     </div>
     <div class="modal-body openUserDetails">
-        @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-            {
-                <h3>Error: @ViewBag.Error</h3>
-            }
-            else
-            {
-                using (Html.BeginForm("AssignQuiz", "Myquizes", FormMethod.Post))
+         @using (Html.BeginForm("AssignQuiz", "Myquizes", FormMethod.Post))
                 {
                     @Html.HiddenFor(model => model.User_Id)
                     <div class="form-group">
@@ -84,8 +78,6 @@
                 <div>
                     @Html.ActionLink("Back to quiz list", "Index", "Myquizes", null, null)
                 </div>
-            }
-        }
     </div>
 </div>
 

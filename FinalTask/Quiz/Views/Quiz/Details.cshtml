@@ -4,12 +4,6 @@
                 <h4>Quiz details</h4>
             </div>
             <div class="modal-body openUserDetails">
-                @{ if (!string.IsNullOrEmpty(ViewBag.Error))
-                    {
-                        <h3>Error: @ViewBag.Error</h3>
-                    }
-                    else
-                    {
                         <dl class="dl-horizontal">
 
                             <dt>
@@ -72,8 +66,6 @@
                             </dd>
                         </dl>
                         <hr />
-                        }
-                    }
                         <p>
                             @Html.ActionLink("Back to quiz list", "Index")
                         </p>

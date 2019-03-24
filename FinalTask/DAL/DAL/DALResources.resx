@@ -160,7 +160,7 @@
                     @UserId=@uid</value>
   </data>
   <data name="P_GetQuizResult" xml:space="preserve">
-    <value>EXECUTE P_GETQUIZRESULT @QuizResultId = @qrid</value>
+    <value>EXECUTE [dbo].[P_GETQUIZRESULT] @QuizResultId = @qrid</value>
   </data>
   <data name="P_GetQuizResults" xml:space="preserve">
     <value>EXECUTE [dbo].[P_GETQUIZRESULTS] @UserId = @uid</value>
