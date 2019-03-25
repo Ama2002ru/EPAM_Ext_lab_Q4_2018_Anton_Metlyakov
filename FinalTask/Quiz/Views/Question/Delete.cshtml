@@ -4,7 +4,7 @@
         <h4>Delete question ?</h4>
     </div>
     <div class="modal-body openUserDetails">
-                using (Html.BeginForm("Delete", "Question", FormMethod.Post))
+                @using (Html.BeginForm("Delete", "Question", FormMethod.Post))
                 {
                     @Html.HiddenFor(model => model.Quiz_Id)
                     @Html.HiddenFor(model => model.Question_Id)

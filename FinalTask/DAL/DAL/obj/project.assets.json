@@ -322,23 +322,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Антон\\.nuget\\packages\\": {},
+    "C:\\Users\\aametlya\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Temp\\111\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\aametlya\\Desktop\\TEST\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Temp\\111\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\DAL.csproj",
-      "packagesPath": "C:\\Users\\Антон\\.nuget\\packages\\",
-      "outputPath": "C:\\Temp\\111\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\obj\\",
+      "projectPath": "C:\\Users\\aametlya\\Desktop\\TEST\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\DAL.csproj",
+      "packagesPath": "C:\\Users\\aametlya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aametlya\\Desktop\\TEST\\EPAM_Ext_lab_Q4_2018_Anton_Metlyakov\\FinalTask\\DAL\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Антон\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aametlya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
